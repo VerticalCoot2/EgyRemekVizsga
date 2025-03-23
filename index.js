@@ -50,7 +50,7 @@ app.post('/api/insert' , upload.single('file'), async (req, res) =>
     let tomb_insert = [];
     try
     {
-        res.send(await db.inzert(tomb_insert));
+        res.send(await db.insert(tomb_insert));
     }
     catch(err)
     {
@@ -65,7 +65,7 @@ app.post('/api/delete' , upload.single('file') ,async (req, res) =>
     let tomb_delete = [];
     try
     {
-        res.send(await db.dilit(tomb_delete));
+        res.send(await db.Torol(tomb_delete));
     }
     catch(err)
     {
@@ -79,7 +79,7 @@ app.post('/api/update' , upload.single('file') , async (req, res) =>
     let tomb_update = [];
     try
     {
-        res.send(await db.apdet(tomb_update));
+        res.send(await db.update(tomb_update));
     }
     catch(err)
     {

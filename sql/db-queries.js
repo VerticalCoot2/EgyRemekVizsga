@@ -43,7 +43,7 @@ function insert(tomb_insert)
 //     return new Promise((resolve, reject) =>
 //     {
 //         console.log(tomb_apdet);
-//         pool.query("UPDATE etelek SET etel_neve=?, kaloria=?, etkezesi_tipus=?, feherje=?, szenhidrat=?, zsir=? WHERE id=?", tomb_update, (err, result) =>
+//         pool.query("UPDATE etelek SET nev=?, kaloria=?, etkezesi_tipus=?, recept_link=? WHERE id=?", tomb_update, (err, result) =>
 //         {
 //             if(err) return reject(err);
 //             resolve(result);
