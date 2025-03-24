@@ -105,6 +105,41 @@ app.get('/admin/elfogad', (request, response) =>
     response.sendFile(path.join(__dirname + '/admin/admin.html'));
 });
 
+app.get('/api/selectFogyas', async (req, res) =>
+{
+    try
+    {
+        res.send(await db.selectFogyas([req.query.id]));
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+})
+
+app.get('/api/selectTomegMegtart', async (req, res) =>
+{
+    try
+    {
+        res.send(await db.selectTomegMegtart([req.query.id]));
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+})
+
+app.get('/api/selectTomegNovel', async (req, res) =>
+{
+    try
+    {
+        res.send(await db.selectTomegNovel([req.query.id]));
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+})
 
 app.use('/', router);
 
