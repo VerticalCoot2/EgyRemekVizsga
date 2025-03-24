@@ -17,9 +17,36 @@ function selectAll() {
     });
 }
 
-function selectID(tomb_selectUpdate) {
+function selectID(tomb_selectID) {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM etelek WHERE id = ?;',tomb_selectUpdate, (err, result, fields) => {
+        pool.query('SELECT * FROM etelek WHERE id = ?;',tomb_selectID, (err, result, fields) => {
+            if (err) return reject(err);
+            resolve(result);
+        });
+    });
+}
+
+function selectFogyas(tomb_selectFogyas) {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT * FROM etelek WHERE kaloria < 350;',tomb_selectFogyas, (err, result, fields) => {
+            if (err) return reject(err);
+            resolve(result);
+        });
+    });
+}
+
+function selectTomegMegtart(tomb_selectTomegMegtart) {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT * FROM etelek WHERE kaloria BETWEEN 350 AND 550;',tomb_selectTomegMegtart, (err, result, fields) => {
+            if (err) return reject(err);
+            resolve(result);
+        });
+    });
+}
+
+function selectTomegNovel(tomb_selectTomegNovel) {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT * FROM etelek WHERE kaloria > 550;',tomb_selectTomegNovel, (err, result, fields) => {
             if (err) return reject(err);
             resolve(result);
         });
@@ -70,6 +97,10 @@ module.exports = {
     insert,
     //update,
     Torol,
-    selectID
+    selectID,
+    selectFogyas,
+    selectTomegMegtart,
+    selectTomegNovel
+
 };
 //?Több function esetén vesszővel felsorolni a meghívható metódusokat. (pl.: selectAll, insertData)
