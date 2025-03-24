@@ -109,7 +109,7 @@ app.get('/api/selectFogyas', async (req, res) =>
 {
     try
     {
-        res.send(await db.selectFogyas([req.query.id]));
+        res.send(await db.selectFogyas());
     }
     catch(err)
     {
@@ -121,7 +121,7 @@ app.get('/api/selectTomegMegtart', async (req, res) =>
 {
     try
     {
-        res.send(await db.selectTomegMegtart([req.query.id]));
+        res.send(await db.selectTomegMegtart());
     }
     catch(err)
     {
@@ -133,7 +133,7 @@ app.get('/api/selectTomegNovel', async (req, res) =>
 {
     try
     {
-        res.send(await db.selectTomegNovel([req.query.id]));
+        res.send(await db.selectTomegNovel());
     }
     catch(err)
     {

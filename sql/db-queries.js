@@ -26,27 +26,27 @@ function selectID(tomb_selectID) {
     });
 }
 
-function selectFogyas(tomb_selectFogyas) {
+function selectFogyas() {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM etelek WHERE kaloria < 350;',tomb_selectFogyas, (err, result, fields) => {
+        pool.query('SELECT * FROM etelek WHERE kaloria < 350;', (err, result, fields) => {
             if (err) return reject(err);
             resolve(result);
         });
     });
 }
 
-function selectTomegMegtart(tomb_selectTomegMegtart) {
+function selectTomegMegtart() {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM etelek WHERE kaloria BETWEEN 350 AND 550;',tomb_selectTomegMegtart, (err, result, fields) => {
+        pool.query('SELECT * FROM etelek WHERE kaloria BETWEEN 350 AND 550;', (err, result, fields) => {
             if (err) return reject(err);
             resolve(result);
         });
     });
 }
 
-function selectTomegNovel(tomb_selectTomegNovel) {
+function selectTomegNovel() {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM etelek WHERE kaloria > 550;',tomb_selectTomegNovel, (err, result, fields) => {
+        pool.query('SELECT * FROM etelek WHERE kaloria > 550;', (err, result, fields) => {
             if (err) return reject(err);
             resolve(result);
         });
