@@ -9,7 +9,7 @@ CREATE TABLE `etelek` (
   `recept_link` varchar(255) DEFAULT NULL
 )
 
-INSERT INTO `etelek` (`id`, `nev`, `kaloria`, `etkezes_típus`, `recept_link`) VALUES
+INSERT INTO `etelek` (`nev`, `kaloria`, `etkezes_típus`, `recept_link`) VALUES
 ('Zöldséges csirkeragu', 450, 'Ebéd', 'https://www.nosalty.hu/recept/zoldseges-csirkeragu'),
 ('Rakott krumpli', 600, 'Ebéd', 'https://www.nosalty.hu/recept/rakott-krumpli'),
 ('Zöldségfasírt', 250, 'Vacsora', 'https://www.nosalty.hu/recept/zoldsegfasirt'),
