@@ -1,21 +1,13 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 CREATE DATABASE IF NOT EXISTS `eteldb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `eteldb`;
 
 CREATE TABLE `etelek` (
-  `id` int(11) AUTO_INCREMENT NOT NULL,
+  `id` int(11) AUTO_INCREMENT PRIMARY KEY,
   `nev` varchar(255) NOT NULL,
   `kaloria` int(11) NOT NULL,
   `etkezes_típus` varchar(50) DEFAULT NULL,
   `recept_link` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+)
 
 INSERT INTO `etelek` (`id`, `nev`, `kaloria`, `etkezes_típus`, `recept_link`) VALUES
 ('Zöldséges csirkeragu', 450, 'Ebéd', 'https://www.nosalty.hu/recept/zoldseges-csirkeragu'),
@@ -45,8 +37,3 @@ INSERT INTO `etelek` (`id`, `nev`, `kaloria`, `etkezes_típus`, `recept_link`) V
 ('Pizzás csiga', 350, 'Snack', 'https://www.nosalty.hu/recept/pizzas-csiga'),
 ('Tejfölös burgonya', 400, 'Vacsora', 'https://www.nosalty.hu/recept/tejfolos-burgonya'),
 ('Töltött káposzta', 700, 'Ebéd', 'https://www.nosalty.hu/recept/toltott-kaposzta');
-
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
