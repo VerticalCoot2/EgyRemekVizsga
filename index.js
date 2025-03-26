@@ -109,6 +109,11 @@ app.get('/admin/elfogad', (request, response) =>
     response.sendFile(path.join(__dirname + '/admin/admin.html'));
 });
 
+app.get('/etrendkeszito', (request, response) =>
+{
+    response.sendFile(path.join(__dirname + '/public/html/etrendkeszito.html'));
+});
+
 app.get('/api/selectFogyas', async (req, res) =>
 {
     try
