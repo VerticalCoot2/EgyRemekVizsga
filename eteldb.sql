@@ -36,4 +36,17 @@ INSERT INTO `etelek` (`nev`, `kaloria`, `etkezes_típus`, `recept_link`) VALUES
 ('Körtés pite', 400, 'Desszert', 'https://www.nosalty.hu/recept/kortes-pite'),
 ('Pizzás csiga', 350, 'Snack', 'https://www.nosalty.hu/recept/pizzas-csiga'),
 ('Tejfölös burgonya', 400, 'Vacsora', 'https://www.nosalty.hu/recept/tejfolos-burgonya'),
-('Töltött káposzta', 700, 'Ebéd', 'https://www.nosalty.hu/recept/toltott-kaposzta');
+('Töltött káposzta', 700, 'Ebéd', 'https://www.nosalty.hu/recept/toltott-kaposzta'),
+('Reggeli burrito',890,'Reggeli','https://www.nosalty.hu/recept/reggeli-burrito'),
+('Brit reggeli',1110,'Reggeli','https://www.nosalty.hu/recept/brit-reggeli'),
+('Reggeli wrap',330,'Reggeli','https://www.nosalty.hu/recept/reggeli-wrap'),
+('Reggeli chia pudding',290,'Reggeli','https://www.nosalty.hu/recept/reggeli-chia-puding'),
+('Fahéjas-szilvás fogyis reggeli',240,'Reggeli','https://www.nosalty.hu/recept/fahejas-szilvas-fogyis-reggeli'),
+('Villásreggeli Twin Peaks-ből',450,'Reggeli','https://www.nosalty.hu/recept/villasreggeli-twin-peaks-bol'),
+('Zabkása reggeli',570,'Reggeli','https://www.nosalty.hu/recept/zabkasa-reggelire'),
+('Ropogós rántott karfiol',360,'Vacsora','https://www.nosalty.hu/recept/ropogos-rantott-karfiol'),
+('Húsos burrito',860,'Vacsora','https://www.nosalty.hu/recept/husos-burrito'),
+('Hagymás bab wstern módra',480,'Vacsora','https://www.nosalty.hu/recept/hagymas-bab'),
+('Nizzai pizza',270,'Vacsora','https://www.nosalty.hu/recept/nizzai-lepeny-pissaladiere'),
+('Mexikói csirkés egytál',600,'Vacsora','https://www.nosalty.hu/recept/mexikoi-csirkes-egytal'),
+('Fűszeres sajtgolyók',320,'Vacsora','https://www.nosalty.hu/recept/fuszeres-sajtgolyok-detki-gourmet-keker-kekszmorzsa-curry-hagyma-vital-fitt');
