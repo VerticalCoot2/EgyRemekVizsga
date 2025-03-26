@@ -48,10 +48,14 @@ app.get('/api/selectAll', (request, response) =>
 app.post('/api/insert' , upload.single('file'), async (req, res) =>
 {
     let tomb_insert = [];
-    tomb_insert.push(req.body.nev);
-    tomb_insert.push(req.body.kaloria);
-    tomb_insert.push(req.body.etkezes_tipus);
-    tomb_insert.push(req.body.recept_link);
+    tomb_insert.push(req.body.name);
+    tomb_insert.push(req.body.calories);
+    tomb_insert.push(req.body.fat);
+    tomb_insert.push(req.body.protein);
+    tomb_insert.push(req.body.carbohydrate);
+    tomb_insert.push(req.body.sugars);
+    tomb_insert.push(req.body.fiber);
+    tomb_insert.push(req.body.weight);
     try
     {
         res.send(await db.insert(tomb_insert));

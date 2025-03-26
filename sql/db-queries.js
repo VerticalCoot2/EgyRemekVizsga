@@ -57,7 +57,7 @@ function insert(tomb_insert)
 {
     return new Promise((resolve, reject) =>
     {
-        pool.query('INSERT INTO etelek(name, calories, fat, protein ,carbohydrate, sugar, fiber, weight ) VALUES (?)', [tomb_insert], (err, result) =>
+        pool.query('INSERT INTO etelek(name, calories, fat, protein ,carbohydrate, sugars, fiber, weight ) VALUES (?)', [tomb_insert], (err, result) =>
         {
             if(err) return reject(err);
             resolve(result);
