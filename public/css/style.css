@@ -1,8 +1,8 @@
 :root
 {
     --zud: linear-gradient(45deg, #07a16e, #0f6347);
-    --pinkzud: radial-gradient(orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua);
-    /* --pinkzud: linear-gradient(175deg, rgb(103, 41, 103), #973edb); */
+    /* --pinkzud: radial-gradient(orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua); */
+    --pinkzud: linear-gradient(175deg, rgb(103, 41, 103), #973edb);
     --patya: #0f6347;
 }
 @font-face
@@ -10,7 +10,6 @@
     font-family: MOONREE;
     src: url(../fonts/Hubballi-Regular.ttf);
 }
-
 .hoverColor
 {
     transition-duration: 1s;
@@ -189,3 +188,4 @@ body
 {
 
 }
+

@@ -10,7 +10,7 @@ const pool = mysql.createPool({
 
 function selectAll() {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM etelek;', (err, result, fields) => {
+        pool.query('SELECT * FROM `vizsgadb`;', (err, result, fields) => {
             if (err) return reject(err);
             resolve(result);
         });

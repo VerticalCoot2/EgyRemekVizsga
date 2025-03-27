@@ -12,12 +12,12 @@ CREATE TABLE IF NOT EXISTS `vizsgadb` (
   `Carbohydrate_g_` decimal(20,6) DEFAULT NULL,
   `Sugars_g_` varchar(10) DEFAULT NULL,
   `Fiber_g_` varchar(10) DEFAULT NULL,
-  `200_Calorie_Weight_g_` varchar(10) DEFAULT NULL,
+  `_200_Calorie_Weight_g_` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16384 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table eteldb.vizsgadb: ~14,164 rows (approximately)
-INSERT INTO `vizsgadb` (`id`, `Name`, `Calories`, `Fat_g_`, `Protein_g_`, `Carbohydrate_g_`, `Sugars_g_`, `Fiber_g_`, `200_Calorie_Weight_g_`) VALUES
+INSERT INTO `vizsgadb` (`id`, `Name`, `Calories`, `Fat_g_`, `Protein_g_`, `Carbohydrate_g_`, `Sugars_g_`, `Fiber_g_`, `_200_Calorie_Weight_g_`) VALUES
 	(1, 'Pillsbury Golden Layer Buttermilk Biscuits Artificial Flavor Refrigerated Dough', 307, 13.240000, 5.880000, 41.180000, '5.88', '1.2', '65.147'),
 	(2, 'Pillsbury Cinnamon Rolls With Icing Refrigerated Dough', 330, 11.270000, 4.340000, 53.420000, '21.34', '1.4', '60.606'),
 	(3, 'Kraft Foods Shake N Bake Original Recipe Coating For Pork Dry', 377, 3.700000, 6.100000, 79.800000, NULL, NULL, '53.05'),
@@ -14184,6 +14184,6 @@ INSERT INTO `vizsgadb` (`id`, `Name`, `Calories`, `Fat_g_`, `Protein_g_`, `Carbo
 	(14162, 'Wheat Bread As Ingredient In Sandwiches', 263, 3.960000, 11.450000, 45.290000, '5.18', '5.4', '76.046'),
 	(14163, 'Sauce As Ingredient In Hamburgers', 271, 22.850000, 1.290000, 17.190000, '13.02', '0.6', '73.801'),
 	(14164, 'Industrial Oil As Ingredient In Food', 892, 100.000000, 0.000000, 0.000000, '0', '0', '22.422');
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+-- /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+-- /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+-- /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
