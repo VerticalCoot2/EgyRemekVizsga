@@ -28,7 +28,7 @@ function selectID(tomb_selectID) {
 
 function selectFogyas() {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM etelek WHERE calories < 350;', (err, result, fields) => {
+        pool.query('SELECT * FROM etelek WHERE Calories < 350;', (err, result, fields) => {
             if (err) return reject(err);
             resolve(result);
         });
@@ -37,7 +37,7 @@ function selectFogyas() {
 
 function selectTomegMegtart() {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM etelek WHERE calories BETWEEN 350 AND 550;', (err, result, fields) => {
+        pool.query('SELECT * FROM etelek WHERE Calories BETWEEN 350 AND 550;', (err, result, fields) => {
             if (err) return reject(err);
             resolve(result);
         });
@@ -46,7 +46,7 @@ function selectTomegMegtart() {
 
 function selectTomegNovel() {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM etelek WHERE calories > 550;', (err, result, fields) => {
+        pool.query('SELECT * FROM etelek WHERE Calories > 550;', (err, result, fields) => {
             if (err) return reject(err);
             resolve(result);
         });
@@ -57,7 +57,7 @@ function insert(tomb_insert)
 {
     return new Promise((resolve, reject) =>
     {
-        pool.query('INSERT INTO etelek(name, calories, fat, protein ,carbohydrate, sugars, fiber, weight ) VALUES (?)', [tomb_insert], (err, result) =>
+        pool.query('INSERT INTO etelek(Name, Calories, Fat_g_, Protein_g_ ,Carbohydrate_g_, Sugars_g_, Fiber_g_, _200_Calorie_Weight_g_ ) VALUES (?)', [tomb_insert], (err, result) =>
         {
             if(err) return reject(err);
             resolve(result);
@@ -70,7 +70,7 @@ function insert(tomb_insert)
 //     return new Promise((resolve, reject) =>
 //     {
 //         console.log(tomb_apdet);
-//         pool.query("UPDATE etelek SET nev=?, kaloria=?, etkezesi_tipus=?, recept_link=? WHERE id=?", tomb_update, (err, result) =>
+//         pool.query("UPDATE etelek SET Name=?, Calories=?, Fat_g_=?, Protein_g_=?, Carbohydrate_g_=?, Sugars_g_=? ,Fiber_g_=?, _200_Calorie_Weight_g_=? WHERE id=?", tomb_update, (err, result) =>
 //         {
 //             if(err) return reject(err);
 //             resolve(result);
