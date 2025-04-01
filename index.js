@@ -107,11 +107,17 @@ app.get('/api/selectID' , async (req, res) =>
     }
 })
 
-app.get('/admin/elfogad', (request, response) =>
-{
-    //ahol elfogadjuk a kéréseket
-    response.sendFile(path.join(__dirname + '/admin/admin.html'));
-});
+
+app.get('/admin', (req, res) => {
+    const adminPassword = 'admin'; // Helyettesítsd saját jelszóval
+    const providedPassword = req.query.password; // Jelszó lekérése query paraméterben
+  
+    if (providedPassword === adminPassword) {
+        res.sendFile(path.join(__dirname + '/admin/admin.html'));
+    } else {
+      res.status(403).json({ message: 'Hozzáférés megtagadva: érvénytelen jelszó!' });
+    }
+  });
 
 app.get('/etrendkeszito', (request, response) =>
 {
