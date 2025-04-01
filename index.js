@@ -108,7 +108,7 @@ app.get('/api/selectID' , async (req, res) =>
 })
 
 
-app.get('/admin', (req, res) => {
+/*app.get('/admin', (req, res) => {
     const adminPassword = 'admin'; // Helyettesítsd saját jelszóval
     const providedPassword = req.query.password; // Jelszó lekérése query paraméterben
   
@@ -117,7 +117,19 @@ app.get('/admin', (req, res) => {
     } else {
       res.status(403).json({ message: 'Hozzáférés megtagadva: érvénytelen jelszó!' });
     }
-  });
+  });*/
+//a felette lévő biztos mukszik ezt meg nem neztem
+const basicAuth = require('express-basic-auth');
+
+app.use('/admin', basicAuth({
+    users: { 'admin': 'password123' },
+    challenge: true
+}));
+
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname + '/admin/admin.html'));
+});
+
 
 app.get('/etrendkeszito', (request, response) =>
 {
