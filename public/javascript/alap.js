@@ -5,4 +5,15 @@ document.addEventListener("DOMContentLoaded", function()
         event.preventDefault();
         window.open("/etrendkeszito", "_self");
     });
+    let titel = document.getElementById("tojgli");
+    titel.innerHTML = "DietInator"
+    tojgli.addEventListener("mouseenter", function()
+    {
+       this.innerHTML = "Patya"; 
+    });
+    tojgli.addEventListener("mouseleave", function()
+    {
+       this.innerHTML = "DietInator";
+    });
+
 });

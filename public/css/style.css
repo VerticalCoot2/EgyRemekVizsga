@@ -47,6 +47,35 @@ body
     font-family: MOONREE;
 }
 
+.titelText
+{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-shadow: 1px 1px 1px black;
+    gap: 10px;
+}
+
+.titelText h1
+{
+    font-size: 300px;
+    margin: 0%;
+    color: white;
+}
+
+.titelText p
+{
+    font-style: italic;
+    font-size: large;
+    margin: 3px;
+}
+
+.titelText div
+{
+    flex-direction: column;
+    justify-content: flex-start;
+}
 .site
 {
     flex-direction: column;
@@ -189,3 +218,7 @@ body
 
 }
 
+.hidden
+{
+    display: none;
+}
