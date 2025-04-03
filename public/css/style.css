@@ -55,13 +55,14 @@ body
     flex-direction: column;
     text-shadow: 1px 1px 1px black;
     gap: 10px;
+    color: white;
 }
 
 .titelText h1
 {
     font-size: 300px;
     margin: 0%;
-    color: white;
+    
 }
 
 .titelText p
@@ -162,7 +163,7 @@ body
 .atmeneti
 {
     flex-direction: column;
-    max-height: 500px; 
+    height: 500px; 
     overflow-y: scroll;
     width: 90%;
     border: 10px solid var(--patya);
@@ -176,6 +177,13 @@ body
     scroll-behavior: smooth;
     gap: 10px;
 }
+
+.select2-container .select2-selection--single {
+    height: 40px; /* Adjust as needed */
+  }
+  .select2-selection__rendered {
+    line-height: 40px; /* Match the height for proper alignment */
+  }
 
 .center
 {
