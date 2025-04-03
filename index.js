@@ -117,7 +117,7 @@ app.get('/api/selectID' , async (req, res) =>
     } else {
       res.status(403).json({ message: 'Hozzáférés megtagadva: érvénytelen jelszó!' });
     }
-  });*/
+  });e*/
 //a felette lévő biztos mukszik ezt meg nem neztem
 const basicAuth = require('express-basic-auth');
 
