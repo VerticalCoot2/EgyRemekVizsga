@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function()
 {
+    listVisibilityCheck();
     build(document.getElementById("patya"));
 
     document.getElementById("menuButton").addEventListener("mousedown", function(event)
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function()
     document.getElementById("faszomkivan").addEventListener("click", function()
     {
         let shat = document.getElementById("select2-patya-container");
-        console.log(shat);
+        //console.log(shat);
 
         let datya =
         {
@@ -33,8 +34,9 @@ document.addEventListener("DOMContentLoaded", function()
             },
             id: shat.title
         };
-        console.log(datya);
+        //console.log(datya);
         cardGen(datya);
+        listVisibilityCheck();
     });
 });
 async function szelektAll()
@@ -52,7 +54,7 @@ async function build(target)
     patya.classList.add("kaja");
     target.innerHTML = null;
     let data = await szelektAll();
-    console.log(await data.length)
+    //console.log(await data.length)
     for(let i = 0;i < data.length ;i++)
     {
     
@@ -99,16 +101,52 @@ function cardGen(data)
         let bottom = document.createElement("div");
             bottom.classList.add("bottom");
             let deleteBTN = document.createElement("button");
-            deleteBTN.type = "button";
-            deleteBTN.addEventListener("click", function()
-            {
-               console.log("Deleting ID:" + this.parentElement.parentElement.dataset.id);
-            });
+                deleteBTN.type = "button";
+                deleteBTN.addEventListener("click", function()
+                {
+                //console.log("Deleting ID:" + this.parentElement.parentElement.dataset.id);
+                this.parentElement.parentElement.remove();
+                listVisibilityCheck();
+                });
             deleteBTN.innerHTML = "DELETE";
+
+            let fChoice = document.createElement("select");
+                let reg = document.createElement("option");
+                    reg.value ="breakfast";
+                    reg.innerHTML = "breakfast";
+                
+                let eb = document.createElement("option");
+                    eb.value ="lunch";
+                    eb.innerHTML = "lunch";
+                
+                let vacs = document.createElement("option");
+                    vacs.value ="dinner";
+                    vacs.innerHTML = "dinner";
+
+                fChoice.appendChild(reg);
+                fChoice.appendChild(eb);
+                fChoice.appendChild(vacs);
+            
+
+            bottom.appendChild((fChoice));
             bottom.appendChild(deleteBTN);
 
-        card.appendChild(top);
-        card.appendChild(middle);
-        card.appendChild(bottom);
-    target.appendChild(card);
+            
+            card.appendChild(top);
+            card.appendChild(middle);
+            card.appendChild(bottom);
+        target.appendChild(card);
 }
+
+function listVisibilityCheck()
+{
+    let holder = document.getElementById("Fede");
+    if(holder.childElementCount == 0)
+    {
+        holder.style.display = "none";
+    }
+    else
+    {
+        holder.style.display = "flex";
+    }
+};
