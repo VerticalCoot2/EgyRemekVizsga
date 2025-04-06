@@ -1,5 +1,20 @@
+let biscuits = document.cookie;
+let savedItems = localStorage.getItem("saved");
 document.addEventListener("DOMContentLoaded", function()
 {
+    let data = JSON.parse(savedItems)
+    if(data != [])
+    {
+        for(let i = 0; i < data.length; i++)
+        {
+            cardGen(data[i], "");
+        }
+    }
+    document.getElementById("biscuitShowButton").addEventListener("click", function()
+    {
+    //    console.log(biscuits);
+        console.log(savedItems);
+    });
     listVisibilityCheck();
     build(document.getElementById("patya"));
 
@@ -32,11 +47,28 @@ document.addEventListener("DOMContentLoaded", function()
                 Fiber_g_: shat.innerHTML.split(', ')[6],
                 _200_Calorie_Weight_g_: shat.innerHTML.split(', ')[7],
             },
-            id: shat.title
+            id: shat.dataset.id,
+            dine: shat.dataset.dine
         };
         //console.log(datya);
-        cardGen(datya);
+        cardGen(datya, "");
         listVisibilityCheck();
+    });
+
+    document.getElementById("biscuitButton").addEventListener("click", function()
+    {
+        let biscuitBASE = [];
+        let cardHolder = document.getElementById("Fede");
+        for(let i = 0; i < cardHolder.childElementCount; i++)
+        {
+            biscuitBASE.push(JSON.parse(cardHolder.children[i].dataset.adatk))
+        }
+        // console.log(biscuit);
+        biscuits = biscuitBASE;
+        localStorage.setItem("saved", JSON.stringify(biscuitBASE));
+        console.log(localStorage.getItem("saved"));
+
+        console.log(biscuits);
     });
 });
 async function szelektAll()
@@ -63,17 +95,20 @@ async function build(target)
             Name.innerHTML = data[i].Name+", "+ data[i].Calories + "kcal" + ", " + data[i].Fat_g_ + ", " + data[i].Protein_g_ + ", " + data[i].Carbohydrate_g_ + ", " + data[i].Sugars_g_ + ", " + data[i].Fiber_g_ + ", " + data[i]._200_Calorie_Weight_g_;
             Name.value = data[i].id;
             Name.dataset.id = data[i].id;
+            Name.dataset.dine = 
             Name.title = data[i].id
 
         target.appendChild(Name);
     }
 }
 
-function cardGen(data)
+function cardGen(data, whichIsSelected)
 {
     let target = document.getElementById("Fede");
     let card = document.createElement("div");
+        card.dataset.adatk = JSON.stringify(data);
         card.dataset.id = data.id;
+        card.dataset.dine = whichIsSelected;
         card.classList.add("card");
         let top = document.createElement("div");
             top.classList.add("top");
@@ -122,6 +157,24 @@ function cardGen(data)
                 let vacs = document.createElement("option");
                     vacs.value ="dinner";
                     vacs.innerHTML = "dinner";
+                switch(whichIsSelected)
+                {
+                    case "breakfast":
+                        reg.selected;
+                        break;
+                    case "lunch":
+                        eb.selected;
+                        break;
+                    case "dinner":
+                        vacs.selected;
+                        break;
+                    default:
+                        let choose = document.createElement("option");
+                            choose.selected;
+                            choose.hidden;
+                            choose.innerHTML = "Choose...";
+                        fChoice.append(choose);
+                }
 
                 fChoice.appendChild(reg);
                 fChoice.appendChild(eb);
