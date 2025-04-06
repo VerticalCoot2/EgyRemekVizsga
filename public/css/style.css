@@ -5,6 +5,7 @@
     --lila1: linear-gradient(175deg, rgb(103, 41, 103), #973edb);
     --lila2: linear-gradient(175deg, #973edb, rgb(103, 41, 103));
     --patya: #0f6347;
+    --darkGreen: #073224;
 }
 @font-face
 {
@@ -45,7 +46,7 @@ div
 
 body
 {
-    background: light-dark(aquamarine, #073224);
+    background: var(--darkGreen);
     margin: 0%;
     font-family: MOONREE;
 }
@@ -285,7 +286,10 @@ body
 .top
 {
     height: 30%;
+    text-align: center;
     font-size: 1em;
+    /*justify-content: center;
+    align-content: center; */
 }
 .middle
 {
@@ -293,5 +297,7 @@ body
 }
 .bottom
 {
+    flex-direction: column;
+    gap: 5px;
     height: 20%;
 }
