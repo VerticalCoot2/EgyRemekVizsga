@@ -21,6 +21,17 @@ router.get('/', (request, response) =>
     response.sendFile(path.join(__dirname + '/public/html/index.html'));
 });
 
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname + '/admin/admin.html'));
+});
+
+const basicAuth = require('express-basic-auth');
+
+app.use('/admin', basicAuth({
+    users: { 'admin': 'password123' },
+    challenge: true
+}));
+
 async function readfileAsync(filepath)
 {
     try
@@ -119,16 +130,7 @@ app.get('/api/selectID' , async (req, res) =>
     }
   });e*/
 //a felette lévő biztos mukszik ezt meg nem neztem
-const basicAuth = require('express-basic-auth');
 
-app.use('/admin', basicAuth({
-    users: { 'admin': 'password123' },
-    challenge: true
-}));
-
-app.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname + '/admin/admin.html'));
-});
 
 
 app.get('/etrendkeszito', (request, response) =>
