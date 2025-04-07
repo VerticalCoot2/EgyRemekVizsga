@@ -180,10 +180,20 @@ function cardGen(data)
                     reg.value ="breakfast";
                     reg.innerHTML = "breakfast";
                 
+                let tiz = document.createElement("option");
+                    tiz.value = "elevenses";
+                    tiz.innerHTML = "elevenses";
+                
+                
                 let eb = document.createElement("option");
                     eb.value ="lunch";
                     eb.innerHTML = "lunch";
                 
+
+                let uzs = document.createElement("option");
+                    uzs.value ="snack";
+                    uzs.innerHTML = "snack";
+
                 let vacs = document.createElement("option");
                     vacs.value ="dinner";
                     vacs.innerHTML = "dinner";
@@ -197,8 +207,14 @@ function cardGen(data)
                     case "breakfast":
                         reg.selected = true;
                         break;
+                    case "elevenses":
+                        tiz.selected = true;
+                        break;
                     case "lunch":
                         eb.selected = true;
+                        break;
+                    case "snack":
+                        uzs.selected = true;
                         break;
                     case "dinner":
                         vacs.selected = true;
@@ -210,7 +226,9 @@ function cardGen(data)
 
                 fChoice.appendChild(choose);
                 fChoice.appendChild(reg);
+                fChoice.appendChild(tiz);
                 fChoice.appendChild(eb);
+                fChoice.appendChild(uzs);
                 fChoice.appendChild(vacs);
             fChoice.addEventListener("change", function()
             {
