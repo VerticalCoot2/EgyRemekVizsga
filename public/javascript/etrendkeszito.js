@@ -9,7 +9,16 @@ if(data != [])
 {
     for(let i = 0; i < data.length; i++)
     {
-        cardGen(data[i], "");
+        let data = JSON.parse(savedItems);
+        if(data != [])
+        {
+            for(let i = 0; i < data.length; i++)
+            {
+                console.log(i)
+                cardGen(data[i]);
+            }
+            //document.getElementById("Fede").innerHTML = String(savedItems);
+        }
     }
 }
 }
@@ -24,33 +33,41 @@ if(data != [])
 
     $('.js-example-basic-single').select2();
 
-    document.getElementById("patya").addEventListener("change", function()
-    {
-       console.log("pöcs") ;
-    });
-    document.getElementById("faszomkivan").addEventListener("click", function()
-    {
-        let shat = document.getElementById("select2-patya-container");
-        //console.log(shat);
 
-        let datya =
+    async function SelectID(id)
+    {
+        let response = fetch("/api/selectID?id=" + id,
         {
-            Name: shat.innerHTML.split(', ')[0],
-            foodSHIT:
+            method : "GET"
+        });
+        return (await response).json();
+    }
+    document.getElementById("faszomkivan").addEventListener("click", async function()
+    {
+        let selectedID = document.getElementById("patya").value;
+        console.log(selectedID);
+        let selectData = (await SelectID(selectedID))[0];
+
+        console.log(selectData);
+
+        let data =
+        {
+            Name: selectData.Name,
+            foodDATA:
             {
-                Calories: shat.innerHTML.split(', ')[1],
-                Fat_g_: shat.innerHTML.split(', ')[2],
-                Protein_g_: shat.innerHTML.split(', ')[3],
-                Carbohydrate_g_: shat.innerHTML.split(', ')[4],
-                Sugars_g_: shat.innerHTML.split(', ')[5],
-                Fiber_g_: shat.innerHTML.split(', ')[6],
-                _200_Calorie_Weight_g_: shat.innerHTML.split(', ')[7],
+                Calories: selectData.Calories,
+                Fat_g: selectData.Fat_g_,
+                Protein_g: selectData.Protein_g_,
+                Carbohydrate_g: selectData.Carbohydrate_g_,
+                Sugars_g: selectData.Sugars_g_,
+                Fiber_g: selectData.Fiber_g_,
+                Calorie_Weight_200g: selectData._200_Calorie_Weight_g_
             },
-            id: shat.dataset.id,
-            dine: shat.dataset.dine
+            id: selectData.id,
+            dine: selectData.dine
         };
         //console.log(datya);
-        cardGen(datya, "");
+        cardGen(data);
         listVisibilityCheck();
     });
 
@@ -58,6 +75,7 @@ if(data != [])
     {
         let biscuitBASE = [];
         let cardHolder = document.getElementById("Fede");
+        //localStorage.setItem("saved", cardHolder.innerHTML);
         for(let i = 0; i < cardHolder.childElementCount; i++)
         {
             biscuitBASE.push(JSON.parse(cardHolder.children[i].dataset.adatk))
@@ -68,6 +86,13 @@ if(data != [])
         console.log(localStorage.getItem("saved"));
 
         console.log(biscuits);
+    });
+
+    document.getElementById("biscuitDelete").addEventListener("click", function()
+    {
+        console.log("fasz");
+        localStorage.setItem("saved", "[]");
+        console.log(savedItems);
     });
 });
 async function szelektAll()
@@ -101,13 +126,12 @@ async function build(target)
     }
 }
 
-function cardGen(data, whichIsSelected)
+function cardGen(data)
 {
     let target = document.getElementById("Fede");
     let card = document.createElement("div");
         card.dataset.adatk = JSON.stringify(data);
         card.dataset.id = data.id;
-        card.dataset.dine = whichIsSelected;
         card.classList.add("card");
         let top = document.createElement("div");
             top.classList.add("top");
@@ -117,14 +141,14 @@ function cardGen(data, whichIsSelected)
             middle.classList.add("middle");
             // middle.innerHTML = + data.Calories + "kcal" + ", " + data.Fat_g_ + ", " + data.Protein_g_ + ", " + data.Carbohydrate_g_ + ", " + data.Sugars_g_ + ", " + data.Fiber_g_ + ", " + data._200_Calorie_Weight_g_
             let table = document.createElement("table");
-                for(var key in data.foodSHIT)
+                for(var key in data.foodDATA)
                 {
                     let tr = document.createElement("tr");
                     let th = document.createElement("th");
                         th.innerHTML = key
 
                     let td = document.createElement("td");
-                        td.innerHTML = data.foodSHIT[key];
+                        td.innerHTML = data.foodDATA[key];
                     
                     tr.appendChild(th);
                     tr.appendChild(td);
@@ -138,7 +162,7 @@ function cardGen(data, whichIsSelected)
                 deleteBTN.type = "button";
                 deleteBTN.addEventListener("click", function()
                 {
-                //console.log("Deleting ID:" + this.parentElement.parentElement.dataset.id);
+                console.log("Deleting ID:" + this.parentElement.parentElement.dataset.id);
                 this.parentElement.parentElement.remove();
                 listVisibilityCheck();
                 });
@@ -156,7 +180,12 @@ function cardGen(data, whichIsSelected)
                 let vacs = document.createElement("option");
                     vacs.value ="dinner";
                     vacs.innerHTML = "dinner";
-                switch(whichIsSelected)
+                
+                let choose = document.createElement("option");
+                    choose.hidden = true;
+                    choose.innerHTML = "Choose...";
+                
+                switch(data.dine)
                 {
                     case "breakfast":
                         reg.selected;
@@ -178,6 +207,13 @@ function cardGen(data, whichIsSelected)
                 fChoice.appendChild(reg);
                 fChoice.appendChild(eb);
                 fChoice.appendChild(vacs);
+            fChoice.addEventListener("change", function()
+            {
+                card.dataset.dine = fChoice.value;
+                console.log(fChoice.value);
+                data.dine = fChoice.value;
+                card.dataset.adatk = JSON.stringify(data);
+            });
             
 
             bottom.appendChild((fChoice));
