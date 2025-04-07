@@ -65,7 +65,7 @@ function insert(tomb_insert)
     });
 }
 
-function admininsert(tomb_insert)
+function adminBaInsert(tomb_insert)
 {
     return new Promise((resolve, reject) =>
     {
@@ -77,11 +77,23 @@ function admininsert(tomb_insert)
     });
 }
 
+function admininsert(tomb_insert)
+{
+    return new Promise((resolve, reject) =>
+    {
+        pool.query('INSERT INTO `etelek`(Name, Calories, Fat_g_, Protein_g_ ,Carbohydrate_g_, Sugars_g_, Fiber_g_, _200_Calorie_Weight_g_ ) VALUES (?)', [tomb_insert], (err, result) =>
+        {
+            if(err) return reject(err);
+            resolve(result);
+        });
+    });
+}
+
 function adminDelete(azon)
 {
     return new Promise((resolve, reject) =>
         {
-            pool.query('DELETE FROM `admin-insert` WHERE ?', [azon], (err, result) =>
+            pool.query('DELETE FROM `admin-insert` WHERE id=?', [azon], (err, result) =>
             {
                 if(err) return reject(err);
                 resolve(result);
@@ -134,8 +146,8 @@ module.exports = {
     selectFogyas,
     selectTomegMegtart,
     selectTomegNovel,
-admininsert,
-selectAllAdmin,
-adminDelete
+    admininsert,
+    selectAllAdmin,
+    adminDelete
 };
 //?Több function esetén vesszővel felsorolni a meghívható metódusokat. (pl.: selectAll, insertData)
