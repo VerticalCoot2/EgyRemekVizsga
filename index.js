@@ -160,7 +160,18 @@ app.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname + '/admin/admin.html'));
 });
 
-app.post('')
+app.post('api/adminDel',upload.single('file'),async (req,res) => {
+    let azon = [];
+    azon.push(req.query.azon)
+    try
+    {
+        res.send(await db.adminDelete(azon));
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+})
 
 
 app.get('/etrendkeszito', (request, response) =>

@@ -125,10 +125,13 @@ async function SelectAllAdmin()
     return (await response).json();
 }
 
-function admindel(azon)
+async function admindel(azon)
 {
 
-    let response = fetch()
+    let response = fetch("/api/adminDel?azon="+azon,{
+        method: "POST"
+    })
+    return(await response).json()
     TablaGeneral(document.getElementById("tablazat"))
 }
 
