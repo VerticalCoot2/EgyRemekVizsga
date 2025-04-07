@@ -148,6 +148,7 @@ module.exports = {
     selectTomegNovel,
     admininsert,
     selectAllAdmin,
-    adminDelete
+    adminDelete,
+    adminBaInsert
 };
 //?Több function esetén vesszővel felsorolni a meghívható metódusokat. (pl.: selectAll, insertData)

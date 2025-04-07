@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function()
 async function insert_fetch()
 {
     let formData = new FormData(document.getElementById("insert"));
-    let response = fetch("/api/insert",
+    let response = fetch("/api/adminBaIns",
         {
             method : "POST",
             body : formData
