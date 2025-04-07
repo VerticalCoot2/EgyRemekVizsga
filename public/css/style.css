@@ -181,6 +181,7 @@ body
 
 .valasztas
 {
+    color: black;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -193,7 +194,6 @@ body
     padding: 10px;
     margin-block: 10px;
     background: white;
-    color: var(--zud);
     font-size: 60px;
     scrollbar-width: none;
     scroll-behavior: smooth;
@@ -268,7 +268,6 @@ body
     color: white;
     border-radius: 9px;
     flex-direction: column;
-    bottom: 60px;
     font-size: small;
 }
 
