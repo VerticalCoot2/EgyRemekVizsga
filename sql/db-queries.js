@@ -81,7 +81,7 @@ function adminDelete(azon)
 {
     return new Promise((resolve, reject) =>
         {
-            pool.query('DELETE FROM `admin-insert` WHERE ?', [azon], (err, result) =>
+            pool.query('DELETE FROM `admin-insert` WHERE id=?', [azon], (err, result) =>
             {
                 if(err) return reject(err);
                 resolve(result);
@@ -134,8 +134,8 @@ module.exports = {
     selectFogyas,
     selectTomegMegtart,
     selectTomegNovel,
-admininsert,
-selectAllAdmin,
-adminDelete
+    admininsert,
+    selectAllAdmin,
+    adminDelete
 };
 //?Több function esetén vesszővel felsorolni a meghívható metódusokat. (pl.: selectAll, insertData)

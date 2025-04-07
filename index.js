@@ -76,27 +76,6 @@ app.post('/api/insert' , upload.single('file'), async (req, res) =>
     }
 })
 
-app.post('/api/admininsert' , upload.single('file'), async (req, res) =>
-    {
-        let tomb_insert = [];
-        tomb_insert.push(req.body.Name);
-        tomb_insert.push(req.body.Calories);
-        tomb_insert.push(req.body.Fat_g_);
-        tomb_insert.push(req.body.Protein_g_);
-        tomb_insert.push(req.body.Carbohydrate_g_);
-        tomb_insert.push(req.body.Sugars_g_);
-        tomb_insert.push(req.body.Fiber_g_);
-        tomb_insert.push(req.body._200_Calorie_Weight_g_);
-        try
-        {
-            res.send(await db.admininsert(tomb_insert));
-        }
-        catch(err)
-        {
-            console.log(err);
-        }
-    })
-
 app.post('/api/delete' , upload.single('file') ,async (req, res) =>
     
     {
@@ -160,9 +139,8 @@ app.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname + '/admin/admin.html'));
 });
 
-app.post('api/adminDel',upload.single('file'),async (req,res) => {
-    let azon = [];
-    azon.push(req.query.azon)
+app.post('/api/adminDel/:azon',upload.single('file'),async (req,res) => {
+    let azon=req.params.azon
     try
     {
         res.send(await db.adminDelete(azon));
@@ -173,6 +151,29 @@ app.post('api/adminDel',upload.single('file'),async (req,res) => {
     }
 })
 
+app.post('/api/adminIns' , upload.single('file'), async (req, res) =>
+    {
+
+        let tomb_insert = [];
+        tomb_insert.push(req.body.Name);
+        tomb_insert.push(req.body.Calories);
+        tomb_insert.push(req.body.Fat_g_);
+        tomb_insert.push(req.body.Protein_g_);
+        tomb_insert.push(req.body.Carbohydrate_g_);
+        tomb_insert.push(req.body.Sugars_g_);
+        tomb_insert.push(req.body.Fiber_g_);
+        tomb_insert.push(req.body._200_Calorie_Weight_g_);
+        console.log(tomb_insert)
+        try
+        {
+            res.send(await db.admininsert(tomb_insert));
+        }
+        catch(err)
+        {
+            console.log(err);
+        }
+    })
+
 
 app.get('/etrendkeszito', (request, response) =>
 {
@@ -182,7 +183,6 @@ app.get('/etrendkeszito', (request, response) =>
 app.get('/kaloriaszamlalo', (request,response) => {
     response.sendFile(path.join(__dirname+'/public/html/kaloriaszamlalo.html'))
 })
-
 
 app.get('/api/selectFogyas', async (req, res) =>
 {

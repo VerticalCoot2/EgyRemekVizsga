@@ -20,12 +20,11 @@ async function TablaGeneral(hova){
     hova.appendChild(tabla)
     console.log("kutya")
     let data = await SelectAllAdmin()
-    console.log(data)
-    console.log("data")
     let test = document.createElement("tbody")
     for(let i=0;i<data.length;i++)
     {
         let sor = document.createElement("tr")
+        sor.dataset.id=data[i].id
         //Name
         let name =document.createElement("td")
         let Name=document.createElement("input")
@@ -86,9 +85,11 @@ async function TablaGeneral(hova){
         let del = document.createElement("td")
         let delbut = document.createElement("button")
         delbut.type="button"
+        delbut.dataset.id=data[i].id
         delbut.innerHTML="Delete"
         delbut.addEventListener("click",function(){
-            admindel(sor.dataset.id)
+            console.log(this.dataset.id)
+            admindel(this.dataset.id)
         })
         del.appendChild(delbut)
 
@@ -96,9 +97,19 @@ async function TablaGeneral(hova){
         let ins = document.createElement("td")
         let insbut = document.createElement("button")
         insbut.type="button"
+        insbut.dataset.id=data[i].id
         insbut.innerHTML="Insert"
         insbut.addEventListener("click",function(){
-            adminins(sor.dataset.id)
+            let formdata= new FormData()
+            formdata.append("Name",Name.value)
+            formdata.append("Calories",Calories.value)
+            formdata.append("Fat_g_",Fat_g_.value)
+            formdata.append("Protein_g_",Protein_g_.value)
+            formdata.append("Carbohydrate_g_",Carbohydrate_g_.value)
+            formdata.append("Sugars_g_",Sugars_g_.value)
+            formdata.append("Fiber_g_",Fiber_g_.value)
+            formdata.append("_200_Calorie_Weight_g_",_200_Calorie_Weight_g_.value)
+            adminins(formdata)
         })
         ins.appendChild(insbut)
 
@@ -127,16 +138,21 @@ async function SelectAllAdmin()
 
 async function admindel(azon)
 {
-
-    let response = fetch("/api/adminDel?azon="+azon,{
+console.log(azon)
+    let response = fetch("/api/adminDel/"+azon,{
         method: "POST"
     })
-    return(await response).json()
     TablaGeneral(document.getElementById("tablazat"))
+    return(await response).json()
+    
 }
 
-function adminins(azon)
+async function adminins(formdata)
 {
-
+    let response=fetch("/api/adminIns",{
+        method: "POST",
+        body: formdata
+    })
     TablaGeneral(document.getElementById("tablazat"))
+    return (await response).json()
 }
