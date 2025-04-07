@@ -7989,6 +7989,8 @@ INSERT INTO `etelek` (`id`, `Name`, `Calories`, `Fat_g_`, `Protein_g_`, `Carbohy
 	(7969, 'Infant Formula Ns As To Form (Enfamil Enfacare)', 71, 3.800000, 2.000000, 7.400000, '7.4', '0', '281.69'),
 	(7970, 'Infant Formula Ready-To-Feed (Enfamil Enfacare)', 71, 3.800000, 2.000000, 7.400000, '7.4', '0', '281.69'),
 	(7971, 'Infant Formula Powder Made With Water NFS (Enfamil Enfacare)', 71, 3.800000, 2.000000, 7.400000, '7.4', '0', '281.69');
+
+	
 -- /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 -- /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 -- /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
