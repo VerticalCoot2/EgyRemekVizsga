@@ -1,19 +1,19 @@
 let biscuits = document.cookie;
-localStorage.setItem("saved", "[]");
 let savedItems = localStorage.getItem("saved");
 document.addEventListener("DOMContentLoaded", function()
-{   
-    if(savedItems != null)
+{
+if(savedItems!=null)
+{
+    let data = JSON.parse(savedItems)
+if(data != [])
+{
+    for(let i = 0; i < data.length; i++)
     {
-        let data = JSON.parse(savedItems)
-        if(data != [])
-        {
-            for(let i = 0; i < data.length; i++)
-            {
-                cardGen(data[i]);
-            }
-        }
+        cardGen(data[i], "");
     }
+}
+}
+
     document.getElementById("biscuitShowButton").addEventListener("click", function()
     {
     //    console.log(biscuits);
@@ -22,11 +22,6 @@ document.addEventListener("DOMContentLoaded", function()
     listVisibilityCheck();
     build(document.getElementById("patya"));
 
-    document.getElementById("menuButton").addEventListener("mousedown", function(event)
-    {
-        event.preventDefault();
-        window.open("/", "_self");
-    });
     $('.js-example-basic-single').select2();
 
     document.getElementById("patya").addEventListener("change", function()
@@ -35,10 +30,7 @@ document.addEventListener("DOMContentLoaded", function()
     });
     document.getElementById("faszomkivan").addEventListener("click", function()
     {
-        let selectedID = document.getElementById("patya").value;
-        
-        
-        let  = document.getElementById("select2-patya-container");
+        let shat = document.getElementById("select2-patya-container");
         //console.log(shat);
 
         let datya =
@@ -73,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function()
         // console.log(biscuit);
         biscuits = biscuitBASE;
         localStorage.setItem("saved", JSON.stringify(biscuitBASE));
-        console.log(savedItems);
+        console.log(localStorage.getItem("saved"));
 
         console.log(biscuits);
     });
@@ -164,27 +156,25 @@ function cardGen(data, whichIsSelected)
                 let vacs = document.createElement("option");
                     vacs.value ="dinner";
                     vacs.innerHTML = "dinner";
-                
-                let choose = document.createElement("option");
-                    choose.hidden = true;
-                    choose.innerHTML = "Choose...";
-                
                 switch(whichIsSelected)
                 {
                     case "breakfast":
-                        reg.selected = true;
+                        reg.selected;
                         break;
                     case "lunch":
-                        eb.selected = true;
+                        eb.selected;
                         break;
                     case "dinner":
-                        vacs.selected = true;
+                        vacs.selected;
                         break;
                     default:
-                        choose.selected = true;
-                        break;                        
+                        let choose = document.createElement("option");
+                            choose.selected;
+                            choose.hidden;
+                            choose.innerHTML = "Choose...";
+                        fChoice.append(choose);
                 }
-                fChoice.append(choose);
+
                 fChoice.appendChild(reg);
                 fChoice.appendChild(eb);
                 fChoice.appendChild(vacs);

@@ -16,21 +16,10 @@ const db = require(path.join(__dirname + '/sql/db-queries.js'));
 
 
 
-router.get('/', (request, response) =>
+router.get('/fooldal', (request, response) =>
 {
     response.sendFile(path.join(__dirname + '/public/html/index.html'));
 });
-
-app.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname + '/admin/admin.html'));
-});
-
-const basicAuth = require('express-basic-auth');
-
-app.use('/admin', basicAuth({
-    users: { 'admin': 'password123' },
-    challenge: true
-}));
 
 async function readfileAsync(filepath)
 {
@@ -55,6 +44,16 @@ app.get('/api/selectAll', (request, response) =>
         });
 });
 
+app.get('/api/selectAllAdmin', (request, response) =>
+    {
+    db.selectAllAdmin()
+        .then((data) => {
+            response.json(data);
+        })
+        .catch((err) => {
+            console.error('Error:', err);
+        });
+});
 
 app.post('/api/insert' , upload.single('file'), async (req, res) =>
 {
@@ -75,8 +74,28 @@ app.post('/api/insert' , upload.single('file'), async (req, res) =>
     {
         console.log(err);
     }
-    
 })
+
+app.post('/api/admininsert' , upload.single('file'), async (req, res) =>
+    {
+        let tomb_insert = [];
+        tomb_insert.push(req.body.Name);
+        tomb_insert.push(req.body.Calories);
+        tomb_insert.push(req.body.Fat_g_);
+        tomb_insert.push(req.body.Protein_g_);
+        tomb_insert.push(req.body.Carbohydrate_g_);
+        tomb_insert.push(req.body.Sugars_g_);
+        tomb_insert.push(req.body.Fiber_g_);
+        tomb_insert.push(req.body._200_Calorie_Weight_g_);
+        try
+        {
+            res.send(await db.admininsert(tomb_insert));
+        }
+        catch(err)
+        {
+            console.log(err);
+        }
+    })
 
 app.post('/api/delete' , upload.single('file') ,async (req, res) =>
     
@@ -130,13 +149,27 @@ app.get('/api/selectID' , async (req, res) =>
     }
   });e*/
 //a felette lévő biztos mukszik ezt meg nem neztem
+const basicAuth = require('express-basic-auth');
 
+app.use('/admin', basicAuth({
+    users: { 'admin': 'password123' },
+    challenge: true
+}));
+
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname + '/admin/adminhtml/admin.html'));
+});
 
 
 app.get('/etrendkeszito', (request, response) =>
 {
     response.sendFile(path.join(__dirname + '/public/html/etrendkeszito.html'));
 });
+
+app.get('/kaloriaszamlalo', (request,response) => {
+    response.sendFile(path.join(__dirname+'/public/html/kaloriaszamlalo.html'))
+})
+
 
 app.get('/api/selectFogyas', async (req, res) =>
 {

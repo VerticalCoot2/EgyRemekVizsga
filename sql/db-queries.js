@@ -5,12 +5,12 @@ const pool = mysql.createPool({
     host: '127.0.0.1',
     user: 'root',
     password: '',
-    database: 'etelDB'
+    database: 'eteldb'
 });
 
 function selectAll() {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM `etelek`;', (err, result, fields) => {
+        pool.query('SELECT * FROM `vizsgadb`;', (err, result, fields) => {
             if (err) return reject(err);
             resolve(result);
         });
@@ -64,6 +64,27 @@ function insert(tomb_insert)
         });
     });
 }
+
+function admininsert(tomb_insert)
+{
+    return new Promise((resolve, reject) =>
+    {
+        pool.query('INSERT INTO `admin-insert`(Name, Calories, Fat_g_, Protein_g_ ,Carbohydrate_g_, Sugars_g_, Fiber_g_, _200_Calorie_Weight_g_ ) VALUES (?)', [tomb_insert], (err, result) =>
+        {
+            if(err) return reject(err);
+            resolve(result);
+        });
+    });
+}
+
+function selectAllAdmin() {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT * FROM `admin-insert`;', (err, result, fields) => {
+            if (err) return reject(err);
+            resolve(result);
+        });
+    });
+}
 //felesleges function, de hátha kell
 // function update(tomb_update)
 // {
@@ -100,7 +121,8 @@ module.exports = {
     selectID,
     selectFogyas,
     selectTomegMegtart,
-    selectTomegNovel
-
+    selectTomegNovel,
+admininsert,
+selectAllAdmin
 };
 //?Több function esetén vesszővel felsorolni a meghívható metódusokat. (pl.: selectAll, insertData)
