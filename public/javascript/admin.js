@@ -97,7 +97,6 @@ async function TablaGeneral(hova){
         let ins = document.createElement("td")
         let insbut = document.createElement("button")
         insbut.type="button"
-        insbut.dataset.id=data[i].id
         insbut.innerHTML="Insert"
         insbut.addEventListener("click",function(){
             let formdata= new FormData()
