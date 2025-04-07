@@ -77,25 +77,25 @@ app.post('/api/insert' , upload.single('file'), async (req, res) =>
 })
 
 app.post('/api/admininsert' , upload.single('file'), async (req, res) =>
+{
+    let tomb_insert = [];
+    tomb_insert.push(req.body.Name);
+    tomb_insert.push(req.body.Calories);
+    tomb_insert.push(req.body.Fat_g_);
+    tomb_insert.push(req.body.Protein_g_);
+    tomb_insert.push(req.body.Carbohydrate_g_);
+    tomb_insert.push(req.body.Sugars_g_);
+    tomb_insert.push(req.body.Fiber_g_);
+    tomb_insert.push(req.body._200_Calorie_Weight_g_);
+    try
     {
-        let tomb_insert = [];
-        tomb_insert.push(req.body.Name);
-        tomb_insert.push(req.body.Calories);
-        tomb_insert.push(req.body.Fat_g_);
-        tomb_insert.push(req.body.Protein_g_);
-        tomb_insert.push(req.body.Carbohydrate_g_);
-        tomb_insert.push(req.body.Sugars_g_);
-        tomb_insert.push(req.body.Fiber_g_);
-        tomb_insert.push(req.body._200_Calorie_Weight_g_);
-        try
-        {
-            res.send(await db.admininsert(tomb_insert));
-        }
-        catch(err)
-        {
-            console.log(err);
-        }
-    })
+        res.send(await db.admininsert(tomb_insert));
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+})
 
 app.post('/api/delete' , upload.single('file') ,async (req, res) =>
     

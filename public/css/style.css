@@ -300,3 +300,15 @@ body
     gap: 5px;
     height: 20%;
 }
+
+input {
+    font-size: 18px; /* font-size is up to you, not required */
+    padding: 10px;   /* padding is up to you */
+    display: block;  /* just to make sure display is block */
+    width: 100%;     /* width is up to you */
+}
+
+label {
+    color: white;
+}
+
