@@ -2,13 +2,16 @@ let biscuits = document.cookie;
 localStorage.setItem("saved", "[]");
 let savedItems = localStorage.getItem("saved");
 document.addEventListener("DOMContentLoaded", function()
-{
-    let data = JSON.parse(savedItems)
-    if(data != [])
+{   
+    if(savedItems != null)
     {
-        for(let i = 0; i < data.length; i++)
+        let data = JSON.parse(savedItems)
+        if(data != [])
         {
-            cardGen(data[i], "");
+            for(let i = 0; i < data.length; i++)
+            {
+                cardGen(data[i]);
+            }
         }
     }
     document.getElementById("biscuitShowButton").addEventListener("click", function()
@@ -32,7 +35,10 @@ document.addEventListener("DOMContentLoaded", function()
     });
     document.getElementById("faszomkivan").addEventListener("click", function()
     {
-        let shat = document.getElementById("select2-patya-container");
+        let selectedID = document.getElementById("patya").value;
+        
+        
+        let  = document.getElementById("select2-patya-container");
         //console.log(shat);
 
         let datya =
@@ -67,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function()
         // console.log(biscuit);
         biscuits = biscuitBASE;
         localStorage.setItem("saved", JSON.stringify(biscuitBASE));
-        console.log(localStorage.getItem("saved"));
+        console.log(savedItems);
 
         console.log(biscuits);
     });
@@ -158,25 +164,27 @@ function cardGen(data, whichIsSelected)
                 let vacs = document.createElement("option");
                     vacs.value ="dinner";
                     vacs.innerHTML = "dinner";
+                
+                let choose = document.createElement("option");
+                    choose.hidden = true;
+                    choose.innerHTML = "Choose...";
+                
                 switch(whichIsSelected)
                 {
                     case "breakfast":
-                        reg.selected;
+                        reg.selected = true;
                         break;
                     case "lunch":
-                        eb.selected;
+                        eb.selected = true;
                         break;
                     case "dinner":
-                        vacs.selected;
+                        vacs.selected = true;
                         break;
                     default:
-                        let choose = document.createElement("option");
-                            choose.selected;
-                            choose.hidden;
-                            choose.innerHTML = "Choose...";
-                        fChoice.append(choose);
+                        choose.selected = true;
+                        break;                        
                 }
-
+                fChoice.append(choose);
                 fChoice.appendChild(reg);
                 fChoice.appendChild(eb);
                 fChoice.appendChild(vacs);
