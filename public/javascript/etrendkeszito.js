@@ -205,13 +205,11 @@ function cardGen(data)
                         vacs.selected = true;
                         break;
                     default:
-                        let choose = document.createElement("option");
-                            choose.selected;
-                            choose.hidden;
-                            choose.innerHTML = "Choose...";
-                        fChoice.append(choose);
+                        choose.selected = true;
+                        break;
                 }
 
+                fChoice.appendChild(choose);
                 fChoice.appendChild(reg);
                 fChoice.appendChild(eb);
                 fChoice.appendChild(vacs);
