@@ -22,11 +22,16 @@
     color: purple
 }
 
-
-html
+span[title]
 {
-    color-scheme: light dark;
+    display: none;
 }
+
+
+/* html
+{
+     color-scheme: light dark;
+} */
 a
 {
     text-decoration: none;

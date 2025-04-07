@@ -115,7 +115,6 @@ async function build(target)
             Name.innerHTML = data[i].Name+", "+ data[i].Calories + "kcal" + ", " + data[i].Fat_g_ + ", " + data[i].Protein_g_ + ", " + data[i].Carbohydrate_g_ + ", " + data[i].Sugars_g_ + ", " + data[i].Fiber_g_ + ", " + data[i]._200_Calorie_Weight_g_;
             Name.value = data[i].id;
             Name.dataset.id = data[i].id;
-            Name.title = data[i].id
 
         target.appendChild(Name);
     }
@@ -216,8 +215,8 @@ function cardGen(data)
             fChoice.addEventListener("change", function()
             {
                 card.dataset.dine = fChoice.value;
-                console.log(fChoice.value);
                 data.dine = fChoice.value;
+                console.log(fChoice.value);
                 card.dataset.adatk = JSON.stringify(data);
             });
             
