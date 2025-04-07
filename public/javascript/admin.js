@@ -144,7 +144,6 @@ console.log(azon)
     })
     TablaGeneral(document.getElementById("tablazat"))
     return(await response).json()
-    
 }
 
 async function adminins(formdata)
