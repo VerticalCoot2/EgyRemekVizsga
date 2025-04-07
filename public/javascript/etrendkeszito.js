@@ -1,14 +1,10 @@
-let biscuits = document.cookie;
+//let biscuits = document.cookie;
 let savedItems = localStorage.getItem("saved");
 document.addEventListener("DOMContentLoaded", function()
 {
-if(savedItems!=null)
-{
-    let data = JSON.parse(savedItems)
-if(data != [])
-{
-    for(let i = 0; i < data.length; i++)
+    if(savedItems!=null)
     {
+        
         let data = JSON.parse(savedItems);
         if(data != [])
         {
@@ -18,10 +14,8 @@ if(data != [])
                 cardGen(data[i]);
             }
             //document.getElementById("Fede").innerHTML = String(savedItems);
-        }
+        }        
     }
-}
-}
 
     document.getElementById("biscuitShowButton").addEventListener("click", function()
     {
@@ -71,7 +65,7 @@ if(data != [])
         listVisibilityCheck();
     });
 
-    document.getElementById("biscuitButton").addEventListener("click", function()
+    document.getElementById("biscuitButton").addEventListener("click", function()//save
     {
         let biscuitBASE = [];
         let cardHolder = document.getElementById("Fede");
@@ -81,11 +75,11 @@ if(data != [])
             biscuitBASE.push(JSON.parse(cardHolder.children[i].dataset.adatk))
         }
         // console.log(biscuit);
-        biscuits = biscuitBASE;
+        //biscuits = biscuitBASE;
         localStorage.setItem("saved", JSON.stringify(biscuitBASE));
         console.log(localStorage.getItem("saved"));
 
-        console.log(biscuits);
+        //console.log(biscuits);
     });
 
     document.getElementById("biscuitDelete").addEventListener("click", function()
@@ -188,13 +182,13 @@ function cardGen(data)
                 switch(data.dine)
                 {
                     case "breakfast":
-                        reg.selected;
+                        reg.selected = true;
                         break;
                     case "lunch":
-                        eb.selected;
+                        eb.selected = true;
                         break;
                     case "dinner":
-                        vacs.selected;
+                        vacs.selected = true;
                         break;
                     default:
                         let choose = document.createElement("option");
