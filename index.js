@@ -55,7 +55,7 @@ app.get('/api/selectAllAdmin', (request, response) =>
         });
 });
 
-app.post('/api/insert' , upload.single('file'), async (req, res) =>
+app.post('/api/insertEtel' , upload.single('file'), async (req, res) =>
 {
     let tomb_insert = [];
     tomb_insert.push(req.body.Name);
@@ -76,26 +76,6 @@ app.post('/api/insert' , upload.single('file'), async (req, res) =>
     }
 })
 
-app.post('/api/admininsert' , upload.single('file'), async (req, res) =>
-{
-    let tomb_insert = [];
-    tomb_insert.push(req.body.Name);
-    tomb_insert.push(req.body.Calories);
-    tomb_insert.push(req.body.Fat_g_);
-    tomb_insert.push(req.body.Protein_g_);
-    tomb_insert.push(req.body.Carbohydrate_g_);
-    tomb_insert.push(req.body.Sugars_g_);
-    tomb_insert.push(req.body.Fiber_g_);
-    tomb_insert.push(req.body._200_Calorie_Weight_g_);
-    try
-    {
-        res.send(await db.admininsert(tomb_insert));
-    }
-    catch(err)
-    {
-        console.log(err);
-    }
-})
 
 app.post('/api/delete' , upload.single('file') ,async (req, res) =>
     
@@ -172,30 +152,8 @@ app.post('/api/adminDel/:azon',upload.single('file'),async (req,res) => {
     }
 })
 
-app.post('/api/adminIns' , upload.single('file'), async (req, res) =>
-    {
 
-        let tomb_insert = [];
-        tomb_insert.push(req.body.Name);
-        tomb_insert.push(req.body.Calories);
-        tomb_insert.push(req.body.Fat_g_);
-        tomb_insert.push(req.body.Protein_g_);
-        tomb_insert.push(req.body.Carbohydrate_g_);
-        tomb_insert.push(req.body.Sugars_g_);
-        tomb_insert.push(req.body.Fiber_g_);
-        tomb_insert.push(req.body._200_Calorie_Weight_g_);
-        console.log(tomb_insert)
-        try
-        {
-            res.send(await db.admininsert(tomb_insert));
-        }
-        catch(err)
-        {
-            console.log(err);
-        }
-    })
-
-    app.post('/api/adminBaIns' , upload.single('file'), async (req, res) =>
+app.post('/api/insertAdmin' , upload.single('file'), async (req, res) =>
         {
     
             let tomb_insert = [];
@@ -210,7 +168,7 @@ app.post('/api/adminIns' , upload.single('file'), async (req, res) =>
             console.log(tomb_insert)
             try
             {
-                res.send(await db.adminBaInsert(tomb_insert));
+                res.send(await db.insertAdmin(tomb_insert));
             }
             catch(err)
             {

@@ -148,7 +148,7 @@ console.log(azon)
 
 async function adminins(formdata)
 {
-    let response=fetch("/api/adminIns",{
+    let response=fetch("/api/insertEtel",{
         method: "POST",
         body: formdata
     })

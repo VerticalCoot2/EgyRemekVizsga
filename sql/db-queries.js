@@ -57,7 +57,7 @@ function insert(tomb_insert)
 {
     return new Promise((resolve, reject) =>
     {
-        pool.query('INSERT INTO etelek(Name, Calories, Fat_g_, Protein_g_ ,Carbohydrate_g_, Sugars_g_, Fiber_g_, _200_Calorie_Weight_g_ ) VALUES (?,?,?,?,?,?,?,?)', tomb_insert, (err, result) =>
+        pool.query('INSERT INTO etelek(Name, Calories, Fat_g_, Protein_g_ ,Carbohydrate_g_, Sugars_g_, Fiber_g_, _200_Calorie_Weight_g_ ) VALUES (?)', [tomb_insert], (err, result) =>
         {
             if(err) return reject(err);
             resolve(result);
@@ -65,23 +65,11 @@ function insert(tomb_insert)
     });
 }
 
-function adminBaInsert(tomb_insert)
+function insertAdmin(tomb_insert)
 {
     return new Promise((resolve, reject) =>
     {
         pool.query('INSERT INTO `admin-insert`(Name, Calories, Fat_g_, Protein_g_ ,Carbohydrate_g_, Sugars_g_, Fiber_g_, _200_Calorie_Weight_g_ ) VALUES (?)', [tomb_insert], (err, result) =>
-        {
-            if(err) return reject(err);
-            resolve(result);
-        });
-    });
-}
-
-function admininsert(tomb_insert)
-{
-    return new Promise((resolve, reject) =>
-    {
-        pool.query('INSERT INTO `etelek`(Name, Calories, Fat_g_, Protein_g_ ,Carbohydrate_g_, Sugars_g_, Fiber_g_, _200_Calorie_Weight_g_ ) VALUES (?)', [tomb_insert], (err, result) =>
         {
             if(err) return reject(err);
             resolve(result);
@@ -146,9 +134,8 @@ module.exports = {
     selectFogyas,
     selectTomegMegtart,
     selectTomegNovel,
-    admininsert,
+    insertAdmin,
     selectAllAdmin,
     adminDelete,
-    adminBaInsert
 };
 //?Több function esetén vesszővel felsorolni a meghívható metódusokat. (pl.: selectAll, insertData)
