@@ -2,8 +2,8 @@
 CREATE DATABASE IF NOT EXISTS `eteldb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `eteldb`;
 
--- Dumping structure for table eteldb.vizsgadb
-CREATE TABLE IF NOT EXISTS `vizsgadb` (
+-- Dumping structure for table eteldb.etelek
+CREATE TABLE IF NOT EXISTS `etelek` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(180) NOT NULL,
   `Calories` smallint(6) DEFAULT NULL,
@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS `vizsgadb` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16384 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table eteldb.vizsgadb: ~14,164 rows (approximately)
-INSERT INTO `vizsgadb` (`id`, `Name`, `Calories`, `Fat_g_`, `Protein_g_`, `Carbohydrate_g_`, `Sugars_g_`, `Fiber_g_`, `_200_Calorie_Weight_g_`) VALUES
+-- Dumping data for table eteldb.etelek: ~14,164 rows (approximately)
+INSERT INTO `etelek` (`id`, `Name`, `Calories`, `Fat_g_`, `Protein_g_`, `Carbohydrate_g_`, `Sugars_g_`, `Fiber_g_`, `_200_Calorie_Weight_g_`) VALUES
 	(1, 'Pillsbury Golden Layer Buttermilk Biscuits Artificial Flavor Refrigerated Dough', 307, 13.240000, 5.880000, 41.180000, '5.88', '1.2', '65.147'),
 	(2, 'Pillsbury Cinnamon Rolls With Icing Refrigerated Dough', 330, 11.270000, 4.340000, 53.420000, '21.34', '1.4', '60.606'),
 	(3, 'Kraft Foods Shake N Bake Original Recipe Coating For Pork Dry', 377, 3.700000, 6.100000, 79.800000, NULL, NULL, '53.05'),
