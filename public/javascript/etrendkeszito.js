@@ -186,6 +186,7 @@ function cardGen(data)
                     choose.innerHTML = "Choose...";
                 
                 switch(data.dine)
+                {
                     case "breakfast":
                         reg.selected;
                         break;
