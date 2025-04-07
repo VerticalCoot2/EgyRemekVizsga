@@ -1,7 +1,24 @@
-#tablazat{
-    width: 80%;
+input
+{
+    display: flex;
+    max-width: 100px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
-table{
-    width: fit-content;
+td, th
+{
+    width: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+
+tr
+{
+    display: flex;
+    align-content: baseline;
 }
