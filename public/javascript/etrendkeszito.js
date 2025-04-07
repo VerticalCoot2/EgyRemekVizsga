@@ -1,4 +1,5 @@
 let biscuits = document.cookie;
+localStorage.setItem("saved", "[]");
 let savedItems = localStorage.getItem("saved");
 document.addEventListener("DOMContentLoaded", function()
 {   
