@@ -1,14 +1,10 @@
-let biscuits = document.cookie;
+//let biscuits = document.cookie;
 let savedItems = localStorage.getItem("saved");
 document.addEventListener("DOMContentLoaded", function()
 {
-if(savedItems!=null)
-{
-    let data = JSON.parse(savedItems)
-if(data != [])
-{
-    for(let i = 0; i < data.length; i++)
+    if(savedItems!=null)
     {
+        
         let data = JSON.parse(savedItems);
         if(data != [])
         {
@@ -18,10 +14,8 @@ if(data != [])
                 cardGen(data[i]);
             }
             //document.getElementById("Fede").innerHTML = String(savedItems);
-        }
+        }        
     }
-}
-}
 
     document.getElementById("biscuitShowButton").addEventListener("click", function()
     {
@@ -42,7 +36,7 @@ if(data != [])
         });
         return (await response).json();
     }
-    document.getElementById("faszomkivan").addEventListener("click", async function()
+    document.getElementById("addBTN").addEventListener("click", async function()
     {
         let selectedID = document.getElementById("patya").value;
         console.log(selectedID);
@@ -55,23 +49,25 @@ if(data != [])
             Name: selectData.Name,
             foodDATA:
             {
-                Calories: selectData.Calories,
-                Fat_g: selectData.Fat_g_,
-                Protein_g: selectData.Protein_g_,
-                Carbohydrate_g: selectData.Carbohydrate_g_,
-                Sugars_g: selectData.Sugars_g_,
-                Fiber_g: selectData.Fiber_g_,
-                Calorie_Weight_200g: selectData._200_Calorie_Weight_g_
+                "Calories": selectData.Calories,
+                "Fat_g": selectData.Fat_g_,
+                "Protein_g": selectData.Protein_g_,
+                "Carbohydrate_g": selectData.Carbohydrate_g_,
+                "Sugars_g": selectData.Sugars_g_,
+                "Fiber_g": selectData.Fiber_g_,
+                "200_Calorie_Weight_g": selectData._200_Calorie_Weight_g_,
+                "help": selectData._200_Calorie_Weight_g_
             },
             id: selectData.id,
             dine: selectData.dine
         };
+        console.log(data);
         //console.log(datya);
         cardGen(data);
         listVisibilityCheck();
     });
 
-    document.getElementById("biscuitButton").addEventListener("click", function()
+    document.getElementById("biscuitButton").addEventListener("click", function()//save
     {
         let biscuitBASE = [];
         let cardHolder = document.getElementById("Fede");
@@ -81,11 +77,11 @@ if(data != [])
             biscuitBASE.push(JSON.parse(cardHolder.children[i].dataset.adatk))
         }
         // console.log(biscuit);
-        biscuits = biscuitBASE;
+        //biscuits = biscuitBASE;
         localStorage.setItem("saved", JSON.stringify(biscuitBASE));
         console.log(localStorage.getItem("saved"));
 
-        console.log(biscuits);
+        //console.log(biscuits);
     });
 
     document.getElementById("biscuitDelete").addEventListener("click", function()
@@ -119,7 +115,6 @@ async function build(target)
             Name.innerHTML = data[i].Name+", "+ data[i].Calories + "kcal" + ", " + data[i].Fat_g_ + ", " + data[i].Protein_g_ + ", " + data[i].Carbohydrate_g_ + ", " + data[i].Sugars_g_ + ", " + data[i].Fiber_g_ + ", " + data[i]._200_Calorie_Weight_g_;
             Name.value = data[i].id;
             Name.dataset.id = data[i].id;
-            Name.dataset.dine = 
             Name.title = data[i].id
 
         target.appendChild(Name);
@@ -154,6 +149,19 @@ function cardGen(data)
                     tr.appendChild(td);
                 table.appendChild(tr);
                 }
+                let tr = document.createElement("tr");
+                    let th = document.createElement("th");
+                        th.innerHTML = "Volume(g)";
+
+                    let td = document.createElement("td");
+                        console.log(data.foodDATA.Calories +"*"+ data.foodDATA.help + "/200=" + (data.foodDATA.Calories*data.foodDATA.help)/200);
+
+                        td.innerHTML = Math.round(((data.foodDATA.Calories*data.foodDATA.help)/200) *100)/100
+                    
+                    tr.appendChild(th);
+                    tr.appendChild(td);
+                table.appendChild(tr);
+                
             middle.appendChild(table);
             
         let bottom = document.createElement("div");
@@ -188,22 +196,20 @@ function cardGen(data)
                 switch(data.dine)
                 {
                     case "breakfast":
-                        reg.selected;
+                        reg.selected = true;
                         break;
                     case "lunch":
-                        eb.selected;
+                        eb.selected = true;
                         break;
                     case "dinner":
-                        vacs.selected;
+                        vacs.selected = true;
                         break;
                     default:
-                        let choose = document.createElement("option");
-                            choose.selected;
-                            choose.hidden;
-                            choose.innerHTML = "Choose...";
-                        fChoice.append(choose);
+                        choose.selected = true;
+                        break;
                 }
 
+                fChoice.appendChild(choose);
                 fChoice.appendChild(reg);
                 fChoice.appendChild(eb);
                 fChoice.appendChild(vacs);
