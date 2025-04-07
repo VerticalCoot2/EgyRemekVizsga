@@ -9,11 +9,9 @@ if(data != [])
 {
     for(let i = 0; i < data.length; i++)
     {
-<<<<<<< HEAD
         let data = JSON.parse(savedItems);
         if(data != [])
         {
-
             for(let i = 0; i < data.length; i++)
             {
                 console.log(i)
@@ -21,9 +19,6 @@ if(data != [])
             }
             //document.getElementById("Fede").innerHTML = String(savedItems);
         }
-=======
-        cardGen(data[i], "");
->>>>>>> 15a2a5a2875bdbf30e72e5b230331b9fce414e64
     }
 }
 }
@@ -49,14 +44,9 @@ if(data != [])
     }
     document.getElementById("faszomkivan").addEventListener("click", async function()
     {
-<<<<<<< HEAD
         let selectedID = document.getElementById("patya").value;
         console.log(selectedID);
         let selectData = (await SelectID(selectedID))[0];
-=======
-        let shat = document.getElementById("select2-patya-container");
-        //console.log(shat);
->>>>>>> 15a2a5a2875bdbf30e72e5b230331b9fce414e64
 
         console.log(selectData);
 
@@ -190,17 +180,12 @@ function cardGen(data)
                 let vacs = document.createElement("option");
                     vacs.value ="dinner";
                     vacs.innerHTML = "dinner";
-<<<<<<< HEAD
                 
                 let choose = document.createElement("option");
                     choose.hidden = true;
                     choose.innerHTML = "Choose...";
                 
                 switch(data.dine)
-=======
-                switch(whichIsSelected)
->>>>>>> 15a2a5a2875bdbf30e72e5b230331b9fce414e64
-                {
                     case "breakfast":
                         reg.selected;
                         break;
