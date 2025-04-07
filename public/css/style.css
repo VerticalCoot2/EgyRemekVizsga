@@ -54,6 +54,7 @@ body
     background: var(--darkGreen);
     margin: 0%;
     font-family: MOONREE;
+    color: white;
 }
 
 .select2-search__field
