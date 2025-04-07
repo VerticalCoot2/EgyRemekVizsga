@@ -157,8 +157,10 @@ app.use('/admin', basicAuth({
 }));
 
 app.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname + '/admin/adminhtml/admin.html'));
+    res.sendFile(path.join(__dirname + '/admin/admin.html'));
 });
+
+app.post('')
 
 
 app.get('/etrendkeszito', (request, response) =>

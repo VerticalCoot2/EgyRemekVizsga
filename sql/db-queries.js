@@ -77,6 +77,18 @@ function admininsert(tomb_insert)
     });
 }
 
+function adminDelete(azon)
+{
+    return new Promise((resolve, reject) =>
+        {
+            pool.query('DELETE FROM `admin-insert` WHERE ?', [azon], (err, result) =>
+            {
+                if(err) return reject(err);
+                resolve(result);
+            });
+        });
+}
+
 function selectAllAdmin() {
     return new Promise((resolve, reject) => {
         pool.query('SELECT * FROM `admin-insert`;', (err, result, fields) => {
@@ -123,6 +135,7 @@ module.exports = {
     selectTomegMegtart,
     selectTomegNovel,
 admininsert,
-selectAllAdmin
+selectAllAdmin,
+adminDelete
 };
 //?Több function esetén vesszővel felsorolni a meghívható metódusokat. (pl.: selectAll, insertData)
