@@ -88,7 +88,7 @@ async function TablaGeneral(hova){
         delbut.type="button"
         delbut.innerHTML="Delete"
         delbut.addEventListener("click",function(){
-            admindel()
+            admindel(sor.dataset.id)
         })
         del.appendChild(delbut)
 
@@ -98,7 +98,7 @@ async function TablaGeneral(hova){
         insbut.type="button"
         insbut.innerHTML="Insert"
         insbut.addEventListener("click",function(){
-            adminins()
+            adminins(sor.dataset.id)
         })
         ins.appendChild(insbut)
 
@@ -125,7 +125,15 @@ async function SelectAllAdmin()
     return (await response).json();
 }
 
-function admindel()
+function admindel(azon)
 {
+
     let response = fetch()
+    TablaGeneral(document.getElementById("tablazat"))
+}
+
+function adminins(azon)
+{
+
+    TablaGeneral(document.getElementById("tablazat"))
 }
