@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function()
     //    console.log(biscuits);
         console.log(savedItems);
     });
-    listVisibilityCheck();
+    listVisibilityCheck(document.getElementById("Fede"));
     build(document.getElementById("patya"));
 
     $('.js-example-basic-single').select2();
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function()
         console.log(data);
         //console.log(datya);
         cardGen(data);
-        listVisibilityCheck();
+        listVisibilityCheck(document.getElementById("Fede"));
     });
 
     document.getElementById("biscuitButton").addEventListener("click", function()//save
@@ -174,7 +174,7 @@ function cardGen(data)
                 {
                 console.log("Deleting ID:" + this.parentElement.parentElement.dataset.id);
                 this.parentElement.parentElement.remove();
-                listVisibilityCheck();
+                listVisibilityCheck(document.getElementById("Fede"));
                 });
             deleteBTN.innerHTML = "DELETE";
 
@@ -252,9 +252,9 @@ function cardGen(data)
         target.appendChild(card);
 }
 
-function listVisibilityCheck()
+function listVisibilityCheck(holder)
 {
-    let holder = document.getElementById("Fede");
+    //let holder = document.getElementById("Fede");
     if(holder.childElementCount == 0)
     {
         holder.style.display = "none";
