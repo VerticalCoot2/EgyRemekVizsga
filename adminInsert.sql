@@ -1,5 +1,5 @@
 
-CREATE TABLE `admin-insert` (
+CREATE TABLE `adminInsert` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `Name` varchar(255) NOT NULL,
   `Calories` int(11) NOT NULL,
@@ -8,5 +8,6 @@ CREATE TABLE `admin-insert` (
   `Carbohydrate_g_` int(11) NOT NULL,
   `Sugars_g_` int(11) NOT NULL,
   `Fiber_g_` int(11) NOT NULL,
-  `_200_Calorie_Weight_g_` int(11) NOT NULL
+  `_200_Calorie_Weight_g_` int(11) NOT NULL,
+  `isEtel` boolean NULL
 ) 
