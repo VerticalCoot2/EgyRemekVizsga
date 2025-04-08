@@ -137,16 +137,19 @@ function cardGen(data)
             let table = document.createElement("table");
                 for(var key in data.foodDATA)
                 {
-                    let tr = document.createElement("tr");
-                    let th = document.createElement("th");
-                        th.innerHTML = key
+                    if(key != "help")
+                    {
+                        let tr = document.createElement("tr");
+                            let th = document.createElement("th");
+                                th.innerHTML = key
 
-                    let td = document.createElement("td");
-                        td.innerHTML = data.foodDATA[key];
-                    
-                    tr.appendChild(th);
-                    tr.appendChild(td);
-                table.appendChild(tr);
+                            let td = document.createElement("td");
+                                td.innerHTML = data.foodDATA[key];
+                            
+                            tr.appendChild(th);
+                            tr.appendChild(td);
+                        table.appendChild(tr);
+                    }
                 }
                 let tr = document.createElement("tr");
                     let th = document.createElement("th");
