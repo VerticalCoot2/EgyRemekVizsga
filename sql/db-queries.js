@@ -69,7 +69,7 @@ function insertAdmin(tomb_insert)
 {
     return new Promise((resolve, reject) =>
     {
-        pool.query('INSERT INTO `admin-insert`(Name, Calories, Fat_g_, Protein_g_ ,Carbohydrate_g_, Sugars_g_, Fiber_g_, _200_Calorie_Weight_g_ ) VALUES (?)', [tomb_insert], (err, result) =>
+        pool.query('INSERT INTO `adminInsert`(Name, Calories, Fat_g_, Protein_g_ ,Carbohydrate_g_, Sugars_g_, Fiber_g_, _200_Calorie_Weight_g_ ) VALUES (?)', [tomb_insert], (err, result) =>
         {
             if(err) return reject(err);
             resolve(result);
@@ -81,7 +81,7 @@ function adminDelete(azon)
 {
     return new Promise((resolve, reject) =>
         {
-            pool.query('DELETE FROM `admin-insert` WHERE id=?', [azon], (err, result) =>
+            pool.query('DELETE FROM `adminInsert` WHERE id=?', [azon], (err, result) =>
             {
                 if(err) return reject(err);
                 resolve(result);
@@ -91,7 +91,7 @@ function adminDelete(azon)
 
 function selectAllAdmin() {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM `admin-insert`;', (err, result, fields) => {
+        pool.query('SELECT * FROM `adminInsert`;', (err, result, fields) => {
             if (err) return reject(err);
             resolve(result);
         });
