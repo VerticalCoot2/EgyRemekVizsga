@@ -153,8 +153,8 @@ function cardGen(data)
                         th.innerHTML = "Volume(g)";
 
                     let td = document.createElement("td");
-                        console.log(data.foodDATA.Calories +"*"+ data.foodDATA.help + "/200=" + (data.foodDATA.Calories*data.foodDATA.help)/200);
-
+                        //console.log(data.foodDATA.Calories +"*"+ data.foodDATA.help + "/200=" + (data.foodDATA.Calories*data.foodDATA.help)/200);
+                        console.log(data.foodDATA);
                         td.innerHTML = Math.round(((data.foodDATA.Calories*data.foodDATA.help)/200) *100)/100
                     
                     tr.appendChild(th);
