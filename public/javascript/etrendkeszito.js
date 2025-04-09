@@ -1,5 +1,6 @@
 //let biscuits = document.cookie;
 let savedItems = localStorage.getItem("saved");
+let dailyCalories = 1500;
 document.addEventListener("DOMContentLoaded", function()
 {
     if(savedItems!=null)
@@ -180,13 +181,17 @@ function cardGen(data, target)
                 });
             deleteBTN.innerHTML = "DELETE";
         
-            let eatenBTN = document.createElement("button");
+            if(target.id == "Fede")
+            {
+                let eatenBTN = document.createElement("button");
                 eatenBTN.type = "button";
                 eatenBTN.addEventListener("click", function()
                 {
                     console.log("megette: " + this.parentElement.parentElement.dataset.id);
+                    this.parentElement.parentElement.remove();
                     cardGen(data, document.getElementById("mindmegette"));
                     listVisibilityCheck(document.getElementById("mindmegette"));
+                    listVisibilityCheck(document.getElementById("Fede"));
                     
                 });
                 eatenBTN.innerHTML = "I ate this";
@@ -252,9 +257,22 @@ function cardGen(data, target)
                 console.log(fChoice.value);
                 card.dataset.adatk = JSON.stringify(data);
             });
-            
+
             bottom.appendChild(eatenBTN);
             bottom.appendChild(fChoice);
+
+            }
+            else
+            {
+                if(data.dine != null)
+                {
+                    let mire = document.createElement("div");
+                        mire.innerHTML = "for " + data.dine;
+                    bottom.appendChild(mire);
+                }
+            }
+            
+            
             bottom.appendChild(deleteBTN);
 
             
@@ -266,7 +284,6 @@ function cardGen(data, target)
 
 function listVisibilityCheck(holder)
 {
-    //let holder = document.getElementById("Fede");
     if(holder.childElementCount == 0)
     {
         holder.style.display = "none";
