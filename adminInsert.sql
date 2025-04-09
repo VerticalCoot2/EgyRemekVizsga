@@ -8,6 +8,5 @@ CREATE TABLE `adminInsert` (
   `Carbohydrate_g_` int(11) NOT NULL,
   `Sugars_g_` int(11) NOT NULL,
   `Fiber_g_` int(11) NOT NULL,
-  `_200_Calorie_Weight_g_` int(11) NOT NULL,
-  `isEtel` boolean NULL
+  `_200_Calorie_Weight_g_` int(11) NOT NULL
 ) 

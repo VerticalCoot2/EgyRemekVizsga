@@ -140,7 +140,7 @@ app.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname + '/admin/admin.html'));
 });
 
-app.post('/api/adminDel/:azon',upload.single('file'),async (req,res) => {
+app.post('/api/adminDel/:azon',async (req,res) => {
     let azon=req.params.azon
     try
     {

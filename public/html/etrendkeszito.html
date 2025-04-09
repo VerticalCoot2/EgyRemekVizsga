@@ -4,14 +4,16 @@
         <link rel="icon" href="../pictures/epol.png" sizes="225x225">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Étrendkészítő</title>
+        <title>Meal-maker</title>
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
         <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../javascript/jquery.js"></script>
         <script src="../javascript/etrendkeszito.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
+        <link rel="stylesheet" href="../css/select2.min.css">
+        <script src="../javascript/select2.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
     </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -36,6 +38,7 @@
         </div>
       </nav>
     <div class="overDIV">
+      <h1>Foods you planning on eating</h1>
         <select class="js-example-basic-single" name="patya" id="patya">
     
         </select>
@@ -51,8 +54,13 @@
       <!-- DELETE ON RELEASE --><button type="button" id="biscuitDelete">DELETEbiscuits</button><!-- DELETE ON RELEASE -->
       </div>
 
+      <h1>Foods you have eaten</h1>
       <div class="valasztas" id="mindmegette">
         
+      </div>
+      <div class="center">
+        <button type="button" id="saveEatenFoods">Save eaten foods</button>
+        <button type="button" id="calcDailyCalcs">Finished for the day</button>
       </div>
       
     </div>
