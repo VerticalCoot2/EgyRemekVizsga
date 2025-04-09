@@ -97,6 +97,7 @@ async function TablaGeneral(hova){
         let ins = document.createElement("td")
         let insbut = document.createElement("button")
         insbut.type="button"
+        insbut.dataset.id=data[i].id
         insbut.innerHTML="Insert"
         insbut.addEventListener("click",function(){
             let formdata= new FormData()
@@ -109,6 +110,7 @@ async function TablaGeneral(hova){
             formdata.append("Fiber_g_",Fiber_g_.value)
             formdata.append("_200_Calorie_Weight_g_",_200_Calorie_Weight_g_.value)
             adminins(formdata)
+            admindel(this.dataset.id)
         })
         ins.appendChild(insbut)
 
