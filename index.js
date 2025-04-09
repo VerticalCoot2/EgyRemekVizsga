@@ -21,6 +21,11 @@ router.get('/fooldal', (request, response) =>
     response.sendFile(path.join(__dirname + '/public/html/index.html'));
 });
 
+router.get('/', (request, response) =>
+    {
+        response.sendFile(path.join(__dirname + '/public/html/index.html'));
+    });
+
 async function readfileAsync(filepath)
 {
     try
