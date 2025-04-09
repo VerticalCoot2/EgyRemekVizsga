@@ -4,6 +4,8 @@
     /* --pinkzud: radial-gradient(orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua); */
     --lila1: linear-gradient(175deg, rgb(103, 41, 103), #973edb);
     --lila2: linear-gradient(175deg, #973edb, rgb(103, 41, 103));
+    --honey: linear-gradient(175deg, #e79a3f, orange);
+    --yenoh: linear-gradient(175deg, orange, #e79a3f);
     --patya: #0f6347;
     --darkGreen: #073224;
 }
@@ -12,6 +14,8 @@
     font-family: MOONREE;
     src: url(../fonts/Hubballi-Regular.ttf);
 }
+
+
 .hoverColor
 {
     transition-duration: 1s;
@@ -318,3 +322,12 @@ label {
     color: white;
 }
 
+.megetteCLASS
+{
+    background: var(--honey);
+}
+
+.megetteCLASS :hover
+{
+    background: var(--yenoh);
+}
