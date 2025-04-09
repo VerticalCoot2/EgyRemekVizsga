@@ -351,7 +351,26 @@ label {
     padding: 5px;
 }
 
+#tyom
+{
+    flex-direction: column;
+}
+.sor
+{
+    flex-direction: row;
+}
+
 .no-margin
 {
     margin: 0px;
+}
+
+#hiddenAtStart
+{
+    display: none;
+}
+
+.holder
+{
+    flex-direction: column;
 }

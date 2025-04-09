@@ -4,11 +4,18 @@
     <link rel="icon" href="../pictures/epol.png" sizes="225x225">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
     <link rel="stylesheet" href="../css/style.css">
+
     <script src="../javascript/jquery.js"></script>
     <script src="../javascript/kaloriaszamlalo.js"></script>
+    
+    <link rel="stylesheet" href="../css/select2.min.css">
+    <script src="../javascript/select2.min.js"></script>
     <title>Calc-Your-Cals</title>
 </head>
 <body>
@@ -34,6 +41,23 @@
       </div>
     </nav>
   
-  <div id="kalszam"></div>
+  <div class="holder">
+    <div>
+      <label for="szelect">I'm planning to</label>
+      <select name="szelect" id="terv">
+        <option selected hidden>Choose...</option>
+        <option value="Fogyas">Lose wight</option>
+        <option value="TomegNovel">Keep weight</option>
+        <option value="TomegMegtart">Get weight</option>
+      </select>
+    </div>
+    <!-- <button type="button" id="SelectPLAN">GOMB</button> -->
+    <div id="hiddenAtStart">
+      <select class="js-example-basic-single" name="patya" id="patya">
+    
+      </select>
+    </div>
+  </div>
+  <div id="tyom"></div>
 </body>
 </html>
