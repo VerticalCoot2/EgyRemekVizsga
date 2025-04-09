@@ -266,6 +266,7 @@ body
 /*EZ A SELECT2 MODOSÍTÓ SZAR!!!!!*/
 .js-example-basic-single
 {
+    color: black;
     width: 80%;
     margin: 50px;
 }
@@ -287,6 +288,28 @@ body
 }
 
 .card div
+{
+    justify-content: center;
+    align-items: center;
+}
+
+.cardEaten
+{
+    height: 400px;
+    width: 300px;
+    background: var(--honey);
+    color: white;
+    border-radius: 9px;
+    flex-direction: column;
+    font-size: small;
+}
+
+.cardEaten:hover
+{
+    background: var(--yenoh);
+}
+
+.cardEaten div
 {
     justify-content: center;
     align-items: center;
