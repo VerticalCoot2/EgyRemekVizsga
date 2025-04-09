@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function()
             for(let i = 0; i < data.length; i++)
             {
                 console.log(i)
-                cardGen(data[i]);
+                cardGen(data[i], document.getElementById("Fede"));
             }
             //document.getElementById("Fede").innerHTML = String(savedItems);
         }        
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function()
         console.log(savedItems);
     });
     listVisibilityCheck(document.getElementById("Fede"));
+    listVisibilityCheck(document.getElementById("mindmegette"));
     build(document.getElementById("patya"));
 
     $('.js-example-basic-single').select2();
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function()
         };
         console.log(data);
         //console.log(datya);
-        cardGen(data);
+        cardGen(data, document.getElementById("Fede"));
         listVisibilityCheck(document.getElementById("Fede"));
     });
 
@@ -120,9 +121,9 @@ async function build(target)
     }
 }
 
-function cardGen(data)
+function cardGen(data, target)
 {
-    let target = document.getElementById("Fede");
+    //let target = document.getElementById("Fede");
     let card = document.createElement("div");
         card.dataset.adatk = JSON.stringify(data);
         card.dataset.id = data.id;
@@ -172,11 +173,23 @@ function cardGen(data)
                 deleteBTN.type = "button";
                 deleteBTN.addEventListener("click", function()
                 {
-                console.log("Deleting ID:" + this.parentElement.parentElement.dataset.id);
-                this.parentElement.parentElement.remove();
-                listVisibilityCheck(document.getElementById("Fede"));
+                    console.log("Deleting ID:" + this.parentElement.parentElement.dataset.id);
+                    this.parentElement.parentElement.remove();
+                    listVisibilityCheck(document.getElementById("Fede"));
+                    listVisibilityCheck(document.getElementById("mindmegette"));
                 });
             deleteBTN.innerHTML = "DELETE";
+        
+            let eatenBTN = document.createElement("button");
+                eatenBTN.type = "button";
+                eatenBTN.addEventListener("click", function()
+                {
+                    console.log("megette: " + this.parentElement.parentElement.dataset.id);
+                    cardGen(data, document.getElementById("mindmegette"));
+                    listVisibilityCheck(document.getElementById("mindmegette"));
+                    
+                });
+                eatenBTN.innerHTML = "I ate this";
 
             let fChoice = document.createElement("select");
                 let reg = document.createElement("option");
@@ -226,7 +239,6 @@ function cardGen(data)
                         choose.selected = true;
                         break;
                 }
-
                 fChoice.appendChild(choose);
                 fChoice.appendChild(reg);
                 fChoice.appendChild(tiz);
@@ -241,8 +253,8 @@ function cardGen(data)
                 card.dataset.adatk = JSON.stringify(data);
             });
             
-
-            bottom.appendChild((fChoice));
+            bottom.appendChild(eatenBTN);
+            bottom.appendChild(fChoice);
             bottom.appendChild(deleteBTN);
 
             
