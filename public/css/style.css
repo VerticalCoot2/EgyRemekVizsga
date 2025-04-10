@@ -397,3 +397,13 @@ label {
 {
     flex-direction: column;
 }
+
+h2
+{
+    text-align: center;
+}
+
+.arnyekDIV
+{
+    box-shadow: 0px -10px 10px 10px var(--darkGreen);
+}

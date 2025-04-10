@@ -4,6 +4,7 @@ document .addEventListener("DOMContentLoaded", function()
     {
         console.log("/api/select"+ this.value);
         build("/api/select"+ this.value, document.getElementById("patya"));
+        $('.js-example-basic-single').select2();
         document.getElementById("hiddenAtStart").style.display = "flex";
     });
 });
