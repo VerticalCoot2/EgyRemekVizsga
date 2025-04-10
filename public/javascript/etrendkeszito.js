@@ -20,12 +20,9 @@ document.addEventListener("DOMContentLoaded", function()
 
     document.getElementById("biscuitShowButton").addEventListener("click", function()
     {
-<<<<<<< HEAD
     //    //console.log(biscuits);
         //console.log(savedItems);
-=======
         console.log(savedItems);
->>>>>>> fc6f4547af11ac57d43302cad4a816835abbcc6c
     });
     listVisibilityCheck(document.getElementById("Fede"));
     listVisibilityCheck(document.getElementById("mindmegette"));
@@ -60,12 +57,9 @@ document.addEventListener("DOMContentLoaded", function()
             id: selectData.id,
             dine: selectData.dine
         };
-<<<<<<< HEAD
         //console.log(data);
         ////console.log(datya);
-=======
         console.log(data);
->>>>>>> fc6f4547af11ac57d43302cad4a816835abbcc6c
         cardGen(data, document.getElementById("Fede"));
         listVisibilityCheck(document.getElementById("Fede"));
     });
@@ -78,25 +72,19 @@ document.addEventListener("DOMContentLoaded", function()
         {
             biscuitBASE.push(JSON.parse(cardHolder.children[i].dataset.adatk))
         }
-<<<<<<< HEAD
         // //console.log(biscuit);
         //biscuits = biscuitBASE;
         localStorage.setItem("saved", JSON.stringify(biscuitBASE));
         //console.log(localStorage.getItem("saved"));
 
         ////console.log(biscuits);
-=======
         localStorage.setItem("saved", JSON.stringify(biscuitBASE));
         console.log(localStorage.getItem("saved"));
->>>>>>> fc6f4547af11ac57d43302cad4a816835abbcc6c
     });
 
     document.getElementById("biscuitDelete").addEventListener("click", function()
     {
-<<<<<<< HEAD
         //console.log("fasz");
-=======
->>>>>>> fc6f4547af11ac57d43302cad4a816835abbcc6c
         localStorage.setItem("saved", "[]");
         //console.log(savedItems);
     });

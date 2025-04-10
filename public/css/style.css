@@ -53,7 +53,7 @@ div
 
 body
 {
-    background: var(--darkGreen);
+    background: white;
     margin: 0%;
     font-family: MOONREE;
     color: white;
@@ -350,6 +350,7 @@ label {
     text-align: center;
     display: block;
 }
+
 
 .main-cucc
 {
