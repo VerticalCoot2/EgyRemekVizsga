@@ -391,6 +391,7 @@ label {
 #hiddenAtStart
 {
     display: none;
+    justify-content: center;
 }
 
 .holder

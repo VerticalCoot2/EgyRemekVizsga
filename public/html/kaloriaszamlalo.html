@@ -31,10 +31,10 @@
               <a class="nav-link" href="/fooldal" >Main</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/etrendkeszito">Meal-maker</a>
+              <a class="nav-link active" aria-current="page" href="/kaloriaszamlalo">Calc-Your-Cals</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/kaloriaszamlalo">Calc-Your-Cals</a>
+              <a class="nav-link" href="/etrendkeszito">Meal-maker</a>
             </li>
           </ul>
         </div>
@@ -52,25 +52,31 @@
       </select>
     </div>
     <!-- <button type="button" id="SelectPLAN">GOMB</button> -->
-    <div id="hiddenAtStart">
-      <select class="js-example-basic-single" name="patya" id="patya">
     
-      </select>
-    </div>
   </div>
-  <select name="selectSex" id="selectSex">
-    <option selected hidden>Choose...</option>
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-  </select>
-  <select name="dailyActivity" id="dailyActivity">
-    <option selected hidden>Choose...</option>
-    <option value="1.2">Barely any activity</option>
-    <option value="1.375">Light activity</option>
-    <option value="1.55">Mild Activity</option>
-    <option value="1.725">High Activity</option>
-    <option value="1.9">Very High Activity</option>
-  </select>
-  <button type="button" id="CalcCalorie">Calc-my-calc</button>
+  <div>
+    <select name="selectSex" id="selectSex">
+      <option selected hidden>Choose...</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <select name="dailyActivity" id="dailyActivity">
+      <option selected hidden>Choose...</option>
+      <option value="1.2">Barely any activity</option>
+      <option value="1.375">Light activity</option>
+      <option value="1.55">Mild Activity</option>
+      <option value="1.725">High Activity</option>
+      <option value="1.9">Very High Activity</option>
+    </select>
+    <button type="button" id="CalcCalorie">Calc-my-calc</button>
+  </div>
+  
+
+  <div id="hiddenAtStart">
+    <select class="js-example-basic-single" name="patya" id="patya">
+  
+    </select>
+  </div>
+
 </body>
 </html>
