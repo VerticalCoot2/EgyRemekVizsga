@@ -405,5 +405,6 @@ h2
 
 .arnyekDIV
 {
+    justify-content: center;
     box-shadow: 0px -10px 10px 10px var(--darkGreen);
 }
