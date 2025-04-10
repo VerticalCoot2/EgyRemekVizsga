@@ -1,10 +1,11 @@
 document .addEventListener("DOMContentLoaded", function()
 {
+    $('.js-example-basic-single').select2();
     document.getElementById("terv").addEventListener("change", async function()
     {
         console.log("/api/select"+ this.value);
+        
         build("/api/select"+ this.value, document.getElementById("patya"));
-        $('.js-example-basic-single').select2();
         document.getElementById("hiddenAtStart").style.display = "flex";
     });
     document.getElementById("selectSex").addEventListener("change", function()
