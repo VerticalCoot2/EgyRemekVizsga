@@ -2,10 +2,7 @@
 {
     --zud: linear-gradient(45deg, #07a16e, #0f6347);
     /* --pinkzud: radial-gradient(orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua); */
-    --lila1: linear-gradient(175deg, rgb(103, 41, 103), #973edb);
-    --lila2: linear-gradient(175deg, #973edb, rgb(103, 41, 103));
-    --honey: linear-gradient(175deg, #e79a3f, orange);
-    --yenoh: linear-gradient(175deg, orange, #e79a3f);
+    --menta: linear-gradient(175deg, rgb(97, 116, 110), #385a4a);
     --patya: #0f6347;
     --darkGreen: #073224;
 }
@@ -222,13 +219,6 @@ body
     justify-content: center;
 }
 
-.titel
-{
-    width: 100%;
-    height: 80px;
-    background: var(--zud);
-}
-
 .kaja
 {
     flex-wrap: wrap;
@@ -275,7 +265,7 @@ body
 {
     height: 400px;
     width: 300px;
-    background: var(--lila1);
+    background: var(--menta);
     color: white;
     border-radius: 9px;
     flex-direction: column;
@@ -284,7 +274,8 @@ body
 
 .card:hover
 {
-    background: var(--lila2);
+    box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, 0.2);
+    transition-duration: 0.3s;
 }
 
 .card div
@@ -297,7 +288,7 @@ body
 {
     height: 400px;
     width: 300px;
-    background: var(--honey);
+    background: var(--menta);
     color: white;
     border-radius: 9px;
     flex-direction: column;
@@ -306,7 +297,8 @@ body
 
 .cardEaten:hover
 {
-    background: var(--yenoh);
+    box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, 0.2);
+    transition-duration: 0.3s;
 }
 
 .cardEaten div
@@ -392,6 +384,7 @@ label {
 #hiddenAtStart
 {
     display: none;
+    justify-content: center;
 }
 
 .holder
