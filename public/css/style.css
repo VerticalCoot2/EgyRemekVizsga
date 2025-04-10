@@ -62,6 +62,7 @@ div
 body
 {
     background: var(--darkBlue);
+    background: white;
     margin: 0%;
     font-family: MOONREE;
     color: white;
@@ -365,6 +366,7 @@ label {
     display: block;
     font-weight: bold;
 }
+
 
 .main-cucc
 {
