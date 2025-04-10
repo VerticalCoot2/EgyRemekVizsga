@@ -11,13 +11,43 @@ document .addEventListener("DOMContentLoaded", function()
     document.getElementById("selectSex").addEventListener("change", function()
     {
         console.log(TargetCalorie(80, 176, 20));
-    })
-    document.getElementById("CalcCalorie").addEventListener("click", function()
+    });
+
+    let calcCalBTN = document.getElementById("CalcCalorie");
+    calcCalBTN.disabled = true;
+    calcCalBTN.addEventListener("click", function()
     {
         FinalCalorie(document.getElementById("terv").value, TargetCalorie(80,176,20));
         const targetCalorie = FinalCalorie(document.getElementById("terv").value, TargetCalorie(80,176,20));
         localStorage.setItem('targetCalorie', targetCalorie);
-    })
+    });
+
+    let reqInputFields = document.getElementsByClassName("requiredFields");
+    //console.log(reqInputFields);
+    for(let i = 0; i < reqInputFields.length; i++)
+    {
+        reqInputFields[i].dataset.value = true;
+        reqInputFields[i].addEventListener("change", function()
+        {
+            console.log(this.value);
+            if(this.value != null || this.value != "")
+            {
+                this.dataset.value = false;
+            }
+            else
+            {
+                this.dataset.value = true;
+            }
+            if(reqInputFields[0].dataset.value == reqInputFields[1].dataset.value && reqInputFields[2].dataset.value == reqInputFields[1].dataset.value && reqInputFields[0].dataset.value == "false")
+            {
+                calcCalBTN.disabled = false;
+            }
+            else
+            {
+                calcCalBTN.disabled = true;
+            }
+        });
+    }
 });
 
 
