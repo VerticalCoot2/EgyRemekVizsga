@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function()
         {
             for(let i = 0; i < data.length; i++)
             {
-                console.log(i)
+                //console.log(i)
                 cardGen(data[i], document.getElementById("Fede"));
             }
             //document.getElementById("Fede").innerHTML = String(savedItems);
@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function()
 
     document.getElementById("biscuitShowButton").addEventListener("click", function()
     {
-    //    console.log(biscuits);
-        console.log(savedItems);
+    //    //console.log(biscuits);
+        //console.log(savedItems);
     });
     listVisibilityCheck(document.getElementById("Fede"));
     listVisibilityCheck(document.getElementById("mindmegette"));
@@ -30,21 +30,14 @@ document.addEventListener("DOMContentLoaded", function()
     $('.js-example-basic-single').select2();
 
 
-    async function SelectID(id)
-    {
-        let response = fetch("/api/selectID?id=" + id,
-        {
-            method : "GET"
-        });
-        return (await response).json();
-    }
+    
     document.getElementById("addBTN").addEventListener("click", async function()
     {
         let selectedID = document.getElementById("patya").value;
-        console.log(selectedID);
+        //console.log(selectedID);
         let selectData = (await SelectID(selectedID))[0];
 
-        console.log(selectData);
+        //console.log(selectData);
 
         let data =
         {
@@ -63,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function()
             id: selectData.id,
             dine: selectData.dine
         };
-        console.log(data);
-        //console.log(datya);
+        //console.log(data);
+        ////console.log(datya);
         cardGen(data, document.getElementById("Fede"));
         listVisibilityCheck(document.getElementById("Fede"));
     });
@@ -78,19 +71,19 @@ document.addEventListener("DOMContentLoaded", function()
         {
             biscuitBASE.push(JSON.parse(cardHolder.children[i].dataset.adatk))
         }
-        // console.log(biscuit);
+        // //console.log(biscuit);
         //biscuits = biscuitBASE;
         localStorage.setItem("saved", JSON.stringify(biscuitBASE));
-        console.log(localStorage.getItem("saved"));
+        //console.log(localStorage.getItem("saved"));
 
-        //console.log(biscuits);
+        ////console.log(biscuits);
     });
 
     document.getElementById("biscuitDelete").addEventListener("click", function()
     {
-        console.log("fasz");
+        //console.log("fasz");
         localStorage.setItem("saved", "[]");
-        console.log(savedItems);
+        //console.log(savedItems);
     });
 
     document.getElementById("calcDailyCalcs").addEventListener("click", function()
@@ -98,34 +91,58 @@ document.addEventListener("DOMContentLoaded", function()
         holder = document.getElementById("mindmegette");
         if(holder.innerHTML != null)
         {
-            let caloiesSUM = 0;
-            //console.log(holder.childElementCount)
-            for(let i = 0; i < holder.childElementCount; i++)
-            {
-                caloiesSUM += JSON.parse(holder.children[i].dataset.adatk).foodDATA.Calories;
-            }
-            console.log(caloiesSUM);
-            checkCaloriePlan(caloiesSUM);
-
+            checkCaloriePlan(EatenCalsSUM());
         }
     });
+
+    document.getElementById("fyhe").innerHTML = "Foods you have eaten: " + document.getElementById("mindmegette").childElementCount;
+    document.getElementById("allCals").innerHTML = "Target calorie: " + getSavedCal() + " SUM of the calories: " + EatenCalsSUM();
     
 });
 
+async function SelectID(id)
+{
+    let response = fetch("/api/selectID?id=" + id,
+    {
+        method : "GET"
+    });
+    return (await response).json();
+}
+
+function EatenCalsSUM()
+{
+    holder = document.getElementById("mindmegette");
+    if(holder.innerHTML != null)
+    {
+        let caloiesSUM = 0;
+        for(let i = 0; i < holder.childElementCount; i++)
+        {
+            caloiesSUM += JSON.parse(holder.children[i].dataset.adatk).foodDATA.Calories;
+        }
+        return parseInt(caloiesSUM);
+    }
+    return "You haven't ate anything today";
+}
+
+function getSavedCal()
+{
+    try
+    {
+        //console.log(parseFloat(localStorage.getItem("targetCalorie")))
+        return parseFloat(localStorage.getItem("targetCalorie"));
+    }
+    catch
+    {
+        alert("Nincs adat");
+    }
+}
 
 
 function checkCaloriePlan(digestedCalories)
 {
-    let tc = 0;
-    const calorie = localStorage.getItem("targetCalorie");
-    if(calorie)
-    {
-        tC = parseFloat(calorie);
-    }
-    else
-    {
-        alert("Nincs adat");
-    }
+    let tC = parseFloat(getSavedCal());
+    console.log(typeof(tC));
+    console.log(tC);
     let beszolasok = [["You're so skinny, you could hula hoop with a Cheerio.","You turn sideways and disappear.","If you walked into a spider web, you’d get tied up.","You're the only person who can use floss as a belt.","You're not skinny – you're basically a line of code.",        "You have to run around in the shower to get wet.",        "Even your shadow looks underweight.",        "You're the reason hangers feel insecure.",        "You fall through cracks in the sidewalk.",        "You could dodge raindrops.",        "You wear spaghetti straps and they look like trench coats.",        "You're the only one who can tightrope walk on a phone cable.",        "If a breeze hits, you end up in the neighbor’s yard.",        "You hide behind lampposts... and vanish.",        "You're the first to get taken by a balloon.",        "You sneeze and fly across the room.",        "Your ribs have their own zip code.",        "You're the stick figure in every diagram.",        "You're the 'before' photo for protein powder.",        "You use a paperclip for a belt buckle.",        "A twig once tried to date you.",        "You're so thin, you could sword fight with a toothpick.",        "Your whole outfit fits in a sandwich bag.",        "You once wore a ring as a bracelet.",        "Your bones echo when you walk.",        "You get lost in your own clothes.",        "You once bench-pressed a cotton ball and pulled something.",        "You do pushups and float.",        "Even your jeans skip leg day.",        "Your profile picture is literally your profile.",        "You turn sideways and become invisible.",        "You're the reason 'low-fat' has a face.",        "You blend in with fence posts.",        "You're a strong gust away from Narnia.",        "You're built like a question mark without the dot.",        "Your shadow is jealous of your mass.",        "You sit on air – no chair needed.",        "You once got mistaken for a mic stand.",        "You skip meals and vanish.",        "You climb stairs and they say, 'Where’d you go?'",        "You're a scarecrow’s role model.",        "Your hugs feel like pipe cleaners.",        "You once hid behind a pencil.",        "You wear chapstick like foundation.",        "Your collarbones have collarbones.",        "You wear shoelaces as scarves.",        "Your blood type is 'transparent'.",        "You use a Q-tip for a walking stick.",        "You're too small for x-rays to detect.",        "A shirt button once outweighed you.",        "Your Halloween costume is always ‘skeleton’.",      ], [        "You're the reason the fridge has a panic button.",        "When you step on a scale, it says 'To be continued...'",        "NASA mistook you for a new moon.",        "You make elevators pray.",        "You're not just big-boned, you’re whole-skeletoned.",        "Your shadow has its own zip code.",        "When you jump, the ground apologizes.",        "You're the only person whose chair files a worker's comp claim.",        "You don't wear clothes, you wear tarps.",        "You sneeze and cause small earthquakes.",        "Even your mirror takes a deep breath before reflecting.",        "Your favorite workout is breathing heavy.",        "You bring a fork to a buffet like it's a weapon.",        "Your footsteps count as seismic activity.",        "Your idea of portion control is using one hand.",        "You sat on a coin and made it a pancake.",        "You enter a pool and it becomes a tsunami simulator.",        "Your bed has suspension – like a truck.",        "You’re on a seafood diet – you see food and eat it.",        "You're the reason they invented reinforced chairs.",        "If you were a superhero, your power would be gravitational pull.",        "You're not overweight, you're just gravitationally gifted.",        "You break a sweat thinking about salad.",        "When you run, the street gets tired.",        "You wear jeans stitched by ship sailmakers.",        "You leave crumbs wherever you go, like edible breadcrumbs.",        "Even your Fitbit gave up.",        "You walk into a bakery and they start baking faster.",        "Your grocery list reads like a restaurant menu.",        "Your clothes shop calls in extra staff when you enter.",        "Your reflection has a lag.",        "You don't walk – you orbit.",        "Your food pyramid is a rectangle... all carbs.",        "When you turn around, people think it's a time lapse.",        "Your napkin is a tablecloth.",        "You ask for a snack and get a pallet of chips.",        "You bite into a burger and it screams.",        "You consider breathing an exercise.",        "You need a GPS just to get around your belly.",        "Your pants size is just 'LOL'.",        "You're the reason the treadmill trembles.",        "You wear XL as a warm-up size.",        "You accidentally sit on your phone and call 911.",        "You don’t eat seconds. You eat fifths.",        "You make Santa look fit.",        "The fridge gets PTSD when it hears you coming.",        "You eat birthday cakes like they're muffins.",        "You're the boss fight in a food-themed video game.",        "You once tried to jog... the street filed a complaint.",        "You sweat gravy.",        "You're the only person who deep-fries cereal.",      ]];
     if(digestedCalories < tC*0.9)
     {
@@ -155,7 +172,7 @@ async function build(target)
     patya.classList.add("kaja");
     target.innerHTML = null;
     let data = await szelektAll();
-    //console.log(await data.length)
+    ////console.log(await data.length)
     for(let i = 0;i < data.length ;i++)
     {
     
@@ -204,8 +221,8 @@ function cardGen(data, target)
                         th.innerHTML = "Volume(g)";
 
                     let td = document.createElement("td");
-                        //console.log(data.foodDATA.Calories +"*"+ data.foodDATA.help + "/200=" + (data.foodDATA.Calories*data.foodDATA.help)/200);
-                        //console.log(data.foodDATA);
+                        ////console.log(data.foodDATA.Calories +"*"+ data.foodDATA.help + "/200=" + (data.foodDATA.Calories*data.foodDATA.help)/200);
+                        ////console.log(data.foodDATA);
                         td.innerHTML = Math.round(((data.foodDATA.Calories*data.foodDATA.help)/200) *100)/100
                     
                     tr.appendChild(th);
@@ -220,10 +237,13 @@ function cardGen(data, target)
                 deleteBTN.type = "button";
                 deleteBTN.addEventListener("click", function()
                 {
-                    console.log("Deleting ID:" + this.parentElement.parentElement.dataset.id);
+                    //console.log("Deleting ID:" + this.parentElement.parentElement.dataset.id);
                     this.parentElement.parentElement.remove();
                     listVisibilityCheck(document.getElementById("Fede"));
                     listVisibilityCheck(document.getElementById("mindmegette"));
+
+                    document.getElementById("fyhe").innerHTML = "Foods you have eaten: " + document.getElementById("mindmegette").childElementCount;
+                    document.getElementById("allCals").innerHTML = "Target calorie: " + getSavedCal() + " SUM of the calories: " + EatenCalsSUM();
                 });
             deleteBTN.innerHTML = "DELETE";
         
@@ -234,11 +254,14 @@ function cardGen(data, target)
                 eatenBTN.type = "button";
                 eatenBTN.addEventListener("click", function()
                 {
-                    console.log("megette: " + this.parentElement.parentElement.dataset.id);
+                    //console.log("megette: " + this.parentElement.parentElement.dataset.id);
                     this.parentElement.parentElement.remove();
                     cardGen(data, document.getElementById("mindmegette"));
                     listVisibilityCheck(document.getElementById("mindmegette"));
                     listVisibilityCheck(document.getElementById("Fede"));
+                    
+                    document.getElementById("fyhe").innerHTML = "Foods you have eaten: " + document.getElementById("mindmegette").childElementCount;
+                    document.getElementById("allCals").innerHTML = "Target calorie: " + getSavedCal() + " SUM of the calories: " + EatenCalsSUM();
                     
                 });
                 eatenBTN.innerHTML = "I ate this";
@@ -301,7 +324,7 @@ function cardGen(data, target)
             {
                 card.dataset.dine = fChoice.value;
                 data.dine = fChoice.value;
-                //console.log(fChoice.value);
+                ////console.log(fChoice.value);
                 card.dataset.adatk = JSON.stringify(data);
             });
 
