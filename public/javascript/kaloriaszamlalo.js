@@ -20,6 +20,7 @@ document .addEventListener("DOMContentLoaded", function()
         FinalCalorie(document.getElementById("terv").value, TargetCalorie(80,176,20));
         const targetCalorie = FinalCalorie(document.getElementById("terv").value, TargetCalorie(80,176,20));
         localStorage.setItem('targetCalorie', targetCalorie);
+        alert("Your Calorie Target has been saved!\nYour target is: "+targetCalorie)
     });
 
     let reqInputFields = document.getElementsByClassName("requiredFields");
