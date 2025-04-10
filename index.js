@@ -22,9 +22,9 @@ router.get('/fooldal', (request, response) =>
 });
 
 router.get('/', (request, response) =>
-    {
-        response.sendFile(path.join(__dirname + '/public/html/index.html'));
-    });
+{
+    response.sendFile(path.join(__dirname + '/public/html/index.html'));
+});
 
 async function readfileAsync(filepath)
 {
