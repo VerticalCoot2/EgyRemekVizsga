@@ -7,7 +7,6 @@ const path = require('path');
 const fs = require('fs');
 const { CallTracker } = require('assert');
 const multer = require("multer");
-const { selectAll } = require('./sql/db-queries');
 const { request } = require('http');
 const upload = multer({dest : 'uploads/'})
 app.use(express.json());
@@ -81,35 +80,6 @@ app.post('/api/insertEtel' , upload.single('file'), async (req, res) =>
     }
 })
 
-
-app.post('/api/delete' , upload.single('file') ,async (req, res) =>
-    
-    {
-    let tomb_delete = [];
-    try
-    {
-        res.send(await db.Torol(tomb_delete));
-    }
-    catch(err)
-    {
-        console.log(err);
-    }
-        
-})
-
-app.post('/api/update' , upload.single('file') , async (req, res) =>
-    {
-    let tomb_update = [];
-    try
-    {
-        res.send(await db.update(tomb_update));
-    }
-    catch(err)
-    {
-        console.log(err);
-    }
-})
-
 app.get('/api/selectID' , async (req, res) =>
     {
     try
@@ -122,18 +92,6 @@ app.get('/api/selectID' , async (req, res) =>
     }
 })
 
-
-/*app.get('/admin', (req, res) => {
-    const adminPassword = 'admin'; // Helyettesítsd saját jelszóval
-    const providedPassword = req.query.password; // Jelszó lekérése query paraméterben
-  
-    if (providedPassword === adminPassword) {
-        res.sendFile(path.join(__dirname + '/admin/admin.html'));
-    } else {
-      res.status(403).json({ message: 'Hozzáférés megtagadva: érvénytelen jelszó!' });
-    }
-  });e*/
-//a felette lévő biztos mukszik ezt meg nem neztem
 const basicAuth = require('express-basic-auth');
 
 app.use('/admin', basicAuth({

@@ -3,6 +3,7 @@
     --zud: linear-gradient(45deg, #07a16e, #0f6347);
     /* --pinkzud: radial-gradient(orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua); */
     --menta: linear-gradient(175deg, rgb(97, 116, 110), #385a4a);
+    --menta2: linear-gradient(175deg, rgb(64, 71, 69), #385a4a);
     --patya: #0f6347;
     --darkGreen: #073224;
 }
@@ -263,13 +264,13 @@ body
 
 .card
 {
-    height: 400px;
-    width: 300px;
+    height: 500px;
+    width: 340px;
     background: var(--menta);
     color: white;
     border-radius: 9px;
     flex-direction: column;
-    font-size: small;
+    font-size: 18px;
 }
 
 .card:hover
@@ -286,13 +287,13 @@ body
 
 .cardEaten
 {
-    height: 400px;
-    width: 300px;
-    background: var(--menta);
+    height: 500px;
+    width: 340px;
+    background: var(--menta2);
     color: white;
     border-radius: 9px;
     flex-direction: column;
-    font-size: small;
+    font-size: 18px;
 }
 
 .cardEaten:hover
@@ -364,6 +365,7 @@ label {
     flex-direction: column;background-color: #07a16e;
     border-radius: 25px;
     padding: 5px;
+    font-size: 1.5vw;
 }
 
 #tyom

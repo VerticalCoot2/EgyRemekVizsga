@@ -97,39 +97,10 @@ function selectAllAdmin() {
         });
     });
 }
-//felesleges function, de hátha kell
-// function update(tomb_update)
-// {
-//     return new Promise((resolve, reject) =>
-//     {
-//         console.log(tomb_apdet);
-//         pool.query("UPDATE etelek SET Name=?, Calories=?, Fat_g_=?, Protein_g_=?, Carbohydrate_g_=?, Sugars_g_=? ,Fiber_g_=?, _200_Calorie_Weight_g_=? WHERE id=?", tomb_update, (err, result) =>
-//         {
-//             if(err) return reject(err);
-//             resolve(result);
-//         });
-//     });
-// }
-
-function Torol(tomb_delete)
-{
-    return new Promise((resolve, reject) =>
-    {
-        pool.query('DELETE FROM etelek WHERE id = ?;', tomb_delete , (err, result) =>
-        {
-            if(err) return reject(err);
-            resolve(result);
-        });
-    });
-}
-
-
 
 module.exports = {
     selectAll,
     insert,
-    //update,
-    Torol,
     selectID,
     selectFogyas,
     selectTomegMegtart,
