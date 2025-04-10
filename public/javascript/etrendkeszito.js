@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function()
 
     document.getElementById("biscuitShowButton").addEventListener("click", function()
     {
-    //    console.log(biscuits);
         console.log(savedItems);
     });
     listVisibilityCheck(document.getElementById("Fede"));
@@ -52,19 +51,18 @@ document.addEventListener("DOMContentLoaded", function()
             foodDATA:
             {
                 "Calories": selectData.Calories,
-                "Fat_g": selectData.Fat_g_,
-                "Protein_g": selectData.Protein_g_,
-                "Carbohydrate_g": selectData.Carbohydrate_g_,
-                "Sugars_g": selectData.Sugars_g_,
-                "Fiber_g": selectData.Fiber_g_,
-                "200_Calorie_Weight_g": selectData._200_Calorie_Weight_g_,
+                "Fat(g)": selectData.Fat_g_,
+                "Protein(g)": selectData.Protein_g_,
+                "Carbohydrate(g)": selectData.Carbohydrate_g_,
+                "Sugars(g)": selectData.Sugars_g_,
+                "Fiber(g)": selectData.Fiber_g_,
+                "200 Calorie/Weight(g)": selectData._200_Calorie_Weight_g_,
                 "help": selectData._200_Calorie_Weight_g_
             },
             id: selectData.id,
             dine: selectData.dine
         };
         console.log(data);
-        //console.log(datya);
         cardGen(data, document.getElementById("Fede"));
         listVisibilityCheck(document.getElementById("Fede"));
     });
@@ -73,22 +71,16 @@ document.addEventListener("DOMContentLoaded", function()
     {
         let biscuitBASE = [];
         let cardHolder = document.getElementById("Fede");
-        //localStorage.setItem("saved", cardHolder.innerHTML);
         for(let i = 0; i < cardHolder.childElementCount; i++)
         {
             biscuitBASE.push(JSON.parse(cardHolder.children[i].dataset.adatk))
         }
-        // console.log(biscuit);
-        //biscuits = biscuitBASE;
         localStorage.setItem("saved", JSON.stringify(biscuitBASE));
         console.log(localStorage.getItem("saved"));
-
-        //console.log(biscuits);
     });
 
     document.getElementById("biscuitDelete").addEventListener("click", function()
     {
-        console.log("fasz");
         localStorage.setItem("saved", "[]");
         console.log(savedItems);
     });
