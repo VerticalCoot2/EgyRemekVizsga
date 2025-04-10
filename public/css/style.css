@@ -365,6 +365,7 @@ label {
     flex-direction: column;background-color: #07a16e;
     border-radius: 25px;
     padding: 5px;
+    font-size: 1.5vw;
 }
 
 #tyom
@@ -384,6 +385,7 @@ label {
 #hiddenAtStart
 {
     display: none;
+    justify-content: center;
 }
 
 .holder
