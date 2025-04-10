@@ -5,7 +5,7 @@ document .addEventListener("DOMContentLoaded", function()
     {
         console.log("/api/select"+ this.value);
         
-        build("/api/select"+ this.value, document.getElementById("patya"));
+        build("/api/select"+ this.value, document.getElementById("sel2"));
         document.getElementById("hiddenAtStart").style.display = "flex";
     });
     document.getElementById("selectSex").addEventListener("change", function()
@@ -53,8 +53,8 @@ document .addEventListener("DOMContentLoaded", function()
 
 async function build(url, target)
 {
-    let patya = document.getElementById("patya");
-    patya.classList.add("kaja");
+    let sel2 = document.getElementById("sel2");
+    sel2.classList.add("kaja");
     target.innerHTML = null;
     let data = await fetchGET(url)
     //console.log(await data.length)

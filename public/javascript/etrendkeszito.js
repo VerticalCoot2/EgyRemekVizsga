@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function()
     });
     listVisibilityCheck(document.getElementById("Fede"));
     listVisibilityCheck(document.getElementById("mindmegette"));
-    build(document.getElementById("patya"));
+    build(document.getElementById("sel2"));
 
     $('.js-example-basic-single').select2();
 
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function()
     
     document.getElementById("addBTN").addEventListener("click", async function()
     {
-        let selectedID = document.getElementById("patya").value;
+        let selectedID = document.getElementById("sel2").value;
         //console.log(selectedID);
         let selectData = (await SelectID(selectedID))[0];
 
@@ -171,8 +171,8 @@ async function szelektAll()
 
 async function build(target)
 {
-    let patya = document.getElementById("patya");
-    patya.classList.add("kaja");
+    let sel2 = document.getElementById("sel2");
+    sel2.classList.add("kaja");
     target.innerHTML = null;
     let data = await szelektAll();
     ////console.log(await data.length)
