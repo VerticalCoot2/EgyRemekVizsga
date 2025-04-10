@@ -54,6 +54,15 @@ a
     align-self: center;
 }
 
+.szoveghatter
+{
+    background-color: #bab86c;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
 div
 {
     display: flex;
@@ -62,10 +71,15 @@ div
 body
 {
     background: var(--darkBlue);
-    background: white;
+    background: rgb(255, 255, 255);
     margin: 0%;
     font-family: MOONREE;
-    color: white;
+    color: rgb(0, 0, 0);
+}
+
+label
+{
+    color: black;
 }
 
 .select2-search__field
@@ -349,10 +363,6 @@ input {
     width: 100%;     /* width is up to you */
 }
 
-label {
-    color: white;
-}
-
 #logo
 {
     width: 80px;
@@ -390,6 +400,7 @@ button
     border: 0px;
     width: 14vh;
     height: 7vh;
+    margin: 1vh;
 }
 
 button:hover
