@@ -403,6 +403,14 @@ button
     margin: 0.3vh 1vh 0.3vh 1vh;
 }
 
+#caltarget
+{
+    background-color: #bab86c;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
 button:hover
 {
     background-color: #665941;

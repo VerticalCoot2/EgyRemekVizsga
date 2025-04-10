@@ -18,9 +18,11 @@ document .addEventListener("DOMContentLoaded", function()
     calcCalBTN.addEventListener("click", function()
     {
         FinalCalorie(document.getElementById("terv").value, TargetCalorie(80,176,20));
-        const targetCalorie = FinalCalorie(document.getElementById("terv").value, TargetCalorie(80,176,20));
+        const targetCalorie = Math.round(FinalCalorie(document.getElementById("terv").value, TargetCalorie(80,176,20)));
         localStorage.setItem('targetCalorie', targetCalorie);
-        alert("Your Calorie Target has been saved!\nYour target is: "+targetCalorie)
+        alert("Your Calorie Target has been saved!")
+        let caltarget=document.getElementById("caltarget")
+        caltarget.innerHTML='<h2>Your Calorie Target is: '+targetCalorie+'</h2>'
     });
 
     let reqInputFields = document.getElementsByClassName("requiredFields");
