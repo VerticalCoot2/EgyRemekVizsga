@@ -238,6 +238,7 @@ function cardGen(data, target)
             bottom.classList.add("bottom");
             let deleteBTN = document.createElement("button");
                 deleteBTN.type = "button";
+                deleteBTN.classList.add("btn")
                 deleteBTN.addEventListener("click", function()
                 {
                     //console.log("Deleting ID:" + this.parentElement.parentElement.dataset.id);
@@ -255,6 +256,7 @@ function cardGen(data, target)
                 card.classList.add("card");
                 let eatenBTN = document.createElement("button");
                 eatenBTN.type = "button";
+                eatenBTN.classList.add("btn")
                 eatenBTN.addEventListener("click", function()
                 {
                     //console.log("megette: " + this.parentElement.parentElement.dataset.id);
