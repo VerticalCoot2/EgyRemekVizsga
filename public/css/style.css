@@ -2,10 +2,11 @@
 {
     --zud: linear-gradient(45deg, #07a16e, #0f6347);
     /* --pinkzud: radial-gradient(orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua); */
-    --menta: linear-gradient(175deg, rgb(97, 116, 110), #385a4a);
-    --menta2: linear-gradient(175deg, rgb(64, 71, 69), #385a4a);
-    --patya: #0f6347;
-    --darkGreen: #073224;
+    --menta: linear-gradient(175deg, rgb(110, 146, 116), #a1ba8c);
+    --menta2: linear-gradient(175deg, rgb(64, 71, 69), #95a781);
+    --olive:#bab86c;
+    --zold: #0f6347;
+    --darkBlue: #ffffff;
 }
 @font-face
 {
@@ -13,6 +14,13 @@
     src: url(../fonts/Hubballi-Regular.ttf);
 }
 
+.sticky
+{
+    z-index: 2;
+    position: sticky;
+    top: 0px;
+    font-size: 2vh;
+}
 
 .hoverColor
 {
@@ -53,7 +61,7 @@ div
 
 body
 {
-    background: var(--darkGreen);
+    background: var(--darkBlue);
     margin: 0%;
     font-family: MOONREE;
     color: white;
@@ -81,6 +89,12 @@ body
     font-size: 15vw;
     margin: 0%;
     
+}
+
+.oliva
+{
+    background-color: rgb(229,229,206);
+    border-radius: 25px;
 }
 
 .titelText p
@@ -197,11 +211,11 @@ body
     max-height: 750px; 
     overflow-y: scroll;
     width: 80%;
-    border: 10px solid var(--patya);
+    border: 10px solid rgba(184, 180, 144, 0.836);
     border-radius: 30px;
     padding: 10px;
     margin-block: 10px;
-    background: white;
+    background: rgba(155, 152, 117, 0.836);
     font-size: 60px;
     scrollbar-width: none;
     scroll-behavior: smooth;
@@ -275,7 +289,7 @@ body
 
 .card:hover
 {
-    box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, 0.2);
+    box-shadow: 8px 8px 2px 1px rgba(108, 108, 138, 0.2);
     transition-duration: 0.3s;
 }
 
@@ -298,7 +312,7 @@ body
 
 .cardEaten:hover
 {
-    box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, 0.2);
+    box-shadow: 8px 8px 2px 1px rgba(108, 108, 138, 0.2);
     transition-duration: 0.3s;
 }
 
@@ -349,6 +363,7 @@ label {
 {
     text-align: center;
     display: block;
+    font-weight: bold;
 }
 
 .main-cucc
@@ -356,16 +371,43 @@ label {
     padding: 15px;
 }
 
+#insert
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+button
+{
+    background-color: #99845d;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    border: 0px;
+    width: 14vh;
+    height: 7vh;
+}
+
+button:hover
+{
+    background-color: #665941;
+    color: white;
+    transition-duration: 0.5s;
+}
+
 .belso-elemek
 {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;background-color: #07a16e;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: var(--olive);
     border-radius: 25px;
     padding: 5px;
-    font-size: 1.5vw;
+    font-size: 2vh;
 }
 
 #tyom
@@ -401,5 +443,10 @@ h2
 .arnyekDIV
 {
     justify-content: center;
-    box-shadow: 0px -10px 10px 10px var(--darkGreen);
+    box-shadow: 0px -10px 10px 10px var(--darkBlue);
+}
+
+#navbut:hover
+{
+    background-color: white;
 }

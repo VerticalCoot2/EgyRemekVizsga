@@ -19,10 +19,10 @@
     <title>Calc-Your-Cals</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky">
       <div class="container-fluid">
         <img src="../pictures/Flux_Dev_A_cute_and_playful_red_apple_character_with_a_smiling_3.jpg" alt="logo" id="logo">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button id="navbut" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -45,7 +45,7 @@
     <div>
       <label for="szelect">I'm planning to</label>
       <select name="szelect" id="terv">
-        <option selected hidden>Choose...</option>
+        <option selected hidden>Choose your goal</option>
         <option value="Fogyas">Lose weight</option>
         <option value="TomegMegtart">Maintain weight</option>
         <option value="TomegNovel">Gain weight</option>
@@ -56,19 +56,19 @@
   </div>
   <div>
     <select name="selectSex" id="selectSex">
-      <option selected hidden>Choose...</option>
+      <option selected hidden>Choose your sex</option>
       <option value="Male">Male</option>
       <option value="Female">Female</option>
     </select>
     <select name="dailyActivity" id="dailyActivity">
-      <option selected hidden>Choose...</option>
+      <option selected hidden>Choose your activity level</option>
       <option value="1.2">Barely any activity</option>
       <option value="1.375">Light activity</option>
       <option value="1.55">Mild Activity</option>
       <option value="1.725">High Activity</option>
       <option value="1.9">Very High Activity</option>
     </select>
-    <button type="button" id="CalcCalorie">Calc-my-calc</button>
+    <button type="button" id="CalcCalorie">Calc-my-cals</button>
   </div>
   
 
