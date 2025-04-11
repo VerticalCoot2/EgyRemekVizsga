@@ -14,6 +14,17 @@
     src: url(../fonts/Hubballi-Regular.ttf);
 }
 
+div
+{
+    display: flex;
+}
+
+
+.oszlop
+{
+    flex-direction: column;
+}
+
 .sticky
 {
     z-index: 2;
@@ -63,10 +74,6 @@ a
     align-content: center;
 }
 
-div
-{
-    display: flex;
-}
 
 body
 {
@@ -93,7 +100,6 @@ label
     width: 100%;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     text-shadow: 1px 1px 1px black;
     gap: 10px;
     color: white;
@@ -121,17 +127,11 @@ label
 
 .titelText div
 {
-    flex-direction: column;
     justify-content: flex-start;
-}
-.site
-{
-    flex-direction: column;
 }
 
 .overDIV
 {
-    flex-direction: column;
     justify-content: space-around;
     gap: 20px;
     justify-content: center;
@@ -298,7 +298,6 @@ label
     background: var(--menta);
     color: white;
     border-radius: 9px;
-    flex-direction: column;
     font-size: 18px;
 }
 
@@ -321,7 +320,6 @@ label
     background: var(--menta2);
     color: white;
     border-radius: 9px;
-    flex-direction: column;
     font-size: 18px;
 }
 
@@ -351,7 +349,6 @@ label
 }
 .bottom
 {
-    flex-direction: column;
     gap: 5px;
     height: 20%;
 }
@@ -389,7 +386,6 @@ input {
     justify-content: center;
     align-items: center;
     align-content: center;
-    flex-direction: column;
 }
 
 button
@@ -421,20 +417,14 @@ button:hover
 .belso-elemek
 {
     width: 100%;
-    display: flex;
     align-items: center;
     justify-content: space-evenly;
-    flex-direction: column;
     background-color: var(--olive);
     border-radius: 25px;
     padding: 5px;
     font-size: 2vh;
 }
 
-#tyom
-{
-    flex-direction: column;
-}
 .sor
 {
     flex-direction: row;
@@ -449,11 +439,8 @@ button:hover
 {
     display: none;
     justify-content: center;
-}
-
-.holder
-{
-    flex-direction: column;
+    align-content: center;
+    align-items: center;
 }
 
 h2

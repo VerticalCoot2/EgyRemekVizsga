@@ -4,9 +4,26 @@ document .addEventListener("DOMContentLoaded", function()
     document.getElementById("terv").addEventListener("change", async function()
     {
         console.log("/api/select"+ this.value);
+        let youCanEat=document.getElementById("youCanEat")
+        if(document.getElementById("terv").value=="Fogyas")
+        {
+            youCanEat.innerHTML=null
+            youCanEat.innerHTML=("<h2>Foods you can eat for weight loss</h2>")
+        }
+        else if(document.getElementById("terv").value=="TomegMegtart")
+        {
+            youCanEat.innerHTML=null
+            youCanEat.innerHTML=("<h2>Foods you can eat for weight maintenance</h2>")
+        }
+        else
+        {
+            youCanEat.innerHTML=null
+            youCanEat.innerHTML=("<h2>Foods you can eat for weight gain</h2>")
+        }
         
         build("/api/select"+ this.value, document.getElementById("sel2"));
         document.getElementById("hiddenAtStart").style.display = "flex";
+        
     });
     document.getElementById("selectSex").addEventListener("change", function()
     {
@@ -20,7 +37,6 @@ document .addEventListener("DOMContentLoaded", function()
         let weight=parseInt(document.getElementById("weight").value)
         let age=parseInt(document.getElementById("age").value)
         let height=parseInt(document.getElementById("height").value)
-        console.log(weight+age+height)
         FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height));
         const targetCalorie = Math.round(FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height)));
         localStorage.setItem('targetCalorie', targetCalorie);

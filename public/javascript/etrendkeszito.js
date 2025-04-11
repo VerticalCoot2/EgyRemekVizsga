@@ -254,6 +254,7 @@ function cardGen(data, target)
             if(target.id == "Fede")
             {
                 card.classList.add("card");
+                card.classList.add("oszlop");
                 let eatenBTN = document.createElement("button");
                 eatenBTN.type = "button";
                 eatenBTN.addEventListener("click", function()
@@ -333,12 +334,14 @@ function cardGen(data, target)
             });
 
             bottom.appendChild(eatenBTN);
+            bottom.classList.add("oszlop")
             bottom.appendChild(fChoice);
 
             }
             else
             {
                 card.classList.add("cardEaten");
+                card.classList.add("oszlop");
                 if(data.dine != null)
                 {
                     let mire = document.createElement("div");
