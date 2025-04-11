@@ -1,5 +1,11 @@
 document .addEventListener("DOMContentLoaded", function()
 {
+    if(localStorage.getItem("targetCalorie") != null)
+    {
+        let caltarget=document.getElementById("caltarget")
+        caltarget.innerHTML=null
+        caltarget.innerHTML='<h2>Your Calorie Target is: '+localStorage.getItem("targetCalorie")+'</h2>'
+    }
     $('.js-example-basic-single').select2();
     document.getElementById("terv").addEventListener("change", async function()
     {
@@ -42,6 +48,7 @@ document .addEventListener("DOMContentLoaded", function()
         localStorage.setItem('targetCalorie', targetCalorie);
         alert("Your Calorie Target has been saved!")
         let caltarget=document.getElementById("caltarget")
+        caltarget.innerHTML=null
         caltarget.innerHTML='<h2>Your Calorie Target is: '+targetCalorie+'</h2>'
     });
 
