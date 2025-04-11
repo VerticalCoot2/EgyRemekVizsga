@@ -54,7 +54,7 @@ document .addEventListener("DOMContentLoaded", function()
             caltarget.innerHTML=null
             caltarget.innerHTML='<h2>Your Calorie Target is: '+targetCalorie+'</h2>'
         }
-        else if(weight <20 || height<50 || age>122)
+        else if(weight <20 || weight>400 || height<50 || height>272 ||age>122 || age<0)
         {
             alert("We need you to use real data!")
         }
