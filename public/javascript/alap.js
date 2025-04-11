@@ -6,18 +6,7 @@ document.addEventListener("DOMContentLoaded", function()
         
         let check = 0;
         let approved = true
-        while(check != inputs.length && approved)
-        {
-            if(inputs[check].value != "" && inputs[check].value != null)
-            {
-                check++;
-            }
-            else
-            {
-                approved = false;
-            }
-        }
-        if(approved)
+        if((inputs[0].value != "" && inputs[0].value != null) && (inputs[1].value != "" && inputs[1].value != null))
         {
             await insert_fetch();
             for(let i = 0; i < inputs.length; i++)
