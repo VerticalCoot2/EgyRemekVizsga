@@ -25,6 +25,11 @@ div
     flex-direction: column;
 }
 
+#calcKoszon
+{
+    background-color: #bab86c;
+}
+
 .sticky
 {
     z-index: 2;
