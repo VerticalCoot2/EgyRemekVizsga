@@ -4,7 +4,7 @@ document .addEventListener("DOMContentLoaded", function()
     {
         let caltarget=document.getElementById("caltarget")
         caltarget.innerHTML=null
-        caltarget.innerHTML='<h2>Your Calorie Target is: '+localStorage.getItem("targetCalorie")+'</h2>'
+        caltarget.innerHTML='<h2>Your Calorie Target is: '+localStorage.getItem("targetCalorie")+'</h2>\nIf you want to change it, just set your goals and data again ;)'
     }
     $('.js-example-basic-single').select2();
     document.getElementById("terv").addEventListener("change", async function()
