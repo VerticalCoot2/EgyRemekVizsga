@@ -1,6 +1,6 @@
 document .addEventListener("DOMContentLoaded", function()
 {
-    if(localStorage.getItem("targetCalorie") != null)
+    if(!isNaN(localStorage.getItem("targetCalorie")))
     {
         let caltarget=document.getElementById("caltarget")
         caltarget.innerHTML=null
@@ -46,10 +46,21 @@ document .addEventListener("DOMContentLoaded", function()
         FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height));
         const targetCalorie = Math.round(FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height)));
         localStorage.setItem('targetCalorie', targetCalorie);
-        alert("Your Calorie Target has been saved!")
+        
         let caltarget=document.getElementById("caltarget")
-        caltarget.innerHTML=null
-        caltarget.innerHTML='<h2>Your Calorie Target is: '+targetCalorie+'</h2>'
+        if(!isNaN(localStorage.getItem("targetCalorie")))
+        {
+            alert("Your Calorie Target has been saved!")
+            caltarget.innerHTML=null
+            caltarget.innerHTML='<h2>Your Calorie Target is: '+targetCalorie+'</h2>'
+        }
+        else if(weight <20 || height<50 || age>122)
+        {
+            alert("We need you to use real data!")
+        }
+        else{
+            alert("We need you to fill out everything, so we can give you an accurate calorie target")
+        }
     });
 
     let reqInputFields = document.getElementsByClassName("requiredFields");
