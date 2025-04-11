@@ -17,8 +17,12 @@ document .addEventListener("DOMContentLoaded", function()
     calcCalBTN.disabled = true;
     calcCalBTN.addEventListener("click", function()
     {
-        FinalCalorie(document.getElementById("terv").value, TargetCalorie(80,176,20));
-        const targetCalorie = Math.round(FinalCalorie(document.getElementById("terv").value, TargetCalorie(80,176,20)));
+        let weight=parseInt(document.getElementById("weight").value)
+        let age=parseInt(document.getElementById("age").value)
+        let height=parseInt(document.getElementById("height").value)
+        console.log(weight+age+height)
+        FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height));
+        const targetCalorie = Math.round(FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height)));
         localStorage.setItem('targetCalorie', targetCalorie);
         alert("Your Calorie Target has been saved!")
         let caltarget=document.getElementById("caltarget")
@@ -82,7 +86,7 @@ async function fetchGET(url)
     return (await response).json();
 }
 
-function TargetCalorie(weight, height, age)
+function TargetCalorie(weight,age,height)
 {
     let sex = document.getElementById("selectSex").value;
     if(sex == "Male")

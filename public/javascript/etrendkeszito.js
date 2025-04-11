@@ -256,7 +256,6 @@ function cardGen(data, target)
                 card.classList.add("card");
                 let eatenBTN = document.createElement("button");
                 eatenBTN.type = "button";
-                eatenBTN.classList.add("btn")
                 eatenBTN.addEventListener("click", function()
                 {
                     //console.log("megette: " + this.parentElement.parentElement.dataset.id);
