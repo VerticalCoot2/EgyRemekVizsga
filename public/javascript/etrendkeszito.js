@@ -1,12 +1,13 @@
 //let biscuits = document.cookie;
-let savedItems = localStorage.getItem("saved");
+let SavedNotEatenFoods = localStorage.getItem("savedFoods");
+let SavedEatenFoods = localStorage.getItem("savedEatenFoods");
 let dailyCalories = 1500;
 document.addEventListener("DOMContentLoaded", function()
 {
-    if(savedItems!=null)
+    if(SavedNotEatenFoods!=null)
     {
         
-        let data = JSON.parse(savedItems);
+        let data = JSON.parse(SavedNotEatenFoods);
         if(data != [])
         {
             for(let i = 0; i < data.length; i++)
@@ -14,15 +15,39 @@ document.addEventListener("DOMContentLoaded", function()
                 //console.log(i)
                 cardGen(data[i], document.getElementById("Fede"));
             }
-            //document.getElementById("Fede").innerHTML = String(savedItems);
+            //document.getElementById("Fede").innerHTML = String(SavedNotEatenFoods);
         }        
     }
 
+    if(SavedEatenFoods!=null)
+    {
+        let data = JSON.parse(SavedEatenFoods);
+        if(data != [])
+        {
+            for(let i = 0; i < data.length; i++)
+            {
+                //console.log(i)
+                cardGen(data[i], document.getElementById("mindmegette"));
+            }
+            //document.getElementById("Fede").innerHTML = String(SavedNotEatenFoods);
+        }        
+    }
+
+    document.getElementById("saveEatenFoods").addEventListener("click", function()
+    {
+        let savedFoods = [];
+        let cardHolder = document.getElementById("mindmegette");
+        for(let i = 0; i < cardHolder.childElementCount; i++)
+        {
+            savedFoods.push(JSON.parse(cardHolder.children[i].dataset.adatk))
+        }
+        localStorage.setItem("savedEatenFoods", JSON.stringify(savedFoods));
+        console.log(SavedEatenFoods);
+    });
+
     document.getElementById("biscuitShowButton").addEventListener("click", function()
     {
-    //    //console.log(biscuits);
-        //console.log(savedItems);
-        console.log(savedItems);
+        console.log(SavedNotEatenFoods);
     });
     listVisibilityCheck(document.getElementById("Fede"));
     listVisibilityCheck(document.getElementById("mindmegette"));
@@ -72,21 +97,12 @@ document.addEventListener("DOMContentLoaded", function()
         {
             biscuitBASE.push(JSON.parse(cardHolder.children[i].dataset.adatk))
         }
-        // //console.log(biscuit);
-        //biscuits = biscuitBASE;
-        localStorage.setItem("saved", JSON.stringify(biscuitBASE));
-        //console.log(localStorage.getItem("saved"));
-
-        ////console.log(biscuits);
-        localStorage.setItem("saved", JSON.stringify(biscuitBASE));
-        console.log(localStorage.getItem("saved"));
+        localStorage.setItem("savedFoods", JSON.stringify(biscuitBASE));
     });
 
     document.getElementById("biscuitDelete").addEventListener("click", function()
     {
-        //console.log("fasz");
-        localStorage.setItem("saved", "[]");
-        //console.log(savedItems);
+        localStorage.setItem("savedFoods", "[]");
     });
 
     document.getElementById("calcDailyCalcs").addEventListener("click", function()
@@ -94,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function()
         holder = document.getElementById("mindmegette");
         if(holder.innerHTML != null)
         {
+            localStorage.setItem("savedEatenFoods", "[]");
             checkCaloriePlan(EatenCalsSUM());
         }
     });
