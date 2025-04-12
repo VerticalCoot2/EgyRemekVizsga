@@ -40,8 +40,10 @@
         </div>
       </div>
     </nav>
-  
-  <div class="holder">
+  <div id="calcKoszon" class="center">
+    <h1>Choose your goal, calculate the calorie-target for your needs</h1>
+  </div>
+  <div class="oszlop">
     <div>
       <label for="szelect">I'm planning to</label>
       <select name="szelect" id="terv">
@@ -68,11 +70,12 @@
       <option value="1.725">High Activity</option>
       <option value="1.9">Very High Activity</option>
     </select>
-    <button type="button" id="CalcCalorie">Calc-my-cals</button>
+   
   </div>
   
 
-  <div id="hiddenAtStart">
+  <div id="hiddenAtStart" class="oszlop">
+    <div id="youCanEat"></div>
     <select class="js-example-basic-single" id="sel2">
   
     </select>
@@ -87,8 +90,11 @@
     <input value="" class="requiredFields" type="number" placeholder="Height(cm)" id="height" name="height" required>
   </form>
 
-  <div id="caltarget">
+  <div id="caltarget" class="oszlop">
   </div>
-
+  <div class="center">
+    <button type="button" id="CalcCalorie">Calc-my-cals</button>
+  </div>
+  
 </body>
 </html>

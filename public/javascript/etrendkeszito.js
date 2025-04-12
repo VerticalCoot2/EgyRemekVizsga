@@ -116,7 +116,13 @@ document.addEventListener("DOMContentLoaded", function()
     });
 
     document.getElementById("fyhe").innerHTML = "Foods you have eaten: " + document.getElementById("mindmegette").childElementCount;
-    document.getElementById("allCals").innerHTML = "Target calorie: " + getSavedCal() + " SUM of the calories: " + EatenCalsSUM();
+    if(!isNaN(getSavedCal()))
+    {
+        document.getElementById("target").style.display="flex"
+        document.getElementById("target").innerHTML = "Target calorie: " + getSavedCal()
+    }
+    console.log(getSavedCal())
+        document.getElementById("allCals").innerHTML =  " SUM of the calories: " + EatenCalsSUM();
     
 });
 
@@ -264,16 +270,21 @@ function cardGen(data, target)
                     listVisibilityCheck(document.getElementById("mindmegette"));
 
                     document.getElementById("fyhe").innerHTML = "Foods you have eaten: " + document.getElementById("mindmegette").childElementCount;
-                    document.getElementById("allCals").innerHTML = "Target calorie: " + getSavedCal() + " SUM of the calories: " + EatenCalsSUM();
+                    if(!isNaN(getSavedCal()))
+                    {
+                        document.getElementById("target").style.display="flex"
+                        document.getElementById("target").innerHTML = "Target calorie: " + getSavedCal()
+                    }
+                    document.getElementById("allCals").innerHTML =  " SUM of the calories: " + EatenCalsSUM();
                 });
             deleteBTN.innerHTML = "DELETE";
         
             if(target.id == "Fede")
             {
                 card.classList.add("card");
+                card.classList.add("oszlop");
                 let eatenBTN = document.createElement("button");
                 eatenBTN.type = "button";
-                eatenBTN.classList.add("btn")
                 eatenBTN.addEventListener("click", function()
                 {
                     //console.log("megette: " + this.parentElement.parentElement.dataset.id);
@@ -283,7 +294,12 @@ function cardGen(data, target)
                     listVisibilityCheck(document.getElementById("Fede"));
                     
                     document.getElementById("fyhe").innerHTML = "Foods you have eaten: " + document.getElementById("mindmegette").childElementCount;
-                    document.getElementById("allCals").innerHTML = "Target calorie: " + getSavedCal() + " SUM of the calories: " + EatenCalsSUM();
+                    if(!isNaN(getSavedCal()))
+                    {
+                        document.getElementById("target").style.display="flex"
+                        document.getElementById("target").innerHTML = "Target calorie: " + getSavedCal()
+                    }
+                    document.getElementById("allCals").innerHTML = " SUM of the calories: " + EatenCalsSUM();
                     
                 });
                 eatenBTN.innerHTML = "I ate this";
@@ -351,12 +367,14 @@ function cardGen(data, target)
             });
 
             bottom.appendChild(eatenBTN);
+            bottom.classList.add("oszlop")
             bottom.appendChild(fChoice);
 
             }
             else
             {
                 card.classList.add("cardEaten");
+                card.classList.add("oszlop");
                 if(data.dine != null)
                 {
                     let mire = document.createElement("div");
