@@ -216,10 +216,7 @@ function cardGen(data, target)
                                 th.innerHTML = key
 
                             let td = document.createElement("td");
-                            let egy = parseFloat(data.foodDATA[key]);
-                            let ketto = parseFloat(data.vol);
-                            let harom = parseFloat(data.amountG);
-                            let final = (egy/ketto)*harom;
+                            let final = (parseFloat(data.foodDATA[key])/parseFloat(data.vol))*parseFloat(data.amountG);
                             data.foodDATA[key] = final;
                             card.dataset.adatk = JSON.stringify(data);
 
