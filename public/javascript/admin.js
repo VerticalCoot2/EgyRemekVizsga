@@ -18,7 +18,6 @@ async function TablaGeneral(hova){
     thead.appendChild(theadtr)
     tabla.appendChild(thead)
     hova.appendChild(tabla)
-    console.log("kutya")
     let data = await SelectAllAdmin()
     let test = document.createElement("tbody")
     for(let i=0;i<data.length;i++)
@@ -88,7 +87,6 @@ async function TablaGeneral(hova){
         delbut.dataset.id=data[i].id
         delbut.innerHTML="Delete"
         delbut.addEventListener("click",function(){
-            console.log(this.dataset.id)
             admindel(this.dataset.id)
         })
         del.appendChild(delbut)
@@ -139,7 +137,6 @@ async function SelectAllAdmin()
 
 async function admindel(azon)
 {
-console.log(azon)
     let response = fetch("/api/adminDel/"+azon,{
         method: "POST"
     })

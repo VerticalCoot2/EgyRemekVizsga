@@ -9,7 +9,6 @@ document .addEventListener("DOMContentLoaded", function()
     $('.js-example-basic-single').select2();
     document.getElementById("terv").addEventListener("change", async function()
     {
-        console.log("/api/select"+ this.value);
         let youCanEat=document.getElementById("youCanEat")
         if(document.getElementById("terv").value=="Fogyas")
         {
@@ -30,10 +29,6 @@ document .addEventListener("DOMContentLoaded", function()
         build("/api/select"+ this.value, document.getElementById("sel2"));
         document.getElementById("hiddenAtStart").style.display = "flex";
         
-    });
-    document.getElementById("selectSex").addEventListener("change", function()
-    {
-        console.log(TargetCalorie(80, 176, 20));
     });
 
     let calcCalBTN = document.getElementById("CalcCalorie");
@@ -64,13 +59,11 @@ document .addEventListener("DOMContentLoaded", function()
     });
 
     let reqInputFields = document.getElementsByClassName("requiredFields");
-    //console.log(reqInputFields);
     for(let i = 0; i < reqInputFields.length; i++)
     {
         reqInputFields[i].dataset.value = true;
         reqInputFields[i].addEventListener("change", function()
         {
-            console.log(this.value);
             if(this.value != null || this.value != "")
             {
                 this.dataset.value = false;
@@ -98,7 +91,6 @@ async function build(url, target)
     sel2.classList.add("kaja");
     target.innerHTML = null;
     let data = await fetchGET(url)
-    //console.log(await data.length)
     for(let i = 0;i < data.length ;i++)
     {
     
