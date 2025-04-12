@@ -216,7 +216,7 @@ function cardGen(data, target)
                                 th.innerHTML = key
 
                             let td = document.createElement("td");
-                            let final = (parseFloat(data.foodDATA[key])/parseFloat(data.vol))*parseFloat(data.amountG);
+                            let final = Math.round((parseFloat(data.foodDATA[key])/parseFloat(data.vol))*parseFloat(data.amountG) * 100)/100;
                             data.foodDATA[key] = final;
                             card.dataset.adatk = JSON.stringify(data);
 
@@ -375,8 +375,12 @@ function cardGen(data, target)
 
             let amount = document.createElement("input");
                 amount.type = "number";
-                amount.placeholder = "How much are you planning on eating?(g)";
-                amount.value = data.amount;
+                amount.placeholder = "How much?(g)";
+                if(data.amountG != null && data.amountG != "")
+                {
+                    eatenBTN.disabled = false;
+                }
+                amount.value = data.amountG;
                 amount.addEventListener("change", function()
                 {
                     eatenBTN.disabled = false;
