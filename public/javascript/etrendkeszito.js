@@ -1,4 +1,3 @@
-//let biscuits = document.cookie;
 let SavedNotEatenFoods = localStorage.getItem("savedFoods");
 let SavedEatenFoods = localStorage.getItem("savedEatenFoods");
 let dailyCalories = 1500;
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function()
             {
                 cardGen(data[i], document.getElementById("Fede"));
             }
-            //document.getElementById("Fede").innerHTML = String(SavedNotEatenFoods);
         }        
     }
 
@@ -27,23 +25,15 @@ document.addEventListener("DOMContentLoaded", function()
             {
                 cardGen(data[i], document.getElementById("mindmegette"));
             }
-            //document.getElementById("Fede").innerHTML = String(SavedNotEatenFoods);
         }        
     }
-
-    // document.getElementById("saveEatenFoods").addEventListener("click", function()
-    // {
-    //     saveTOlocalStorage(document.getElementById("mindmegette"), "savedEatenFoods");
-    // });
-
+    
     listVisibilityCheck(document.getElementById("Fede"));
     listVisibilityCheck(document.getElementById("mindmegette"));
     build(document.getElementById("sel2"));
 
     $('.js-example-basic-single').select2();
 
-
-    
     document.getElementById("addBTN").addEventListener("click", async function()
     {
         let selectedID = document.getElementById("sel2").value;
@@ -195,7 +185,6 @@ async function build(target)
 
 function cardGen(data, target)
 {
-    //let target = document.getElementById("Fede");
     let card = document.createElement("div");
         card.dataset.adatk = JSON.stringify(data);
         card.dataset.id = data.id;
@@ -205,7 +194,6 @@ function cardGen(data, target)
 
         let middle = document.createElement("div");
             middle.classList.add("middle");
-            // middle.innerHTML = + data.Calories + "kcal" + ", " + data.Fat_g_ + ", " + data.Protein_g_ + ", " + data.Carbohydrate_g_ + ", " + data.Sugars_g_ + ", " + data.Fiber_g_ + ", " + data._200_Calorie_Weight_g_
             let table = document.createElement("table");
                 for(var key in data.foodDATA)
                 {
@@ -221,7 +209,6 @@ function cardGen(data, target)
                             card.dataset.adatk = JSON.stringify(data);
 
                             console.log(final);
-                                // td.innerHTML = ((parseFloat(data.foodDATA[key]))/parseFloat(data.foodDATA.vol))*data.amount;
                                 td.innerHTML = final;
                             
                             tr.appendChild(th);
@@ -276,27 +263,7 @@ function cardGen(data, target)
                 eatenBTN.disabled = true;
                 eatenBTN.addEventListener("click", function()
                 {
-                    // let eatenData = 
-                    // {
-                    //     Name: data.Name,
-                    //     foodDATA:
-                    //     {
-                    //         "Calories": data.Calories,
-                    //         "Fat(g)": data.Fat
-                    //         "Protein(g)": ,
-                    //         "Carbohydrate(g)": ,
-                    //         "Sugars(g)": ,
-                    //         "Fiber(g)": ,
-                    //         "200 Calorie/Weight(g)": data._200_Calorie_Weight_g_,
-                    //         "help": data._200_Calorie_Weight_g_,
-                    //         "vol" : Math.round(((data.foodDATA.Calories*data.foodDATA.help)/200) *100)/100
-                    //     },
-                    //     "id": selectData.id,
-                    //     "dine": selectData.dine,
-                    //     "amount": selectData.amount
-                    // };
                     this.parentElement.parentElement.remove();
-                    //data.amountG = card.dataset.amount;
                     cardGen(data, document.getElementById("mindmegette"));
                     saveTOlocalStorage(document.getElementById("Fede"), "savedFoods");
                     saveTOlocalStorage(document.getElementById("mindmegette"), "savedEatenFoods");
