@@ -43,45 +43,45 @@ document .addEventListener("DOMContentLoaded", function()
         localStorage.setItem('targetCalorie', targetCalorie);
         
         let caltarget=document.getElementById("caltarget")
-        if(!isNaN(localStorage.getItem("targetCalorie")))
-        {
-            Swal.fire({
-                title: "Success!",
-                text: "Your Calorie Target has been saved!",
-                icon: "success",
-                confirmButtonText: "Great!",
-                buttonsStyling: false, // Disable default button styling
-                customClass: {
-                  popup: "styled-alert-popup", // Custom popup styling
-                  title: "styled-alert-title", // Custom title styling
-                  confirmButton: "styled-alert-button" // Custom button styling
-                }
-              });
-              
-            caltarget.innerHTML=null
-            caltarget.innerHTML='<h2>Your Calorie Target is: '+targetCalorie+'</h2>'
-        }
-        else if(weight <20 || weight>400 || height<50 || height>272 ||age>122 || age<0)
-        {
-            Swal.fire({
-                title: "Warning!",
-                text: "We need you to use real data!",
-                icon: "success",
-                confirmButtonText: "Great!",
-                buttonsStyling: false, // Disable default button styling
-                customClass: {
-                  popup: "styled-alert-popup", // Custom popup styling
-                  title: "styled-alert-title", // Custom title styling
-                  confirmButton: "styled-alert-button" // Custom button styling
-                }
-              });
-        }
+        if(weight <20 || weight>400 || height<50 || height>272 ||age>122 || age<0)
+            {
+                Swal.fire({
+                    title: "Warning!",
+                    text: "We need you to use real data!",
+                    icon: "warning",
+                    confirmButtonText: "Try Again!",
+                    buttonsStyling: false, // Disable default button styling
+                    customClass: {
+                      popup: "styled-alert-popup", // Custom popup styling
+                      title: "styled-alert-title", // Custom title styling
+                      confirmButton: "styled-alert-button" // Custom button styling
+                    }
+                  });
+            }
+        else if(!isNaN(localStorage.getItem("targetCalorie")))
+            {
+                Swal.fire({
+                    title: "Success!",
+                    text: "Your Calorie Target has been saved!",
+                    icon: "success",
+                    confirmButtonText: "Great!",
+                    buttonsStyling: false, // Disable default button styling
+                    customClass: {
+                      popup: "styled-alert-popup", // Custom popup styling
+                      title: "styled-alert-title", // Custom title styling
+                      confirmButton: "styled-alert-button" // Custom button styling
+                    }
+                  });
+                  
+                caltarget.innerHTML=null
+                caltarget.innerHTML='<h2>Your Calorie Target is: '+targetCalorie+'</h2>'
+            }
         else{
             Swal.fire({
                 title: "Missing Data!",
                 text: "We need you to fill out everything, so we can give you an accurate calorie target",
-                icon: "success",
-                confirmButtonText: "Great!",
+                icon: "warning",
+                confirmButtonText: "Try Again!",
                 buttonsStyling: false, // Disable default button styling
                 customClass: {
                   popup: "styled-alert-popup", // Custom popup styling
