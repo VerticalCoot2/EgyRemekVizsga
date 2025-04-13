@@ -16,6 +16,8 @@
     
     <link rel="stylesheet" href="../css/select2.min.css">
     <script src="../javascript/select2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <title>Calc-Your-Cals</title>
 </head>
 <body>
@@ -81,13 +83,28 @@
     </select>
   </div>
 
-  <form class="params">
-    <label for="weight">Please add your weight(kg)</label>
-    <input value="" class="requiredFields" type="number" max="150" min="40" placeholder="Weight(kg)" id="weight" name="weight" required>
-    <label for="age">Please add you age</label>
-    <input value="" class="requiredFields" type="number" placeholder="Age" id="age" name="age" required>
-    <label for="height">Please add your height(cm)</label>
-    <input value="" class="requiredFields" type="number" placeholder="Height(cm)" id="height" name="height" required>
+  <div class="form-card">
+    <form class="params">
+      <div class="input-wrapper">
+        <i class="icon fa fa-user"></i>
+        <input value="" class="requiredFields" type="number" max="150" min="40" placeholder=" " id="weight" name="weight" required>
+        <label for="weight">Please add your weight(kg)</label>
+      </div>
+      <div class="input-wrapper">
+        <i class="icon fa fa-user"></i>
+        <input value="" class="requiredFields" type="number" placeholder=" " id="age" name="age" required>
+        <label for="age">Please add your age</label>
+      </div>
+      <div class="input-wrapper">
+        <i class="icon fa fa-user"></i>
+        <input value="" class="requiredFields" type="number" placeholder=" " id="height" name="height" required>
+        <label for="height">Please add your height(cm)</label>
+      </div>
+  </div>
+  
+    
+    
+    
   </form>
 
   <div id="caltarget" class="oszlop">

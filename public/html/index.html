@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="../javascript/alap.js"></script>
     <script src="../javascript/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div class="oszlop">
@@ -53,11 +54,12 @@
                 Whether you're trying to lose weight, build muscle, or just eat smarter -- we make it simple.
                 </p>
                 <ul>
-                  <li>Easy food logging</li>
-                  <li>Smart calorie goals</li>
-                  <li>Real-time progress tracking</li>
-                  <li>Personalized insights</li>
+                  <li>🍽️ Easy food logging</li>
+                  <li>🔥 Smart calorie goals</li>
+                  <li>📊 Real-time progress tracking</li>
+                  <li>💡 Personalized insights</li>
                 </ul>
+              
                 <p class="szoveg"><b>Get started free today.</b> No credit card needed</p>
       
                 <h2 class="fooldal-nagyBetuk">Why track calories?</h2>
@@ -74,22 +76,54 @@
                 <h1>Upload your favourite food!</h1>
                 <div id="kajahozza">
                   <form id="insert" class="oszlop">
-                    <label for="Name">Add the name of the food</label>
-                    <input class="inputs" type="text" name="Name" id="Name">
-                    <label for="Calories">Add the calories</label>
-                    <input class="inputs" type="number" name="Calories" id="Calories">
-                    <label for="Fat_g_">Add the gramms of fat</label>
-                    <input class="inputs" type="number" name="Fat_g_" id="Fat_g_">
-                    <label for="Protein_g_">Add the gramms of protein</label>
-                    <input class="inputs" type="number" name="Protein_g_" id="Protein_g_">
-                    <label for="Carbohydrate_g_">Add the gramms of carbohydrate</label>
-                    <input class="inputs" type="number" name="Carbohydrate_g_" id="Carbohydrate_g_">
-                    <label for="Sugars_g_">Add the gramms of sugar</label>
-                    <input class="inputs" type="number" name="Sugars_g_" id="Sugars_g_">
-                    <label for="Fiber_g_">Add the gramms of fibers</label>
-                    <input class="inputs" type="number" name="Fiber_g_" id="Fiber_g_">
-                    <label for="_200_Calorie_Weight_g_">Add the 200 calorie weight</label>
-                    <input class="inputs" type="number" name="_200_Calorie_Weight_g_" id="_200_Calorie_Weight_g_">
+                    <div class="input-wrapper">
+                      <i class="icon fa fa-user"></i>
+                      <input value="" class="requiredFields inputs" type="text"  placeholder=" " id="Name" name="Name" required>
+                      <label for="Name">Add the name of the food</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                      <i class="icon fa fa-user"></i>
+                      <input value="" class="requiredFields inputs" type="number"  placeholder=" " id="Calories" name="Calories" required>
+                      <label for="Calories">Add the calories</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                      <i class="icon fa fa-user"></i>
+                      <input value="" class="requiredFields inputs" type="number"  placeholder=" " id="Fat_g_" name="Fat_g_" required>
+                      <label for="Fat_g_">Add the gramms of fat</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                      <i class="icon fa fa-user"></i>
+                      <input value="" class="requiredFields inputs" type="number"  placeholder=" " id="Protein_g_" name="Protein_g_" required>
+                      <label for="Protein_g_">Add the gramms of protein</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                      <i class="icon fa fa-user"></i>
+                      <input value="" class="requiredFields inputs" type="number" placeholder=" " id="Carbohydrate_g_" name="Carbohydrate_g_" required>
+                      <label for="Carbohydrate_g_">Add the gramms of carbohydrate</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                      <i class="icon fa fa-user"></i>
+                      <input value="" class="requiredFields inputs" type="number" placeholder=" " id="Sugars_g_" name="Sugars_g_" required>
+                      <label for="Sugars_g_">Add the gramms of sugar</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                      <i class="icon fa fa-user"></i>
+                      <input value="" class="requiredFields inputs" type="number"  placeholder=" " id="Fiber_g_" name="Fiber_g_" required>
+                      <label for="Fiber_g_">Add the gramms of fibers</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                      <i class="icon fa fa-user"></i>
+                      <input value="" class="requiredFields" type="number" placeholder=" " id="_200_Calorie_Weight_g_" name="_200_Calorie_Weight_g_" required>
+                      <label for="_200_Calorie_Weight_g_">Add the 200 calorie weight</label>
+                    </div>
+
                     <button class="btn" type="button" id="insert_gomb">Upload food</button>
                   </form>
                 </div>

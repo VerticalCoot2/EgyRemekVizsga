@@ -296,49 +296,120 @@ label
     margin: 50px;
 }
 
-.card
-{
+:root {
+    --menta: linear-gradient(175deg, rgb(110, 146, 116), #a1ba8c);
+    --menta-hover: linear-gradient(175deg, #b7d4a1, #cfe6b7);
+    --glow-color: #a3ffb5;
+  }
+  
+  .card {
     height: 500px;
     width: 340px;
     background: var(--menta);
     color: white;
     border-radius: 9px;
     font-size: 18px;
-}
-
-.card:hover
-{
-    box-shadow: 8px 8px 2px 1px rgba(108, 108, 138, 0.2);
-    transition-duration: 0.3s;
-}
-
-.card div
-{
+    position: relative;
+    z-index: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
-}
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+  
+  /* Neon glow behind the card */
+  .card::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: var(--glow-color);
+    border-radius: 12px;
+    filter: blur(25px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .card:hover {
+    background: var(--menta-hover);
+    transform: scale(1.05) rotateX(2deg) rotateY(2deg);
+    box-shadow: 0 0 15px rgba(163, 255, 181, 0.4);
+  }
+  
+  .card:hover::before {
+    opacity: 1;
+  }
+  
+  .card div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
 
-.cardEaten
-{
+  :root {
+    --menta2: linear-gradient(175deg, rgb(64, 71, 69), #95a781);
+    --menta2-hover: linear-gradient(175deg, #7d8f75, #b4c6a3); /* slightly brighter hover */
+    --glow-color-eaten: #a3ffb5; /* neon mint glow */
+  }
+  
+  .cardEaten {
     height: 500px;
     width: 340px;
     background: var(--menta2);
     color: white;
     border-radius: 9px;
     font-size: 18px;
-}
-
-.cardEaten:hover
-{
-    box-shadow: 8px 8px 2px 1px rgba(108, 108, 138, 0.2);
-    transition-duration: 0.3s;
-}
-
-.cardEaten div
-{
+    position: relative;
+    z-index: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
-}
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+  
+  /* Neon glow behind the card */
+  .cardEaten::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: var(--glow-color-eaten);
+    border-radius: 12px;
+    filter: blur(25px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .cardEaten:hover {
+    background: var(--menta2-hover);
+    transform: scale(1.05) rotateX(2deg) rotateY(2deg);
+    box-shadow: 0 0 15px rgba(163, 255, 181, 0.4);
+  }
+  
+  .cardEaten:hover::before {
+    opacity: 1;
+  }
+  
+  .cardEaten div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  
 
 .top
 {
@@ -358,12 +429,81 @@ label
     height: 20%;
 }
 
-input {
-    font-size: 18px; /* font-size is up to you, not required */
-    padding: 10px;   /* padding is up to you */
-    display: block;  /* just to make sure display is block */
-    width: 100%;     /* width is up to you */
-}
+/* 🌿 Form card container */
+.form-card {
+    max-width: 320px;
+    background: var(--menta); /* Uses your existing mint gradient */
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(163, 255, 181, 0.15);
+    margin: 40px auto;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+  }
+  
+  /* Input wrapper */
+  .input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  /* Input field */
+  .input-wrapper input {
+    font-size: 16px;
+    padding: 10px 12px 10px 38px;
+    width: 100%;
+    border: 2px solid #a1ba8c;
+    border-radius: 6px;
+    background-color: #f3f8f3;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+  
+  /* Focus state */
+  .input-wrapper input:focus {
+    border-color: #a3ffb5;
+    box-shadow: 0 0 8px rgba(163, 255, 181, 0.5);
+    background-color: #ffffff;
+  }
+  
+  /* Floating label */
+  .input-wrapper label {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #7c8d7f;
+    pointer-events: none;
+    transition: 0.2s ease all;
+    background-color: #f3f8f3;
+    padding: 0 4px;
+    line-height: 1;
+  }
+  
+  /* Animate label on focus or input */
+  .input-wrapper input:focus ~ label,
+  .input-wrapper input:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 34px;
+    font-size: 13px;
+    color: #6e9274;
+  }
+  
+  /* Icon inside input */
+  .input-wrapper .icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #a1ba8c;
+    font-size: 16px;
+    pointer-events: none;
+  }
+  
 
 #logo
 {
@@ -380,9 +520,28 @@ input {
 }
 
 
-.main-cucc
-{
+.main-cucc {
     padding: 15px;
+    margin-bottom: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button.btn {
+    background: linear-gradient(90deg, #ff7f50, #ffa07a);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.btn:hover {
+    background: #ff6347;
+    transform: scale(1.1);
 }
 
 #insert
@@ -459,7 +618,20 @@ h2
     box-shadow: 0px -10px 10px 10px var(--darkBlue);
 }
 
+
+#navbut
+{
+    background-color: var(--zud);
+    color: white;
+    border-radius: 8px;
+    border: 0px;
+    width: 14vh;
+    height: 8vh;
+    margin: 0.3vh 1vh 0.3vh 1vh;
+}
 #navbut:hover
 {
-    background-color: white;
+    background-color: #665941;
+    color: white;
+    transition-duration: 0.5s;
 }
