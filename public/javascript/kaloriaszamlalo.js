@@ -40,7 +40,7 @@ document .addEventListener("DOMContentLoaded", function()
         let height=parseInt(document.getElementById("height").value)
         FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height));
         const targetCalorie = Math.round(FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height)));
-        localStorage.setItem('targetCalorie', targetCalorie);
+        
         
         let caltarget=document.getElementById("caltarget")
         if(weight <20 || weight>400 || height<50 || height>272 ||age>122 || age<0)
@@ -75,6 +75,7 @@ document .addEventListener("DOMContentLoaded", function()
                   
                 caltarget.innerHTML=null
                 caltarget.innerHTML='<h2>Your Calorie Target is: '+targetCalorie+'</h2>'
+                localStorage.setItem('targetCalorie', targetCalorie);
             }
         else{
             Swal.fire({
