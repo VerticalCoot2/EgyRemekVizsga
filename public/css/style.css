@@ -30,10 +30,32 @@ div
     flex-direction: column;
 }
 
-#calcKoszon
-{
-    background-color: #bab86c;
-}
+#calcKoszon {
+    background: #f9f5e6; /* Warm beige color to complement the mint */
+    color: #0f6347; /* Deep green for text to maintain consistency */
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 90%;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #calcKoszon h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+  }
+  
+  #calcKoszon p {
+    font-size: 1.1em;
+    color: #665941; /* A warm earthy shade for the description */
+  }
+  
 
 .sticky
 {
@@ -59,10 +81,6 @@ span[title]
 }
 
 
-/* html
-{
-     color-scheme: light dark;
-} */
 a
 {
     text-decoration: none;
@@ -93,6 +111,17 @@ body
     font-family: MOONREE;
     color: rgb(0, 0, 0);
 }
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(113, 122, 60, 0.4); /* subtle greenish overlay */
+    z-index: -1;
+  }
 
 label
 {
@@ -343,6 +372,7 @@ label
     background: var(--menta-hover);
     transform: scale(1.05) rotateX(2deg) rotateY(2deg);
     box-shadow: 0 0 15px rgba(163, 255, 181, 0.4);
+    color: black;
   }
   
   .card:hover::before {
@@ -400,6 +430,7 @@ label
     background: var(--menta2-hover);
     transform: scale(1.05) rotateX(2deg) rotateY(2deg);
     box-shadow: 0 0 15px rgba(163, 255, 181, 0.4);
+    color: black;
   }
   
   .cardEaten:hover::before {
@@ -568,13 +599,29 @@ button
     margin: 0.3vh 1vh 0.3vh 1vh;
 }
 
-#caltarget
-{
-    background-color: #bab86c;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-}
+#caltarget {
+    background: #f3f8f3; /* A soft, light background for contrast */
+    color: #0f6347; /* Dark green text for consistency */
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px auto;
+    max-width: 90%;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.2rem;
+  }
+  
+  #caltarget h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  #caltarget p {
+    font-size: 1rem;
+    color: #665941; /* Slightly lighter color for additional text */
+  }
+  
 
 button:hover
 {
@@ -620,7 +667,7 @@ h2
 .arnyekDIV
 {
     justify-content: center;
-    box-shadow: 0px -10px 10px 10px var(--darkBlue);
+    margin-top: 10px;
 }
 
 
@@ -640,3 +687,114 @@ h2
     color: white;
     transition-duration: 0.5s;
 }
+
+:root {
+    --menta: linear-gradient(175deg, rgb(110, 146, 116), #a1ba8c);
+    --menta-light: #d5e8d0;
+    --text-dark: #333;
+    --accent: #a3ffb5;
+  }
+  
+  /* Centering wrapper */
+  .form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+  }
+  
+  /* Card */
+  .form-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 340px;
+    background: var(--menta);
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(163, 255, 181, 0.15);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Label + select container */
+  .custom-select-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Label */
+  .custom-select-wrapper label {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #eaf5e4;
+    font-weight: 500;
+  }
+  
+  /* Custom styled select */
+  .custom-select-wrapper select {
+    font-size: 16px;
+    padding: 10px 14px;
+    background-color: #f3f8f3;
+    border: 2px solid #a1ba8c;
+    color: var(--text-dark);
+    border-radius: 8px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 8L13 1' stroke='%236e9274' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* On focus */
+  .custom-select-wrapper select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(163, 255, 181, 0.4);
+  }
+  
+  /* Hide arrow in older browsers */
+  .custom-select-wrapper select::-ms-expand {
+    display: none;
+  }
+  
+
+  
+  .hero-section {
+    background: var(--menta); /* Minty gradient from your theme */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 60px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 90%;
+  }
+  
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .hero-content p {
+    font-size: 1.2em;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+  }
+  
