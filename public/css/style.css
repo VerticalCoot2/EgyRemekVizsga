@@ -798,3 +798,36 @@ h2
     line-height: 1.5;
   }
   
+  /* Style for the SweetAlert popup */
+.styled-alert-popup {
+    background: var(--menta); /* Mint gradient for the background */
+    color: white; /* Text color for contrast */
+    border-radius: 12px; /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif; /* Consistent font */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Soft shadow */
+  }
+  
+  /* Style for the alert title */
+  .styled-alert-title {
+    color: #f9f5e6; /* Light beige for a soft contrast */
+    font-size: 1.8em;
+    font-weight: bold;
+  }
+  
+  /* Style for the confirm button */
+  .styled-alert-button {
+    background: linear-gradient(90deg, #bab86c, #95a781); /* Complementary gradient */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .styled-alert-button:hover {
+    background: #665941; /* Darker shade for hover effect */
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  

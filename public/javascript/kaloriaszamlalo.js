@@ -45,7 +45,19 @@ document .addEventListener("DOMContentLoaded", function()
         let caltarget=document.getElementById("caltarget")
         if(!isNaN(localStorage.getItem("targetCalorie")))
         {
-            alert("Your Calorie Target has been saved!")
+            Swal.fire({
+                title: "Success!",
+                text: "Your Calorie Target has been saved!",
+                icon: "success",
+                confirmButtonText: "Great!",
+                buttonsStyling: false, // Disable default button styling
+                customClass: {
+                  popup: "styled-alert-popup", // Custom popup styling
+                  title: "styled-alert-title", // Custom title styling
+                  confirmButton: "styled-alert-button" // Custom button styling
+                }
+              });
+              
             caltarget.innerHTML=null
             caltarget.innerHTML='<h2>Your Calorie Target is: '+targetCalorie+'</h2>'
         }

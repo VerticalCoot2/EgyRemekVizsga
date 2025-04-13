@@ -16,7 +16,19 @@ document.addEventListener("DOMContentLoaded", function()
             {
                 inputs[i].value = null;
             }
-            alert("Upload request successfull! It will be supervised shortly.");
+            Swal.fire({
+                title: "Upload Successful!",
+                text: "Your request has been received and will be supervised shortly.",
+                icon: "info",
+                confirmButtonText: "Got it!",
+                buttonsStyling: false, // Disable default button styling
+                customClass: {
+                  popup: "upload-alert-popup", // Custom popup styling
+                  title: "upload-alert-title", // Custom title styling
+                  confirmButton: "upload-alert-button" // Custom button styling
+                }
+              });
+              
             for(let i = 3; i < inputs.length; i++)
             {
                 if(inputs[i].value != "" && inputs[i].value != null)
@@ -27,7 +39,19 @@ document.addEventListener("DOMContentLoaded", function()
         }
         else
         {
-            alert("You have not filled it out correctly!\n\nRequired: Name, Calories, 200 calorie/weight");
+            Swal.fire({
+                title: "Upload Unsuccessful!",
+                text: "You have not filled it out correctly!\n\nRequired: Name, Calories, 200 calorie/weight",
+                icon: "warning",
+                confirmButtonText: "Try Again!",
+                buttonsStyling: false, // Disable default button styling
+                customClass: {
+                  popup: "upload-alert-popup", // Custom popup styling
+                  title: "upload-alert-title", // Custom title styling
+                  confirmButton: "upload-alert-button" // Custom button styling
+                }
+              });
+              
         }
     });
 });
