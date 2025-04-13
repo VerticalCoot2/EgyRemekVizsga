@@ -58,7 +58,7 @@
       <h2 class="fooldal-nagyBetuk">Customize your plan </h2>
 
       <div class="custom-select-wrapper">
-        <select name="szelect" id="terv">
+        <select class="required" name="szelect" id="terv">
           <option selected hidden>Choose your goal</option>
           <option value="Fogyas">Lose weight</option>
           <option value="TomegMegtart">Maintain weight</option>
@@ -67,7 +67,7 @@
       </div>
 
       <div class="custom-select-wrapper">
-        <select name="selectSex" id="selectSex">
+        <select class="required" name="selectSex" id="selectSex">
           <option selected hidden>Choose your gender</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
@@ -76,7 +76,7 @@
       </div>
 
       <div class="custom-select-wrapper">
-        <select name="dailyActivity" id="dailyActivity">
+        <select class="required" name="dailyActivity" id="dailyActivity">
           <option selected hidden>Choose your activity level</option>
           <option value="1.2">Barely any activity</option>
           <option value="1.375">Light activity</option>
@@ -89,17 +89,17 @@
         <form class="params">
           <div class="input-wrapper">
             <i class="icon fa fa-user"></i>
-            <input value="" class="requiredFields" type="number" max="150" min="40" placeholder=" " id="weight" name="weight" required>
+            <input class="required" value="" class="requiredFields" type="number" max="150" min="40" placeholder=" " id="weight" name="weight" required>
             <label for="weight">Please add your weight(kg)</label>
           </div>
           <div class="input-wrapper">
             <i class="icon fa fa-user"></i>
-            <input value="" class="requiredFields" type="number" placeholder=" " id="age" name="age" required>
+            <input class="required" value="" class="requiredFields" type="number" placeholder=" " id="age" name="age" required>
             <label for="age">Please add your age</label>
           </div>
           <div class="input-wrapper">
             <i class="icon fa fa-user"></i>
-            <input value="" class="requiredFields" type="number" placeholder=" " id="height" name="height" required>
+            <input class="required" value="" class="requiredFields" type="number" placeholder=" " id="height" name="height" required>
             <label for="height">Please add your height(cm)</label>
           </div>
         </form>
@@ -107,6 +107,8 @@
       </div>
     </div>
   </div>
+
+
   <div id="calcKoszon" class="center">
     <h1>Set Your Goal</h1>
     <p>Discover your personalized calorie target and start your journey!</p>
