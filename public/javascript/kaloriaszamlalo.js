@@ -63,10 +63,32 @@ document .addEventListener("DOMContentLoaded", function()
         }
         else if(weight <20 || weight>400 || height<50 || height>272 ||age>122 || age<0)
         {
-            alert("We need you to use real data!")
+            Swal.fire({
+                title: "Warning!",
+                text: "We need you to use real data!",
+                icon: "success",
+                confirmButtonText: "Great!",
+                buttonsStyling: false, // Disable default button styling
+                customClass: {
+                  popup: "styled-alert-popup", // Custom popup styling
+                  title: "styled-alert-title", // Custom title styling
+                  confirmButton: "styled-alert-button" // Custom button styling
+                }
+              });
         }
         else{
-            alert("We need you to fill out everything, so we can give you an accurate calorie target")
+            Swal.fire({
+                title: "Missing Data!",
+                text: "We need you to fill out everything, so we can give you an accurate calorie target",
+                icon: "success",
+                confirmButtonText: "Great!",
+                buttonsStyling: false, // Disable default button styling
+                customClass: {
+                  popup: "styled-alert-popup", // Custom popup styling
+                  title: "styled-alert-title", // Custom title styling
+                  confirmButton: "styled-alert-button" // Custom button styling
+                }
+              });
         }
     });
 
