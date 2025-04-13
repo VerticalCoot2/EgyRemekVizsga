@@ -6,7 +6,10 @@ document.addEventListener("DOMContentLoaded", function()
         
         let check = 0;
         let approved = true
-        if((inputs[0].value != "" && inputs[0].value != null) && (inputs[1].value != "" && inputs[1].value != null))
+        console.log(inputs[0].value != "" && inputs[0].value != null);
+        console.log(inputs[1].value != "" && inputs[1].value != null);
+        console.log(inputs[2].value != "" && inputs[2].value != null);
+        if((inputs[0].value != "" && inputs[0].value != null) && (inputs[1].value != "" && inputs[1].value != null) && (inputs[2].value != "" && inputs[2].value != null))
         {
             await insert_fetch();
             for(let i = 0; i < inputs.length; i++)
@@ -14,10 +17,17 @@ document.addEventListener("DOMContentLoaded", function()
                 inputs[i].value = null;
             }
             alert("Upload request successfull! It will be supervised shortly.");
+            for(let i = 3; i < inputs.length; i++)
+            {
+                if(inputs[i].value != "" && inputs[i].value != null)
+                {
+                    inputs[i].value = -1;
+                }
+            }
         }
         else
         {
-            alert("You have no filled it out correctly!");
+            alert("You have not filled it out correctly!\n\nRequired: Name, Calories, 200 calorie/weight");
         }
     });
 });
