@@ -467,15 +467,18 @@ function cardGen(data, target)
             {
                 card.classList.add("cardEaten");
                 card.classList.add("oszlop");
-                if(data.dine != null)
-                {
-                    let mire = document.createElement("div");
-                        mire.innerHTML = "For " + data.dine;
-                    bottom.appendChild(mire);
-                }
-                let mennyit = document.createElement("div");
-                    mennyit.innerHTML = "Amount eaten(g): " + data.amountG;
-                    bottom.appendChild(mennyit);
+                let holderDiv = document.createElement("div");
+                holderDiv.classList.add("holderDiv");
+                    if(data.dine != null)
+                    {
+                        let mire = document.createElement("div");
+                            mire.innerHTML = "For " + data.dine;
+                        holderDiv.appendChild(mire);
+                    }
+                    let mennyit = document.createElement("div");
+                        mennyit.innerHTML = "Amount eaten(g): " + data.amountG;
+                        holderDiv.appendChild(mennyit);
+                bottom.appendChild(holderDiv);
 
                 let tr = document.createElement("tr");
                     let th = document.createElement("th");
