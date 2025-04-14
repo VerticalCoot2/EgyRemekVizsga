@@ -1,4 +1,4 @@
-
+USE `eteldb`;
 CREATE TABLE `adminInsert` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `Name` varchar(255) NOT NULL,
