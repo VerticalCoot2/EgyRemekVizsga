@@ -2,7 +2,6 @@
 {
     --zud: linear-gradient(45deg, #07a16e, #0f6347);
     /* --pinkzud: radial-gradient(orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua,orange, rgb(255, 221, 0), blue, white, black, pink, purple, green, crimson, brown, aqua); */
-    --menta: linear-gradient(175deg, rgb(110, 146, 116), #a1ba8c);
     --menta2: linear-gradient(175deg, rgb(64, 71, 69), #95a781);
     --olive:#bab86c;
     --zold: #0f6347;
@@ -10,6 +9,10 @@
     --menta-light: #d5e8d0;
     --text-dark: #333;
     --accent: #a3ffb5;
+    --menta: linear-gradient(175deg, rgb(110, 146, 116), #a1ba8c);
+    --menta-hover: linear-gradient(175deg, #b7d4a1, #cfe6b7);
+    --menta2-hover: linear-gradient(175deg, #7d8f75, #b4c6a3); /* slightly brighter hover */
+    --glow-color-eaten: #a3ffb5; /* neon mint glow */
 }
 @font-face
 {
@@ -96,16 +99,6 @@ div
     font-size: 2vh;
 }
 
-.hoverColor
-{
-    transition-duration: 1s;
-    color: white;
-}
-.hoverColor:hover
-{
-    color: purple
-}
-
 span[title]
 {
     display: none;
@@ -174,12 +167,6 @@ label
     
 }
 
-.oliva
-{
-    background-color: rgb(229,229,206);
-    border-radius: 25px;
-}
-
 .titelText p
 {
     font-style: italic;
@@ -242,32 +229,6 @@ label
     align-items: center;
     text-align: center;
     justify-content: center;
-}
-
-.menuGombok
-{
-    background: #ffffff;
-    height: 60px;
-    width: 60px;
-    margin: 5px;
-    border-radius: 30px;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-
-    transition-duration: 0.13s;
-    box-shadow: 0px 0px 0px 0px white;    
-}
-
-.menuGombok:hover
-{
-    box-shadow: 0px 0px 5px 8px rgb(255, 255, 255);
-}
-
-.menuSVG
-{
-    width: 30px;
-    height: 30px;
 }
 
 .kep
@@ -353,11 +314,6 @@ label
     margin: 50px;
 }
 
-:root {
-    --menta: linear-gradient(175deg, rgb(110, 146, 116), #a1ba8c);
-    --menta-hover: linear-gradient(175deg, #b7d4a1, #cfe6b7);
-    --glow-color: #a3ffb5;
-  }
   
   .card {
     height: 500px;
@@ -410,12 +366,6 @@ label
     padding: 20px;
   }
   
-
-  :root {
-    --menta2: linear-gradient(175deg, rgb(64, 71, 69), #95a781);
-    --menta2-hover: linear-gradient(175deg, #7d8f75, #b4c6a3); /* slightly brighter hover */
-    --glow-color-eaten: #a3ffb5; /* neon mint glow */
-  }
   
   .cardEaten {
     height: 500px;
