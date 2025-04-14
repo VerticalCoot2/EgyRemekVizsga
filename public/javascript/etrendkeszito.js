@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function()
               confirmButton: "upload-alert-button" // Custom button styling
             }
         });
+        build(document.getElementById("sel2"));
     }
 
     $('.js-example-basic-single').select2();
@@ -247,7 +248,7 @@ async function szelektPlan()
     return (await response).json();
 }
 
-async function build(target)
+async function build(plan)
 {
     let sel2 = document.getElementById("sel2");
     sel2.classList.add("kaja");
