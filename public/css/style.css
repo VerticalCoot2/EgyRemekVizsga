@@ -16,8 +16,8 @@
 }
 @font-face
 {
-    font-family: MOONREE;
-    src: url(../fonts/Hubballi-Regular.ttf);
+  font-family: Hubballi;
+  src: url(../fonts/Hubballi-Regular.ttf);
 }
 
 div
@@ -124,7 +124,7 @@ body
     background: var(--darkBlue);
     background: rgb(255, 255, 255);
     margin: 0%;
-    font-family: MOONREE;
+    font-family: Hubballi;
     color: rgb(0, 0, 0);
 }
 

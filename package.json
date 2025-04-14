@@ -1,13 +1,13 @@
 {
-    "name": "nodejs-template-project",
+    "name": "nodejs",
     "version": "1.0.0",
-    "description": "Kiindulási alap a NodeJS projektekhez.",
+    "description": "Kalória számláló, és figyelő",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon index.js"
     },
-    "author": "Kardos Krisztián",
+    "author": "Patya, Botika, Kolimoli",
     "license": "ISC",
     "dependencies": {
         "express": "^4.21.2",

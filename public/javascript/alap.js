@@ -5,10 +5,7 @@ document.addEventListener("DOMContentLoaded", function()
         let inputs = document.getElementsByClassName("inputs");
         
         let check = 0;
-        let approved = true
-        console.log(inputs[0].value != "" && inputs[0].value != null);
-        console.log(inputs[1].value != "" && inputs[1].value != null);
-        console.log(inputs[2].value != "" && inputs[2].value != null);
+        let approved = true;
         if((inputs[0].value != "" && inputs[0].value != null) && (inputs[1].value != "" && inputs[1].value != null) && (inputs[2].value != "" && inputs[2].value != null))
         {
             await insert_fetch();
