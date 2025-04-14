@@ -48,14 +48,11 @@ document .addEventListener("DOMContentLoaded", function()
         while(i < req.length-1 && kitoltve)
         {
             i++;
-            console.log(req[i].value);
             if(req[i].value == "" || req[i].value == null)
             {
-                console.log("Üres")
                 kitoltve = false;       
             }
         }
-        console.log(kitoltve);
         if(kitoltve)
         {
             let weight=parseInt(document.getElementById("weight").value)
