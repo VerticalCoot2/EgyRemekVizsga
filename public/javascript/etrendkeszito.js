@@ -521,6 +521,7 @@ function ClearContent(target)
     target.innerHTML = null;
     listVisibilityCheck(target);
     document.getElementById("allCals").innerHTML =  " SUM of the calories: " + EatenCalsSUM();
+    document.getElementById("fyhe").innerHTML = "Foods you have eaten: " + document.getElementById("mindmegette").childElementCount;
 }
 
 function refreshTargetCalorie()
