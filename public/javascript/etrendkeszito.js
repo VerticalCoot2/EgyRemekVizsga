@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function()
     listVisibilityCheck(document.getElementById("mindmegette"));
     if(plan != null && plan != "")
     {
-        build(document.getElementById("sel2"));
+        build(document.getElementById("sel2"), true);
     }
     else
     {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function()
               confirmButton: "upload-alert-button" // Custom button styling
             }
         });
-        build(document.getElementById("sel2"));
+        build(document.getElementById("sel2"), false);
     }
 
     $('.js-example-basic-single').select2();
@@ -188,7 +188,6 @@ function checkCaloriePlan()
 {
     let digestedCalories = EatenCalsSUM();
     let tC = parseFloat(getSavedCal());
-    console.log("tC: " + tC+"\neatenCals: " + digestedCalories);
     let beszolasok = [["You're so skinny, you could hula hoop with a Cheerio.","You turn sideways and disappear.","If you walked into a spider web, you’d get tied up.","You're the only person who can use floss as a belt.","You're not skinny – you're basically a line of code.",        "You have to run around in the shower to get wet.",        "Even your shadow looks underweight.",        "You're the reason hangers feel insecure.",        "You fall through cracks in the sidewalk.",        "You could dodge raindrops.",        "You wear spaghetti straps and they look like trench coats.",        "You're the only one who can tightrope walk on a phone cable.",        "If a breeze hits, you end up in the neighbor’s yard.",        "You hide behind lampposts... and vanish.",        "You're the first to get taken by a balloon.",        "You sneeze and fly across the room.",        "Your ribs have their own zip code.",        "You're the stick figure in every diagram.",        "You're the 'before' photo for protein powder.",        "You use a paperclip for a belt buckle.",        "A twig once tried to date you.",        "You're so thin, you could sword fight with a toothpick.",        "Your whole outfit fits in a sandwich bag.",        "You once wore a ring as a bracelet.",        "Your bones echo when you walk.",        "You get lost in your own clothes.",        "You once bench-pressed a cotton ball and pulled something.",        "You do pushups and float.",        "Even your jeans skip leg day.",        "Your profile picture is literally your profile.",        "You turn sideways and become invisible.",        "You're the reason 'low-fat' has a face.",        "You blend in with fence posts.",        "You're a strong gust away from Narnia.",        "You're built like a question mark without the dot.",        "Your shadow is jealous of your mass.",        "You sit on air – no chair needed.",        "You once got mistaken for a mic stand.",        "You skip meals and vanish.",        "You climb stairs and they say, 'Where’d you go?'",        "You're a scarecrow’s role model.",        "Your hugs feel like pipe cleaners.",        "You once hid behind a pencil.",        "You wear chapstick like foundation.",        "Your collarbones have collarbones.",        "You wear shoelaces as scarves.",        "Your blood type is 'transparent'.",        "You use a Q-tip for a walking stick.",        "You're too small for x-rays to detect.",        "A shirt button once outweighed you.",        "Your Halloween costume is always ‘skeleton’.",      ], [        "You're the reason the fridge has a panic button.",        "When you step on a scale, it says 'To be continued...'",        "NASA mistook you for a new moon.",        "You make elevators pray.",        "You're not just big-boned, you’re whole-skeletoned.",        "Your shadow has its own zip code.",        "When you jump, the ground apologizes.",        "You're the only person whose chair files a worker's comp claim.",        "You don't wear clothes, you wear tarps.",        "You sneeze and cause small earthquakes.",        "Even your mirror takes a deep breath before reflecting.",        "Your favorite workout is breathing heavy.",        "You bring a fork to a buffet like it's a weapon.",        "Your footsteps count as seismic activity.",        "Your idea of portion control is using one hand.",        "You sat on a coin and made it a pancake.",        "You enter a pool and it becomes a tsunami simulator.",        "Your bed has suspension – like a truck.",        "You’re on a seafood diet – you see food and eat it.",        "You're the reason they invented reinforced chairs.",        "If you were a superhero, your power would be gravitational pull.",        "You're not overweight, you're just gravitationally gifted.",        "You break a sweat thinking about salad.",        "When you run, the street gets tired.",        "You wear jeans stitched by ship sailmakers.",        "You leave crumbs wherever you go, like edible breadcrumbs.",        "Even your Fitbit gave up.",        "You walk into a bakery and they start baking faster.",        "Your grocery list reads like a restaurant menu.",        "Your clothes shop calls in extra staff when you enter.",        "Your reflection has a lag.",        "You don't walk – you orbit.",        "Your food pyramid is a rectangle... all carbs.",        "When you turn around, people think it's a time lapse.",        "Your napkin is a tablecloth.",        "You ask for a snack and get a pallet of chips.",        "You bite into a burger and it screams.",        "You consider breathing an exercise.",        "You need a GPS just to get around your belly.",        "Your pants size is just 'LOL'.",        "You're the reason the treadmill trembles.",        "You wear XL as a warm-up size.",        "You accidentally sit on your phone and call 911.",        "You don’t eat seconds. You eat fifths.",        "You make Santa look fit.",        "The fridge gets PTSD when it hears you coming.",        "You eat birthday cakes like they're muffins.",        "You're the boss fight in a food-themed video game.",        "You once tried to jog... the street filed a complaint.",        "You sweat gravy.",        "You're the only person who deep-fries cereal.",      ]];
     if(digestedCalories < tC*0.9)
     {
@@ -239,6 +238,7 @@ function checkCaloriePlan()
           });
     }
 }
+
 async function szelektPlan()
 {
     let response = fetch("/api/select" + plan,
@@ -248,12 +248,28 @@ async function szelektPlan()
     return (await response).json();
 }
 
-async function build(target)
+async function szelektAll()
+{
+    let response = fetch("/api/selectAll",
+    {
+        method : "GET"   
+    });
+    return (await response).json();
+}
+
+async function build(target, hasDATA)
 {
     let sel2 = document.getElementById("sel2");
     sel2.classList.add("kaja");
     target.innerHTML = null;
-    let data = await szelektPlan();
+    let data;
+    if(hasDATA)
+    {
+        data = await szelektPlan();
+    }else
+    {
+        data = await szelektAll();
+    }
     for(let i = 0;i < data.length ;i++)
     {
     
@@ -292,7 +308,6 @@ function cardGen(data, target)
                             data.foodDATA[key] = final;
                             card.dataset.adatk = JSON.stringify(data);
 
-                            console.log(final);
                                 td.innerHTML = final;
                             
                             tr.appendChild(th);
@@ -500,4 +515,10 @@ function ClearContent(target)
 {
     target.innerHTML = null;
     listVisibilityCheck(target);
+    document.getElementById("allCals").innerHTML =  " SUM of the calories: " + EatenCalsSUM();
+}
+
+function refreshTargetCalorie()
+{
+
 }
