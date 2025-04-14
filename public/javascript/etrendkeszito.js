@@ -275,7 +275,7 @@ async function build(target, hasDATA)
     
         let Name = document.createElement("option");
             Name.classList.add("kajaText");
-            Name.innerHTML = data[i].Name+", "+ data[i].Calories + "kcal" + ", " + data[i].Fat_g_ + ", " + data[i].Protein_g_ + ", " + data[i].Carbohydrate_g_ + ", " + data[i].Sugars_g_ + ", " + data[i].Fiber_g_ + ", " + data[i]._200_Calorie_Weight_g_;
+            Name.innerHTML = data[i].Name+", "+ data[i].Calories + "kcal" + ", " + data[i].Fat_g_ + "fat, " + data[i].Protein_g_ + "prot, " + data[i].Carbohydrate_g_ + "carb, " + data[i].Sugars_g_ + "sug, " + data[i].Fiber_g_ + "fib";
             Name.value = data[i].id;
             Name.dataset.id = data[i].id;
 
