@@ -9,4 +9,4 @@ CREATE TABLE `adminInsert` (
   `Sugars_g_` varchar(10) DEFAULT NULL,
   `Fiber_g_` varchar(10) DEFAULT NULL,
   `_200_Calorie_Weight_g_` varchar(10) DEFAULT NULL
-) 
+)
