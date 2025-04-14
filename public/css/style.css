@@ -7,6 +7,9 @@
     --olive:#bab86c;
     --zold: #0f6347;
     --darkBlue: #ffffff;
+    --menta-light: #d5e8d0;
+    --text-dark: #333;
+    --accent: #a3ffb5;
 }
 @font-face
 {
@@ -732,12 +735,7 @@ h2
     transition-duration: 0.5s;
 }
 
-:root {
-    --menta: linear-gradient(175deg, rgb(110, 146, 116), #a1ba8c);
-    --menta-light: #d5e8d0;
-    --text-dark: #333;
-    --accent: #a3ffb5;
-  }
+
   
   /* Centering wrapper */
   .form-wrapper {
