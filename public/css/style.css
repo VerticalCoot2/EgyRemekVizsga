@@ -405,8 +405,8 @@ label
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
-    padding-bottom: 5px;
+    padding: 0px;
+    padding-bottom: 0px;
     flex-wrap: wrap;
   }
   
@@ -826,3 +826,19 @@ h2
     margin: 20px auto;
     width: 90%;
   }
+
+.holderDiv
+{
+  flex-direction: column;
+  padding: 0%;
+}
+
+.mennyit
+{
+  padding: none;
+}
+
+.mire
+{
+  padding: none;
+}
