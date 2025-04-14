@@ -522,8 +522,3 @@ function ClearContent(target)
     listVisibilityCheck(target);
     document.getElementById("allCals").innerHTML =  " SUM of the calories: " + EatenCalsSUM();
 }
-
-function refreshTargetCalorie()
-{
-
-}

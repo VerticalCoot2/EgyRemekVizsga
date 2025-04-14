@@ -189,5 +189,5 @@ app.use('/', router);
 
 app.listen(port, () => 
 {
-    console.log('Szerver running: http://localhost:3000');
+    console.log('Server running: http://localhost:3000');
 });
