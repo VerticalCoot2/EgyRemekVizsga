@@ -473,10 +473,12 @@ function cardGen(data, target)
                     {
                         let mire = document.createElement("div");
                             mire.innerHTML = "For " + data.dine;
+                            mire.classList.add("mire");
                         holderDiv.appendChild(mire);
                     }
                     let mennyit = document.createElement("div");
-                        mennyit.innerHTML = "Amount eaten(g): " + data.amountG;
+                            mennyit.classList.add("mennyit");
+                            mennyit.innerHTML = "Amount eaten(g): " + data.amountG;
                         holderDiv.appendChild(mennyit);
                 bottom.appendChild(holderDiv);
 
