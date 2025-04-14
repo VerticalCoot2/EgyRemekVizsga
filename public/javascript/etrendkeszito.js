@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function()
     document.getElementById("fyhe").innerHTML = "Foods you have eaten: " + document.getElementById("mindmegette").childElementCount;
     if(!isNaN(getSavedCal()))
     {
-        document.getElementById("target").style.display="flex"
+        document.getElementById("target").innerHTML=null
         document.getElementById("target").innerHTML = "Target calorie: " + getSavedCal()
     }
     document.getElementById("allCals").innerHTML =  " SUM of the calories: " + EatenCalsSUM();
