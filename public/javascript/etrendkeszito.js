@@ -470,7 +470,7 @@ function cardGen(data, target)
                 if(data.dine != null)
                 {
                     let mire = document.createElement("div");
-                        mire.innerHTML = "for " + data.dine;
+                        mire.innerHTML = "For " + data.dine;
                     bottom.appendChild(mire);
                 }
                 let mennyit = document.createElement("div");
