@@ -248,7 +248,7 @@ async function szelektPlan()
     return (await response).json();
 }
 
-async function build(plan)
+async function build(target)
 {
     let sel2 = document.getElementById("sel2");
     sel2.classList.add("kaja");
