@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function()
     {
         Swal.fire({
             title: "Oh no!",
-            text: "You havent selected a plan on the Cacl-your-cals site",
+            text: "You havent selected a plan on the Calc-your-cals site",
             icon: "warning",
             confirmButtonText: "Close",
             buttonsStyling: false, // Disable default button styling
@@ -169,7 +169,7 @@ function getSavedCal()
     catch
     {
         Swal.fire({
-            title: "Nincs adat",
+            title: "No data!",
             icon: "alert",
             confirmButtonText: "Got it!",
             buttonsStyling: false, // Disable default button styling
@@ -224,7 +224,10 @@ function checkCaloriePlan()
         Swal.fire({
             title: "Splendid!",
             text: "You are capable enough to understand a simple task!",
-            icon: "tick",
+            imageUrl: "../pictures/sulek.png",
+            imageWidth: 200,
+            imageHeight: 100,
+            imageAlt: "Custom image",
             confirmButtonText: "Close",
             buttonsStyling: false, // Disable default button styling
             customClass: {
