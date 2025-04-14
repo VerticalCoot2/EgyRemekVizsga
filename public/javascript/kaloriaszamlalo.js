@@ -1,6 +1,12 @@
 document .addEventListener("DOMContentLoaded", function()
 {
-    if(!isNaN(localStorage.getItem("targetCalorie")))
+    if(localStorage.getItem("targetCalorie") == null)
+    {
+        let caltarget=document.getElementById("caltarget")
+        caltarget.innerHTML=null
+        caltarget.innerHTML="<h2>You don't have a calorie target set yet</h2>\nPlease set your data to get your target"
+    }
+    else if(!isNaN(localStorage.getItem("targetCalorie")))
     {
         let caltarget=document.getElementById("caltarget")
         caltarget.innerHTML=null
