@@ -41,7 +41,7 @@ div
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
-    max-width: 90%;
+    width: 90%;
     font-family: 'Segoe UI', sans-serif;
     display: flex;
     flex-direction: column;
@@ -55,6 +55,34 @@ div
   }
   
   #calcKoszon p {
+    font-size: 1.1em;
+    color: #665941; /* A warm earthy shade for the description */
+  }
+  
+
+
+  .kalcKoszon {
+    background: #f9f5e6; /* Warm beige color to complement the mint */
+    color: #0f6347; /* Deep green for text to maintain consistency */
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 90%;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .kalcKoszon h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+  }
+  
+  .kalcKoszon p {
     font-size: 1.1em;
     color: #665941; /* A warm earthy shade for the description */
   }
@@ -96,14 +124,6 @@ a
     align-self: center;
 }
 
-.szoveghatter
-{
-    background-color: #bab86c;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
 
 
 body
@@ -610,7 +630,7 @@ button
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     margin: 20px auto;
-    max-width: 90%;
+    width: 90%;
     font-family: 'Segoe UI', sans-serif;
     font-size: 1.2rem;
   }
@@ -624,7 +644,31 @@ button
     font-size: 1rem;
     color: #665941; /* Slightly lighter color for additional text */
   }
+
+  .kaltarget {
+    background: #f3f8f3; /* A soft, light background for contrast */
+    color: #0f6347; /* Dark green text for consistency */
+    text-align: center;
+    justify-content: center;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px auto;
+    width: 90%;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.2rem;
+  }
   
+  .kaltarget h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .kaltarget p {
+    font-size: 1rem;
+    color: #665941; /* Slightly lighter color for additional text */
+  }
+
 
 button:hover
 {
@@ -638,7 +682,7 @@ button:hover
     width: 100%;
     align-items: center;
     justify-content: space-evenly;
-    background-color: var(--olive);
+    background: var(--menta);
     border-radius: 25px;
     padding: 5px;
     font-size: 2vh;
@@ -771,7 +815,7 @@ h2
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
-    max-width: 90%;
+    width: 90%;
   }
   
   .hero-content {

@@ -1,6 +1,12 @@
 document .addEventListener("DOMContentLoaded", function()
 {
-    if(!isNaN(localStorage.getItem("targetCalorie")))
+    if(localStorage.getItem("targetCalorie") == null)
+    {
+        let caltarget=document.getElementById("caltarget")
+        caltarget.innerHTML=null
+        caltarget.innerHTML="<h2>You don't have a calorie target set yet</h2>\nPlease set your data to get your target"
+    }
+    else if(!isNaN(localStorage.getItem("targetCalorie")))
     {
         let caltarget=document.getElementById("caltarget")
         caltarget.innerHTML=null
@@ -33,58 +39,74 @@ document .addEventListener("DOMContentLoaded", function()
     });
 
     let calcCalBTN = document.getElementById("CalcCalorie");
-    calcCalBTN.disabled = true;
+
     calcCalBTN.addEventListener("click", function()
     {
-        let weight=parseInt(document.getElementById("weight").value)
-        let age=parseInt(document.getElementById("age").value)
-        let height=parseInt(document.getElementById("height").value)
-        FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height));
-        const targetCalorie = Math.round(FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height)));
-        
-        
-        let caltarget=document.getElementById("caltarget")
-        if(weight < 20 || weight > 400 || height < 50 || height > 272 ||age > 122 || age < 0)
+        let req = document.getElementsByClassName("required");
+        let i = -1;
+        let kitoltve = true;
+        while(i < req.length-1 && kitoltve)
         {
-            Swal.fire({
-                title: "Warning!",
-                text: "We need you to use real data!",
-                icon: "warning",
-                confirmButtonText: "Try Again!",
-                buttonsStyling: false, // Disable default button styling
-                customClass: {
-                popup: "styled-alert-popup", // Custom popup styling
-                title: "styled-alert-title", // Custom title styling
-                confirmButton: "styled-alert-button" // Custom button styling
-                }
-            });
-        }
-        else if(!isNaN(localStorage.getItem("targetCalorie")))
-        {
-            Swal.fire(
+            i++;
+            console.log(req[i].value);
+            if(req[i].value == "" || req[i].value == null)
             {
-                title: "Success!",
-                text: "Your Calorie Target has been saved!",
-                icon: "success",
-                confirmButtonText: "Great!",
-                buttonsStyling: false, // Disable default button styling
-                customClass: {
-                popup: "styled-alert-popup", // Custom popup styling
-                title: "styled-alert-title", // Custom title styling
-                confirmButton: "styled-alert-button" // Custom button styling
-                }
-            });
-            
-            caltarget.innerHTML=null
-            caltarget.innerHTML='<h2>Your Calorie Target is: '+targetCalorie+'</h2>'
-            localStorage.setItem('targetCalorie', targetCalorie);
+                console.log("Üres")
+                kitoltve = false;       
+            }
+        }
+        console.log(kitoltve);
+        if(kitoltve)
+        {
+            let weight=parseInt(document.getElementById("weight").value)
+            let age=parseInt(document.getElementById("age").value)
+            let height=parseInt(document.getElementById("height").value)
+            FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height));
+            const targetCalorie = Math.round(FinalCalorie(document.getElementById("terv").value, TargetCalorie(weight,age,height)));
+            //localStorage.setItem("targetCalorie", targetCalorie);
+            let caltarget=document.getElementById("caltarget")
+            if(weight < 20 || weight > 400 || height < 50 || height > 272 ||age > 122 || age < 0)
+            {
+                Swal.fire({
+                    title: "Warning!",
+                    text: "We need you to use real data!",
+                    icon: "warning",
+                    confirmButtonText: "Try Again!",
+                    buttonsStyling: false, // Disable default button styling
+                    customClass: {
+                    popup: "styled-alert-popup", // Custom popup styling
+                    title: "styled-alert-title", // Custom title styling
+                    confirmButton: "styled-alert-button" // Custom button styling
+                    }
+                });
+            }
+            else if(!isNaN(targetCalorie))
+            {
+                Swal.fire(
+                {
+                    title: "Success!",
+                    text: "Your Calorie Target has been saved!",
+                    icon: "success",
+                    confirmButtonText: "Great!",
+                    buttonsStyling: false, // Disable default button styling
+                    customClass: {
+                    popup: "styled-alert-popup", // Custom popup styling
+                    title: "styled-alert-title", // Custom title styling
+                    confirmButton: "styled-alert-button" // Custom button styling
+                    }
+                });
+                
+                caltarget.innerHTML=null
+                caltarget.innerHTML='<h2>Your Calorie Target is: '+targetCalorie+'</h2>'
+                localStorage.setItem('targetCalorie', targetCalorie);
+            }
         }
         else
         {
             Swal.fire(
             {
                 title: "Missing Data!",
-                text: "csicsapimunyanu",
+                text: "Fill out every element!",
                 icon: "warning",
                 confirmButtonText: "Try Again!",
                 buttonsStyling: false, // Disable default button styling
