@@ -1,4 +1,4 @@
-INSERT INTO `etelek` (`id`, `Name`, `Calories`, `Fat_g_`, `Protein_g_`, `Carbohydrate_g_`, `Sugars_g_`, `Fiber_g_`, `200_Calorie_Weight_g_`) VALUES
+INSERT INTO `etelek` (`id`, `Name`, `Calories`, `Fat_g_`, `Protein_g_`, `Carbohydrate_g_`, `Sugars_g_`, `Fiber_g_`, `_200_Calorie_Weight_g_`) VALUES
 	(7972, 'Infant Formula Powder Made With Plain Bottled Water (Enfamil A.r.)', 66, 3.360000, 1.650000, 7.250000, '7.25', '0', '303.03'),
 	(7973, 'Infant Formula Powder Made With Baby Water (Enfamil A.r.)', 66, 3.360000, 1.650000, 7.250000, '7.25', '0', '303.03'),
 	(7974, 'Infant Formula Ns As To Form (Enfamil Gentlease)', 67, 3.490000, 1.530000, 7.250000, '7.25', '0', '298.507'),
@@ -2513,7 +2513,7 @@ INSERT INTO `etelek` (`id`, `Name`, `Calories`, `Fat_g_`, `Protein_g_`, `Carbohy
 	(10483, 'Trail Mix With Nuts And Fruit', 452, 26.800000, 10.840000, 51.080000, '34.99', '6.3', '44.248'),
 	(10484, 'Trail Mix With Chocolate', 501, 32.200000, 11.620000, 48.310000, '34.12', '5.9', '39.92'),
 	(10485, 'Trail Mix With Pretzels Cereal Or Granola', 473, 27.600000, 13.060000, 50.630000, '18.6', '6', '42.283'),
-	(10486, 'Pumpkin Seeds Salted', 567, 48.470000, 29.490000, 14.540000, '1.27', '6.4', '35.273');
+	(10486, 'Pumpkin Seeds Salted', 567, 48.470000, 29.490000, 14.540000, '1.27', '6.4', '35.273'),
 	(10487, 'Sunflower Seeds Plain Salted', 575, 49.210000, 19.100000, 23.780000, '2.7', '11', '34.783'),
 	(10488, 'Sunflower Seeds Flavored', 567, 47.540000, 18.450000, 25.930000, '5.55', '10.6', '35.273'),
 	(10489, 'Mixed Seeds', 580, 49.610000, 21.960000, 21.730000, '2.37', '10', '34.483'),
