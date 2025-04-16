@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function()
         if(holder.childElementCount > 0)
         {
             localStorage.setItem("savedEatenFoods", "[]");
+            osszAdat();
             checkCaloriePlan();
             ClearContent(holder);
         }
@@ -146,6 +147,9 @@ async function SelectID(id)
     return (await response).json();
 }
 
+
+
+
 function EatenCalsSUM()
 {
     holder = document.getElementById("mindmegette");
@@ -159,6 +163,105 @@ function EatenCalsSUM()
         return parseInt(caloiesSUM);
     }
     return "You haven't ate anything today";
+}
+
+
+function osszAdat() {
+    const holder = document.getElementById("mindmegette");
+    console.log(document.getElementById("mindmegette"));
+    if (!holder || holder.innerHTML.trim() === "") {
+        Swal.fire({
+            title: "Oh no!",
+            text: "You haven't eaten anything today!",
+            icon: "warning",
+            confirmButtonText: "Close",
+            buttonsStyling: false, // Disable default button styling
+            customClass: {
+              popup: "upload-alert-popup", // Custom popup styling
+              title: "upload-alert-title", // Custom title styling
+              confirmButton: "upload-alert-button" // Custom button styling
+            }
+        });
+        return;
+    }
+
+    let letoltendo = [];
+
+    for (let i = 0; i < holder.childElementCount; i++) {
+        const data = JSON.parse(holder.children[i].dataset.adatk);
+        delete data.vol;
+        delete data.id;
+        try
+        {
+            let foodDaty = [];
+            let tempString="";
+            for(key in data.foodDATA)
+            {
+                console.log(key)
+                if(key != "help" && key != "200 Calorie/Weight(g)" )
+                {
+                    // tempString+="\""+key + ": " + data.foodDATA[key]+"\";"
+                    // foodDaty.push(key + ": " + data.foodDATA[key]);
+                    data[key] = data.foodDATA[key];
+                    if(key == "Fiber(g)")
+                    {
+                        console.log(data.foodDATA[key]);
+                    }
+                }
+            }
+            const today = new Date();
+
+            const year = today.getFullYear();      // Aktuális év
+            const month = today.getMonth() + 1;    // Aktuális hónap (0-tól indul, ezért +1)
+            const day = today.getDate();           // Aktuális nap
+
+            data["Date"] = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+            delete data.foodDATA;
+            // console.log(foodDaty);
+            // data.foodDATA = tempString;
+            // console.log(data);
+            letoltendo.push(data);
+        } catch (err) {
+            console.error("Invalid JSON in dataset.adatk", err);
+        }
+    }
+
+    if (letoltendo.length === 0) {
+        Swal.fire({
+            title: "Oh no!",
+            text: "No valid data to export.",
+            icon: "warning",
+            confirmButtonText: "Close",
+            buttonsStyling: false, // Disable default button styling
+            customClass: {
+              popup: "upload-alert-popup", // Custom popup styling
+              title: "upload-alert-title", // Custom title styling
+              confirmButton: "upload-alert-button" // Custom button styling
+            }
+        });
+        return;
+    }
+
+    // Convert to CSV
+    const keys = Object.keys(letoltendo[0]);
+    const csvRows = [keys.join(";")]; // header row
+
+    for (const row of letoltendo) {
+        const values = keys.map(k => `"${(row[k] || "").toString().replace(/"/g, '""')}"`);
+        csvRows.push(values.join(";"));
+    }
+
+    const csvContent = csvRows.join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+
+    // Create download link
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "food_log.csv";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 function getSavedCal()

@@ -37,6 +37,9 @@ async function readfileAsync(filepath)
     }
 }
 
+
+
+
 app.get('/api/selectAll', (request, response) =>
     {
     db.selectAll()
